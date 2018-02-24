@@ -29,7 +29,10 @@
 - 创建数据库cc_manage，数据库编码为UTF-8；
 - 执行doc/cc_manage.sql文件，初始化数据【按需导入表结构及数据】；
 - 修改application-dev.yml文件，更新MySQL账号和密码；
-- 在CCManage目录下，执行mvn clean install。
+- 在CCManage目录下，执行mvn clean install；
+- 启动CCmanageApplication.java;
+- 在浏览器输入127.0.0.1:8080访问登录页面；
+- 输入用户名：admin、密码：123登录系统。
 
 **五、注意事项**
 - 超级管理员(sys_user表)的user_id必须是"1"；
