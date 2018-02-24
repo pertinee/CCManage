@@ -1,0 +1,60 @@
+# Tomcat配置
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 8080
+    connection-timeout: 5000
+    # context-path: /CCManage # 启动项目时加上项目名称，静态文件还有问题，暂时不放开。
+# mysql配置
+spring:
+    # 环境 dev|test|pro
+    profiles:
+        active: dev
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+    # jackson时间格式化
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+    # freemarker配置
+    freemarker:
+      suffix: .ftl
+      templateEncoding: UTF-8
+      templateLoaderPath: classpath:/templates/
+      content-type: text/html
+      # request-context-attribute: request #在ftl文件中使用：${request.contextPath}，请求路径需要重新配置
+    mvc:
+      static-path-pattern: /static/**
+      # 自定义favicon图标
+      favicon:
+        enabled: false
+    redis:
+            database: 0
+            host: 192.168.178.128
+            port: 6379
+            password:       # 密码（默认为空）
+            timeout: 6000  # 连接超时时长（毫秒）
+            pool:
+                max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+                max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+                max-idle: 10      # 连接池中的最大空闲连接
+                min-idle: 5       # 连接池中的最小空闲连接
+# mybatis配置
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    # configLocation: classpath:mybatis.xml
+    configuration:
+      # 开启驼峰转换
+      map-underscore-to-camel-case: true
+# 日志配置
+logging:
+  file: ./logs/cc_manage.log
+# 缓存配置
+cc:
+    redis:
+        open: false # 是否开启redis缓存  true开启   false关闭
+    shiro:
+        redis: false # true表示shiro session存到redis里，需要开启redis，才会生效【分布式场景】
