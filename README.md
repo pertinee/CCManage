@@ -1,6 +1,5 @@
 **CCManage权限系统**
 
-
 **一、介绍**
 - 本项目是参考[renren-security-boot](https://gitee.com/babaio/renren-security-boot)进行改造创建的项目，再此特别感谢[人人开源](http://www.renren.io/open/)。在此基础上进行改进和完善，包括：
 - 前端使用springboot支持的FreeMarker模板引擎；
