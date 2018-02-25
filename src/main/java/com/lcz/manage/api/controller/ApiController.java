@@ -60,7 +60,7 @@ public class ApiController {
      */
     @PostMapping(value = "/save")
     @ApiOperation(value = "保存对象", httpMethod = "POST")
-    public R save(@ApiParam(name = "TestBean", required = true, value = "接口对象TestBean") TestBean testBean) {
+    public R save(@ApiParam(name = "TestBean", required = true, value = "接口对象TestBean") @RequestBody TestBean testBean) {
         testService.save(testBean);
         return R.ok();
     }
@@ -73,7 +73,7 @@ public class ApiController {
      */
     @PostMapping(value = "/update")
     @ApiOperation(value = "修改对象", httpMethod = "POST")
-    public R update(@ApiParam(name = "TestBean", required = true, value = "接口对象TestBean") TestBean testBean) {
+    public R update(@ApiParam(name = "TestBean", required = true, value = "接口对象TestBean") @RequestBody TestBean testBean) {
         testService.update(testBean);
         return R.ok();
     }

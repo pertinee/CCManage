@@ -50,7 +50,7 @@ public class TestBeanTests {
      */
     @Test
     public void testQueryObject() throws Exception {
-        mockMvc.perform(get("/test/object?id=3"))
+        mockMvc.perform(get("/api/id=3"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.code", is(0)));
@@ -65,7 +65,7 @@ public class TestBeanTests {
      */
     @Test
     public void testQueryList() throws Exception {
-        mockMvc.perform(get("/test/list"))
+        mockMvc.perform(get("/api/list"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.code", is(0)))
@@ -86,7 +86,7 @@ public class TestBeanTests {
         ObjectMapper mapper = new ObjectMapper();
 
         //调用接口，传入添加的用户参数
-        mockMvc.perform(post("/test/save")
+        mockMvc.perform(post("/api/save")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(mapper.writeValueAsString(bean)))
                 //判断返回值，是否达到预期，测试示例中的返回值的结构如下：{"code":0}
@@ -108,7 +108,7 @@ public class TestBeanTests {
         bean.setName("虾_" + UUID.randomUUID().toString().replace("-",""));
         ObjectMapper mapper = new ObjectMapper();
 
-        mockMvc.perform(post("/test/update")
+        mockMvc.perform(post("/api/update")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(mapper.writeValueAsString(bean)))
                 //判断返回值，是否达到预期，测试示例中的返回值的结构如下：{"code":0}
@@ -124,7 +124,7 @@ public class TestBeanTests {
     @Test
     public void testDelete() throws Exception {
         //调用接口，传入添加的用户参数
-        mockMvc.perform(get("/test/delete").param("id", "1"))
+        mockMvc.perform(get("/api/delete/id=1"))
                 //判断返回值，是否达到预期，测试示例中的返回值的结构如下{"code":0}
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -140,7 +140,7 @@ public class TestBeanTests {
     @Test
     public void testTx() throws Exception {
         //调用接口，传入添加的用户参数
-        mockMvc.perform(get("/test/tx").param("id", "1"))
+        mockMvc.perform(get("/api/tx/id=1"))
                 //判断返回值，是否达到预期，测试示例中的返回值的结构如下{"code":0}
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -155,7 +155,7 @@ public class TestBeanTests {
     @Test
     public void testTx2() throws Exception {
         //调用接口，传入添加的用户参数
-        mockMvc.perform(get("/test/tx2").param("id", "1"))
+        mockMvc.perform(get("/api/tx2/id=1"))
                 //判断返回值，是否达到预期，测试示例中的返回值的结构如下{"code":0}
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
