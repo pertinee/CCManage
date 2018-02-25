@@ -78,9 +78,11 @@ public class ShiroConfig {
         //测试类也不需要验证
         filterMap.put("/test/**", "anon");
         //swagger配置
-        filterMap.put("/swagger**", "anon");
+        filterMap.put("/swagger/**", "anon");
         filterMap.put("/v2/api-docs", "anon");
-        filterMap.put("/swagger-resources/configuration/ui", "anon");
+        filterMap.put("/swagger-ui.html", "anon");
+        filterMap.put("/webjars/**", "anon");
+        filterMap.put("/swagger-resources/**", "anon");
         //api不需要验证
         filterMap.put("/api/**", "anon");
 
