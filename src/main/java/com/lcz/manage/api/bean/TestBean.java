@@ -1,4 +1,4 @@
-package com.lcz.manage.test.bean;
+package com.lcz.manage.api.bean;
 
 import lombok.Data;
 

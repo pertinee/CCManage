@@ -1,6 +1,6 @@
-package com.lcz.manage.test.service;
+package com.lcz.manage.api.service;
 
-import com.lcz.manage.test.bean.TestBean;
+import com.lcz.manage.api.bean.TestBean;
 
 import java.util.List;
 import java.util.Map;

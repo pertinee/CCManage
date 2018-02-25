@@ -1,7 +1,7 @@
 package com.lcz.manage.test.controller;
 
-import com.lcz.manage.test.bean.TestBean;
-import com.lcz.manage.test.service.TestService;
+import com.lcz.manage.api.bean.TestBean;
+import com.lcz.manage.api.service.TestService;
 import com.lcz.manage.util.R;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

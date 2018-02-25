@@ -2,7 +2,7 @@ package com.lcz.manage.test;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lcz.manage.test.bean.TestBean;
+import com.lcz.manage.api.bean.TestBean;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

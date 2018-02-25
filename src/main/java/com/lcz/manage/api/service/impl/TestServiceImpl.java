@@ -1,8 +1,8 @@
-package com.lcz.manage.test.service.impl;
+package com.lcz.manage.api.service.impl;
 
-import com.lcz.manage.test.bean.TestBean;
-import com.lcz.manage.test.dao.TestDao;
-import com.lcz.manage.test.service.TestService;
+import com.lcz.manage.api.bean.TestBean;
+import com.lcz.manage.api.dao.TestDao;
+import com.lcz.manage.api.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
