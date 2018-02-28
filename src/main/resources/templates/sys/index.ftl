@@ -35,9 +35,9 @@
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li><a href="/swagger-ui.html" target="_blank"><i class="fa fa-book"></i> &nbsp;接口文档</a></li>
                     <#--<li><a data-toggle="modal" data-target="#updatePasswordModal"><i class="fa fa-lock"></i> &nbsp;修改密码</a></li>-->
                     <!-- User Account: style can be found in dropdown.less -->
                     <#--<li class="dropdown user user-menu">-->
