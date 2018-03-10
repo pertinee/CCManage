@@ -1,7 +1,7 @@
 package com.lcz.manage.mysql;
 
 
-import com.lcz.manage.util.MySQLDatabaseBackup;
+import com.lcz.manage.util.MySQLBackupUtils;
 import org.junit.Test;
 
 /**
@@ -12,7 +12,7 @@ public class MysqlTest {
     @Test
     public void backupMySQL() {
         try {
-            if (MySQLDatabaseBackup.backup("127.0.0.1", "lcz", "123", "D:/backupDatabase", "test", "test")) {
+            if (MySQLBackupUtils.backup("127.0.0.1", "lcz", "123", "D:/backupDatabase", "test", "test")) {
                 System.out.println("数据库成功备份！！！");
             } else {
                 System.out.println("数据库备份失败！！！");
