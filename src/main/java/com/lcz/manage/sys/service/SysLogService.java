@@ -17,6 +17,8 @@ public interface SysLogService {
 	SysLogBean queryObject(String id);
 	
 	List<SysLogBean> queryList(Map<String, Object> map);
+
+	List<SysLogBean> queryLogDaily();
 	
 	int queryTotal(Map<String, Object> map);
 	

@@ -26,6 +26,11 @@ public class SysLogServiceImpl implements SysLogService {
 	public List<SysLogBean> queryList(Map<String, Object> map){
 		return sysLogDao.queryList(map);
 	}
+
+	@Override
+	public List<SysLogBean> queryLogDaily(){
+		return sysLogDao.queryLogDaily();
+	}
 	
 	@Override
 	public int queryTotal(Map<String, Object> map){

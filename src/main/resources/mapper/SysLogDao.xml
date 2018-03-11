@@ -35,6 +35,12 @@
 			limit #{offset}, #{limit}
 		</if>
 	</select>
+
+	<select id="queryLogDaily" resultType="com.lcz.manage.sys.bean.SysLogBean">
+		select * from sys_log
+		where
+		to_days(create_date) = to_days(now())
+	</select>
 	
  	<select id="queryTotal" resultType="int">
 		select count(*) from sys_log 

@@ -39,6 +39,19 @@ spring:
             max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）
             max-idle: 10      # 连接池中的最大空闲连接
             min-idle: 5       # 连接池中的最小空闲连接
+    # 邮件发送的配置
+    # 若使用QQ邮箱发送邮件，则需要修改为spring.mail.host=smtp.qq.com，同时spring.mail.password改为QQ邮箱的授权码。
+    mail:
+        host: smtp.163.com
+        username: 用户名
+        password: 密码（非登录密码）
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+                        required: true
 # mybatis配置
 mybatis:
     mapperLocations: classpath:mapper/*.xml
