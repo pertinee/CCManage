@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2018-02-28 11:03:39
+Date: 2018-03-11 11:05:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -67,6 +67,8 @@ CREATE TABLE `qrtz_cron_triggers` (
 -- ----------------------------
 INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_1', 'DEFAULT', '*/5 * * * * ?', 'Asia/Shanghai');
 INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_2', 'DEFAULT', '0 0/30 * * * ?', 'Asia/Shanghai');
+INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_3', 'DEFAULT', '0/10 * * * * ? ', 'Asia/Shanghai');
+INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_4', 'DEFAULT', '0 0 0 1/1 * ? ', 'Asia/Shanghai');
 
 -- ----------------------------
 -- Table structure for qrtz_fired_triggers
@@ -124,6 +126,8 @@ CREATE TABLE `qrtz_job_details` (
 -- ----------------------------
 INSERT INTO `qrtz_job_details` VALUES ('CCScheduler', 'TASK_1', 'DEFAULT', null, 'com.lcz.manage.util.schedule.ScheduleJob', '0', '0', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597400AA7B226265616E4E616D65223A22746573745461736B222C2263726561746554696D65223A313438303630353430363030302C2263726F6E45787072657373696F6E223A223020302F3330202A202A202A203F222C226A6F624964223A312C226D6574686F644E616D65223A2274657374222C22706172616D73223A2272656E72656E222C2272656D61726B223A22E69C89E58F82E695B0E6B58BE8AF95222C22737461747573223A307D7800);
 INSERT INTO `qrtz_job_details` VALUES ('CCScheduler', 'TASK_2', 'DEFAULT', null, 'com.lcz.manage.util.schedule.ScheduleJob', '0', '0', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597400997B226265616E4E616D65223A22746573745461736B222C2263726561746554696D65223A313438303734383135363030302C2263726F6E45787072657373696F6E223A223020302F3330202A202A202A203F222C226A6F624964223A322C226D6574686F644E616D65223A227465737432222C2272656D61726B223A22E697A0E58F82E695B0E6B58BE8AF95222C22737461747573223A317D7800);
+INSERT INTO `qrtz_job_details` VALUES ('CCScheduler', 'TASK_3', 'DEFAULT', null, 'com.lcz.manage.util.schedule.ScheduleJob', '0', '0', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597400D47B226265616E4E616D65223A226261636B75704D7953514C5461736B222C2263726561746554696D65223A313532303636303138323334352C2263726F6E45787072657373696F6E223A22302F3130202A202A202A202A203F20222C226A6F624964223A332C226D6574686F644E616D65223A226261636B7570222C22706172616D73223A22222C2272656D61726B223A22E6AF8F3130E7A792E5A487E4BBBDE4B880E6ACA1E695B0E68DAEE5BA93EFBC8CE588B0443A5C5C6261636B75704461746162617365222C22737461747573223A307D7800);
+INSERT INTO `qrtz_job_details` VALUES ('CCScheduler', 'TASK_4', 'DEFAULT', null, 'com.lcz.manage.util.schedule.ScheduleJob', '0', '0', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597400CB7B226265616E4E616D65223A22656D61696C53656E645461736B222C2263726561746554696D65223A313532303638333239353835312C2263726F6E45787072657373696F6E223A22302030203020312F31202A203F20222C226A6F624964223A342C226D6574686F644E616D65223A2273656E644C6F674461696C79222C22706172616D73223A22313039303036313035354071712E636F6D222C2272656D61726B223A22E6AF8FE697A5E58F91E98081E697A5E5BF97E4BFA1E681AF222C22737461747573223A307D7800);
 
 -- ----------------------------
 -- Table structure for qrtz_locks
@@ -170,7 +174,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('CCScheduler', 'LCZ-PC1519786036451', '1519786931527', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('CCScheduler', 'LCZ-PC1520683191920', '1520683329571', '15000');
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -260,6 +264,8 @@ CREATE TABLE `qrtz_triggers` (
 -- ----------------------------
 INSERT INTO `qrtz_triggers` VALUES ('CCScheduler', 'TASK_1', 'DEFAULT', 'TASK_1', 'DEFAULT', null, '1514295125000', '-1', '5', 'PAUSED', 'CRON', '1514295123000', '0', null, '2', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597400A57B226265616E4E616D65223A22746573745461736B222C2263726561746554696D65223A313438303630353430363030302C2263726F6E45787072657373696F6E223A222A2F35202A202A202A202A203F222C226A6F624964223A312C226D6574686F644E616D65223A2274657374222C22706172616D73223A226363222C2272656D61726B223A22E69C89E58F82E695B0E6B58BE8AF95222C22737461747573223A317D7800);
 INSERT INTO `qrtz_triggers` VALUES ('CCScheduler', 'TASK_2', 'DEFAULT', 'TASK_2', 'DEFAULT', null, '1514296800000', '-1', '5', 'PAUSED', 'CRON', '1514295123000', '0', null, '2', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597400997B226265616E4E616D65223A22746573745461736B222C2263726561746554696D65223A313438303734383135363030302C2263726F6E45787072657373696F6E223A223020302F3330202A202A202A203F222C226A6F624964223A322C226D6574686F644E616D65223A227465737432222C2272656D61726B223A22E697A0E58F82E695B0E6B58BE8AF95222C22737461747573223A317D7800);
+INSERT INTO `qrtz_triggers` VALUES ('CCScheduler', 'TASK_3', 'DEFAULT', 'TASK_3', 'DEFAULT', null, '1520660190000', '-1', '5', 'PAUSED', 'CRON', '1520660182000', '0', null, '2', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787001737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000174000D4A4F425F504152414D5F4B45597400D47B226265616E4E616D65223A226261636B75704D7953514C5461736B222C2263726561746554696D65223A313532303636303138323030302C2263726F6E45787072657373696F6E223A22302F3130202A202A202A202A203F20222C226A6F624964223A332C226D6574686F644E616D65223A226261636B7570222C22706172616D73223A22222C2272656D61726B223A22E6AF8F3130E7A792E5A487E4BBBDE4B880E6ACA1E695B0E68DAEE5BA93EFBC8CE588B0443A5C5C6261636B75704461746162617365222C22737461747573223A317D7800);
+INSERT INTO `qrtz_triggers` VALUES ('CCScheduler', 'TASK_4', 'DEFAULT', 'TASK_4', 'DEFAULT', null, '1520697600000', '-1', '5', 'PAUSED', 'CRON', '1520683295000', '0', null, '2', '');
 
 -- ----------------------------
 -- Table structure for schedule_job
@@ -275,13 +281,15 @@ CREATE TABLE `schedule_job` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='定时任务';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='定时任务';
 
 -- ----------------------------
 -- Records of schedule_job
 -- ----------------------------
 INSERT INTO `schedule_job` VALUES ('1', 'testTask', 'test', 'cc', '*/5 * * * * ?', '1', '有参数测试', '2016-12-01 23:16:46');
 INSERT INTO `schedule_job` VALUES ('2', 'testTask', 'test2', null, '0 0/30 * * * ?', '1', '无参数测试', '2016-12-03 14:55:56');
+INSERT INTO `schedule_job` VALUES ('3', 'backupMySQLTask', 'backup', '', '0/10 * * * * ? ', '1', '每10秒备份一次数据库，到D:\\backupDatabase', '2018-03-10 13:36:22');
+INSERT INTO `schedule_job` VALUES ('4', 'emailSendTask', 'sendLogDaily', '1090061055@qq.com', '0 0 0 1/1 * ? ', '1', '每日发送日志信息', '2018-03-10 20:01:36');
 
 -- ----------------------------
 -- Table structure for schedule_job_log
@@ -299,7 +307,7 @@ CREATE TABLE `schedule_job_log` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`log_id`),
   KEY `job_id` (`job_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COMMENT='定时任务日志';
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COMMENT='定时任务日志';
 
 -- ----------------------------
 -- Records of schedule_job_log
@@ -335,6 +343,15 @@ INSERT INTO `schedule_job_log` VALUES ('53', '1', 'testTask', 'test', 'cc', '0',
 INSERT INTO `schedule_job_log` VALUES ('54', '1', 'testTask', 'test', 'cc', '0', null, '1003', '2018-02-01 20:50:20');
 INSERT INTO `schedule_job_log` VALUES ('55', '1', 'testTask', 'test', 'cc', '0', null, '1011', '2018-02-01 20:50:25');
 INSERT INTO `schedule_job_log` VALUES ('56', '1', 'testTask', 'test', 'cc', '0', null, '1013', '2018-02-01 20:53:04');
+INSERT INTO `schedule_job_log` VALUES ('57', '1', 'testTask', 'test', 'cc', '0', null, '1014', '2018-03-08 13:36:53');
+INSERT INTO `schedule_job_log` VALUES ('58', '2', 'testTask', 'test2', null, '0', null, '1', '2018-03-08 13:39:34');
+INSERT INTO `schedule_job_log` VALUES ('59', '3', 'backupMySQLTask', 'backup', '', '0', null, '828', '2018-03-10 13:36:30');
+INSERT INTO `schedule_job_log` VALUES ('60', '3', 'backupMySQLTask', 'backup', '', '0', null, '3374', '2018-03-10 13:36:40');
+INSERT INTO `schedule_job_log` VALUES ('61', '3', 'backupMySQLTask', 'backup', '', '0', null, '534', '2018-03-10 13:36:50');
+INSERT INTO `schedule_job_log` VALUES ('62', '3', 'backupMySQLTask', 'backup', '', '0', null, '537', '2018-03-10 13:37:00');
+INSERT INTO `schedule_job_log` VALUES ('63', '3', 'backupMySQLTask', 'backup', '', '0', null, '550', '2018-03-10 13:37:10');
+INSERT INTO `schedule_job_log` VALUES ('64', '3', 'backupMySQLTask', 'backup', '', '0', null, '552', '2018-03-10 13:39:10');
+INSERT INTO `schedule_job_log` VALUES ('65', '4', 'emailSendTask', 'sendLogDaily', '1090061055@qq.com', '0', null, '4886', '2018-03-10 20:01:51');
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -441,6 +458,7 @@ INSERT INTO `sys_log` VALUES ('2ab5c13a-41ff-48c3-84f2-724e45c6b976', 'admin', '
 INSERT INTO `sys_log` VALUES ('2bd361e7-6a39-413c-a9b6-b8088a93c855', 'admin', '暂停定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.pause()', '[1,2]', '127.0.0.1', '2018-02-01 20:50:29');
 INSERT INTO `sys_log` VALUES ('2c274149-4292-464c-af8c-f7e5e5b7bc29', 'admin', '修改角色', 'com.lcz.manage.sys.controller.SysRoleController.update()', '{\"menuIdList\":[\"7\",\"5\"],\"remark\":\"查看系统日志、sql监控。\",\"roleId\":\"d15422bd-780b-45dc-a67e-57c804cb35f1\",\"roleName\":\"系统管理员\"}', '127.0.0.1', '2018-01-04 21:40:18');
 INSERT INTO `sys_log` VALUES ('2d5e024e-b3ac-415c-8c53-90a9329788d1', 'admin', '保存用户', 'com.lcz.manage.sys.controller.SysUserController.save()', '{\"createUserId\":\"\",\"email\":\"ss@qq.com\",\"mobile\":\"13367115166\",\"roleIdList\":[\"e47e920c-1e21-4592-a03d-ca48a6c3509c\"],\"status\":1,\"userId\":\"\",\"username\":\"c\"}', '127.0.0.1', '2018-01-09 13:27:53');
+INSERT INTO `sys_log` VALUES ('3052bce7-34ac-462d-9d90-a6eba16769cf', 'admin', '立即执行任务', 'com.lcz.manage.sys.controller.ScheduleJobController.run()', '[2]', '127.0.0.1', '2018-03-08 13:39:34');
 INSERT INTO `sys_log` VALUES ('308a8b9b-1b92-4c3a-8ba2-12dc2e6b25b4', 'admin', '删除菜单', 'com.lcz.manage.sys.controller.SysMenuController.delete()', '\"6\"', '127.0.0.1', '2018-01-20 14:07:08');
 INSERT INTO `sys_log` VALUES ('327a5101-9a33-41f3-85f7-2225f6905cbf', 'admin', '修改用户', 'com.lcz.manage.sys.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"sophia@beautiful.com\",\"mobile\":\"01064887524\",\"roleIdList\":[\"d15422bd-780b-45dc-a67e-57c804cb35f1\"],\"status\":1,\"userId\":\"381d6d76-dfff-411d-871a-c5d76c5d63ef\",\"username\":\"sophia\"}', '127.0.0.1', '2018-01-09 11:03:18');
 INSERT INTO `sys_log` VALUES ('333a6083-7c89-4363-a301-75125fddc03a', 'admin', '修改用户', 'com.lcz.manage.base.controller.SysUserController.update()', '{\"email\":\"jarrys@gmail.com\",\"mobile\":\"15367668711\",\"password\":\"\",\"roleIdList\":[\"1\",\"2\"],\"status\":0,\"userId\":\"3\",\"username\":\"jarrys\"}', '127.0.0.1', '2017-12-27 13:34:38');
@@ -461,7 +479,9 @@ INSERT INTO `sys_log` VALUES ('3ce6b195-5884-4dd4-89f6-9608efdb048c', 'admin', '
 INSERT INTO `sys_log` VALUES ('3d849239-90a9-4f29-b93c-73eb61132395', 'admin', '修改角色', 'com.lcz.manage.base.controller.SysRoleController.update()', '{\"menuIdList\":[\"1\",\"2\",\"21\",\"22\",\"23\",\"24\"],\"remark\":\"只拥有管理员列表管理的权限\",\"roleId\":\"3\",\"roleName\":\"用户管理员\"}', '127.0.0.1', '2017-12-30 16:44:30');
 INSERT INTO `sys_log` VALUES ('3f1bf3fb-842e-43f7-bedc-291f573356fc', 'admin', '修改用户', 'com.lcz.manage.sys.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"herry@cc.com\",\"mobile\":\"13655437717\",\"roleIdList\":[\"e47e920c-1e21-4592-a03d-ca48a6c3509c\"],\"status\":1,\"userId\":\"6e36f4c5-c6e4-4bfc-9f88-b64acdb12858\",\"username\":\"herry\"}', '127.0.0.1', '2018-01-09 13:42:01');
 INSERT INTO `sys_log` VALUES ('40619f41-32bd-40d8-a549-4a6ac7da5ffa', 'admin', '修改用户', 'com.lcz.manage.sys.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"deptId\":\"a3d71c3c-a2c0-42de-a459-cda3e552e5e0\",\"deptName\":\"市场部\",\"email\":\"sophia@beautiful.com\",\"mobile\":\"01064887524\",\"roleIdList\":[\"d15422bd-780b-45dc-a67e-57c804cb35f1\"],\"status\":1,\"userId\":\"381d6d76-dfff-411d-871a-c5d76c5d63ef\",\"username\":\"sophia\"}', '127.0.0.1', '2018-01-27 21:30:14');
+INSERT INTO `sys_log` VALUES ('41530b45-4d0f-4e18-bebc-2b96020ff621', 'admin', '暂停定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.pause()', '[3]', '127.0.0.1', '2018-03-10 13:39:15');
 INSERT INTO `sys_log` VALUES ('416f3d7d-1e34-4b8c-84fb-2ac528506cfc', 'admin', '删除用户', 'com.lcz.manage.base.controller.SysUserController.deleteBatch()', '[\"3698a1be-d9aa-41e7-880f-6e9a0f44a3ff\"]', '127.0.0.1', '2017-12-26 11:40:05');
+INSERT INTO `sys_log` VALUES ('4316de67-4529-44ab-b959-c7901808bbef', 'admin', '保存定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.save()', '{\"beanName\":\"emailSendTask\",\"cronExpression\":\"0 0 0 1/1 * ? \",\"methodName\":\"sendLogDaily\",\"params\":\"1090061055@qq.com\",\"remark\":\"每日发送日志信息\"}', '127.0.0.1', '2018-03-10 20:01:36');
 INSERT INTO `sys_log` VALUES ('4782ac9e-c201-41e0-8e1a-42e8c1f099c2', 'admin', '保存菜单', 'com.lcz.manage.base.controller.SysMenuController.save()', '{\"icon\":\"fa fa-cc\",\"menuId\":\"\",\"name\":\"关于\",\"orderNum\":1,\"parentId\":\"0\",\"parentName\":\"一级菜单\",\"perms\":\"\",\"type\":0}', '127.0.0.1', '2017-12-31 10:48:24');
 INSERT INTO `sys_log` VALUES ('491239ce-d4f5-4859-a55c-1f6cc556e692', 'admin', '删除菜单', 'com.lcz.manage.sys.controller.SysMenuController.delete()', '\"53567e9c-00b7-48df-b2ab-611543a4250d\"', '127.0.0.1', '2018-01-09 13:33:27');
 INSERT INTO `sys_log` VALUES ('4a790ceb-1fb7-4127-a939-baa13026023b', 'admin', '修改用户', 'com.lcz.manage.base.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"jarry@qq.com\",\"mobile\":\"13577487265\",\"roleIdList\":[\"2\",\"3\"],\"status\":1,\"userId\":\"3\",\"username\":\"jarry\"}', '127.0.0.1', '2017-12-29 15:03:39');
@@ -473,6 +493,7 @@ INSERT INTO `sys_log` VALUES ('516955e1-43cc-4bff-af80-604c6a244054', 'admin', '
 INSERT INTO `sys_log` VALUES ('51d3d6a4-3156-415a-b9c6-ceac1e3864d7', 'admin', '保存菜单', 'com.lcz.manage.sys.controller.SysMenuController.save()', '{\"icon\":\"\",\"menuId\":\"\",\"name\":\"百度\",\"orderNum\":3,\"parentId\":\"7\",\"parentName\":\"系统管理\",\"perms\":\"\",\"type\":0,\"url\":\"\"}', '127.0.0.1', '2018-01-28 13:37:47');
 INSERT INTO `sys_log` VALUES ('5420ac1d-ed26-40fb-ada4-f302672f06db', 'admin', '修改用户', 'com.lcz.manage.sys.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"ss@qq.com\",\"mobile\":\"13367115166\",\"roleIdList\":[\"d15422bd-780b-45dc-a67e-57c804cb35f1\"],\"status\":1,\"userId\":\"ced646ad-733f-4446-8562-97bf019ca564\",\"username\":\"cc\"}', '127.0.0.1', '2018-01-09 13:28:04');
 INSERT INTO `sys_log` VALUES ('54c6ddc6-9724-4c78-8361-f0b801045f93', 'admin', '修改菜单', 'com.lcz.manage.base.controller.SysMenuController.update()', '{\"icon\":\"fa fa-heart-o\",\"menuId\":\"7\",\"name\":\"关于\",\"orderNum\":6,\"parentId\":\"0\",\"parentName\":\"一级菜单\",\"perms\":\"\",\"type\":0,\"url\":\"\"}', '127.0.0.1', '2017-12-31 20:44:32');
+INSERT INTO `sys_log` VALUES ('5573016e-4ada-473d-b064-1676d085324e', 'admin', '立即执行任务', 'com.lcz.manage.sys.controller.ScheduleJobController.run()', '[4]', '127.0.0.1', '2018-03-10 20:01:51');
 INSERT INTO `sys_log` VALUES ('5595b457-7aad-4f84-802e-278f83d23737', 'admin', '修改密码', 'com.lcz.manage.base.controller.SysUserController.password()', '\"1234\"', '127.0.0.1', '2017-12-27 08:54:47');
 INSERT INTO `sys_log` VALUES ('55cc0fb9-1b86-4f72-8ee6-171591eb2357', 'admin', '修改菜单', 'com.lcz.manage.sys.controller.SysMenuController.update()', '{\"icon\":\"\",\"menuId\":\"431ff605-5662-4f67-acd6-b494e312906f\",\"name\":\"cc\",\"orderNum\":32,\"parentId\":\"0\",\"parentName\":\"一级菜单\",\"perms\":\"\",\"type\":0,\"url\":\"\"}', '127.0.0.1', '2018-01-09 13:21:11');
 INSERT INTO `sys_log` VALUES ('5698e985-6336-416d-8a45-8cc2e083218a', 'admin', '修改角色', 'com.lcz.manage.base.controller.SysRoleController.update()', '{\"menuIdList\":[\"1\",\"2\",\"21\",\"3\",\"31\",\"4\",\"41\",\"5\",\"6\",\"7\",\"8\"],\"remark\":\"只拥有查看权限\",\"roleId\":\"2\",\"roleName\":\"普通用户\"}', '127.0.0.1', '2017-12-31 11:11:13');
@@ -494,6 +515,7 @@ INSERT INTO `sys_log` VALUES ('643b5557-5b2b-49f6-9587-79714f542649', 'admin', '
 INSERT INTO `sys_log` VALUES ('65275732-d0c5-4e97-9805-a2973e592dc3', 'admin', '修改用户', 'com.lcz.manage.sys.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"herry@cc.com\",\"mobile\":\"13655437717\",\"roleIdList\":[\"e47e920c-1e21-4592-a03d-ca48a6c3509c\"],\"status\":0,\"userId\":\"6e36f4c5-c6e4-4bfc-9f88-b64acdb12858\",\"username\":\"herry\"}', '127.0.0.1', '2018-01-16 08:34:12');
 INSERT INTO `sys_log` VALUES ('66718b45-f299-499a-98bf-a4977ccffef8', 'admin', '修改配置', 'com.lcz.manage.sys.controller.SysConfigController.update()', '{\"id\":\"2\",\"key\":\"LOST_WISDOM\",\"remark\":\"失了智\",\"status\":0,\"value\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"lost_wisdom\\\",\\\"remark\\\":\\\"失了智\\\"}\\t\"}', '127.0.0.1', '2018-01-07 15:44:16');
 INSERT INTO `sys_log` VALUES ('67b3e9d7-9a9e-4208-9fb8-6d83921ce2df', 'admin', '修改用户', 'com.lcz.manage.sys.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"sophia@beautiful.com\",\"mobile\":\"01064887524\",\"roleIdList\":[\"d15422bd-780b-45dc-a67e-57c804cb35f1\"],\"status\":0,\"userId\":\"381d6d76-dfff-411d-871a-c5d76c5d63ef\",\"username\":\"sophia\"}', '127.0.0.1', '2018-01-16 08:35:45');
+INSERT INTO `sys_log` VALUES ('681d31e8-c253-478a-9cb1-b95a67f44faf', 'admin', '立即执行任务', 'com.lcz.manage.sys.controller.ScheduleJobController.run()', '[1]', '127.0.0.1', '2018-03-08 13:36:53');
 INSERT INTO `sys_log` VALUES ('693d42da-86f3-4363-ae13-90f37c8151d0', 'admin', '修改密码', 'com.lcz.manage.sys.controller.SysUserController.password()', '\"123\"', '127.0.0.1', '2018-01-16 09:04:35');
 INSERT INTO `sys_log` VALUES ('6a2c1cd9-5e03-4944-b48c-be70a8baa785', 'admin', '修改用户', 'com.lcz.manage.sys.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"deptId\":\"4\",\"deptName\":\"技术部\",\"email\":\"sophia@beautiful.com\",\"mobile\":\"01064887524\",\"roleIdList\":[\"d15422bd-780b-45dc-a67e-57c804cb35f1\"],\"status\":0,\"userId\":\"381d6d76-dfff-411d-871a-c5d76c5d63ef\",\"username\":\"sophia\"}', '127.0.0.1', '2018-01-26 23:19:17');
 INSERT INTO `sys_log` VALUES ('6a507e9d-6646-4d5b-9541-16aa44a76e40', 'admin', '修改用户', 'com.lcz.manage.base.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"jarry@qq.com\",\"mobile\":\"13577487265\",\"roleIdList\":[\"3\"],\"status\":1,\"userId\":\"3\",\"username\":\"\"}', '127.0.0.1', '2017-12-28 16:35:26');
@@ -544,6 +566,7 @@ INSERT INTO `sys_log` VALUES ('9bf1db90-88bb-47b8-8fc1-f784ad81e6be', 'admin', '
 INSERT INTO `sys_log` VALUES ('9ce96229-3d93-4de8-a3e4-7769712edb22', 'admin', '保存配置', 'com.lcz.manage.sys.controller.SysConfigController.save()', '{\"id\":\"\",\"key\":\"LOST_WISDOM\",\"remark\":\"失了智\",\"status\":0,\"value\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"lost_wisdom\\\",\\\"remark\\\":\\\"失了智\\\"}\\t\"}', '127.0.0.1', '2018-01-07 15:43:46');
 INSERT INTO `sys_log` VALUES ('9e51546e-af77-406a-8c23-446254d4f331', 'admin', '恢复定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.resume()', '[1]', '127.0.0.1', '2018-01-28 14:00:19');
 INSERT INTO `sys_log` VALUES ('a0ec1033-fffd-4ca9-a378-c5604afb10f4', 'admin', '修改用户', 'com.lcz.manage.base.controller.SysUserController.update()', '{\"email\":\"jarryok@gmail.com\",\"mobile\":\"15367668799\",\"password\":\"123\",\"status\":1,\"userId\":\"3698a1be-d9aa-41e7-880f-6e9a0f44a3ff\",\"username\":\"jarry\"}', '127.0.0.1', '2017-12-26 08:46:59');
+INSERT INTO `sys_log` VALUES ('a31d718b-d2b0-4185-af58-eced976392fd', 'admin', '暂停定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.pause()', '[4]', '127.0.0.1', '2018-03-10 20:02:10');
 INSERT INTO `sys_log` VALUES ('a4b7310c-8ae6-4fba-8103-21fc4450d8f1', 'admin', '恢复定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.resume()', '[1]', '127.0.0.1', '2018-01-22 11:00:19');
 INSERT INTO `sys_log` VALUES ('a5fa2ca8-035d-4655-9050-f73f8735ccf8', 'admin', '修改角色', 'com.lcz.manage.sys.controller.SysRoleController.update()', '{\"menuIdList\":[\"7\",\"5\",\"6\"],\"remark\":\"查看系统日志、sql监控。\",\"roleId\":\"d15422bd-780b-45dc-a67e-57c804cb35f1\",\"roleName\":\"系统管理员\"}', '127.0.0.1', '2018-01-04 21:40:22');
 INSERT INTO `sys_log` VALUES ('a64750cb-001c-47f4-85cd-2c40e858be6f', 'admin', '删除配置', 'com.lcz.manage.sys.controller.SysConfigController.delete()', '[\"d4285677-467b-49be-ac88-ea0decfaf3cb\"]', '127.0.0.1', '2018-01-09 13:34:01');
@@ -564,6 +587,7 @@ INSERT INTO `sys_log` VALUES ('b8985dc8-7ba0-45a7-8807-8c462196a866', 'admin', '
 INSERT INTO `sys_log` VALUES ('b998cc3c-def3-40aa-8a6c-e1a164900270', 'admin', '暂停定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.pause()', '[1]', '127.0.0.1', '2018-01-28 13:58:38');
 INSERT INTO `sys_log` VALUES ('bc410f28-863f-4a24-a6cd-b0e522b5fbf1', 'admin', '保存配置', 'com.lcz.manage.sys.controller.SysConfigController.save()', '{\"id\":\"\",\"key\":\"area\",\"remark\":\"省市县\",\"status\":1,\"value\":\"province\\\\cities\\\\counties\"}', '127.0.0.1', '2018-01-28 13:42:17');
 INSERT INTO `sys_log` VALUES ('bd41de90-585b-496b-a7cf-95a4838ea4da', 'admin', '修改角色', 'com.lcz.manage.base.controller.SysRoleController.update()', '{\"menuIdList\":[\"1\",\"2\",\"21\",\"3\",\"31\",\"4\",\"41\",\"7\",\"5\",\"6\"],\"remark\":\"只拥有查看权限\",\"roleId\":\"2\",\"roleName\":\"普通用户\"}', '127.0.0.1', '2017-12-31 21:24:07');
+INSERT INTO `sys_log` VALUES ('bf18ffdd-b6bf-468d-a4c3-b3e2bf77a659', 'admin', '保存定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.save()', '{\"beanName\":\"backupMySQLTask\",\"cronExpression\":\"0/10 * * * * ? \",\"methodName\":\"backup\",\"params\":\"\",\"remark\":\"每10秒备份一次数据库，到D:\\\\backupDatabase\"}', '127.0.0.1', '2018-03-10 13:36:22');
 INSERT INTO `sys_log` VALUES ('c3555d5b-b51c-4bb2-80f4-599d17b80b7d', 'admin', '修改用户', 'com.lcz.manage.base.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"jarrys@gmail.com\",\"mobile\":\"15367668711\",\"password\":\"\",\"roleIdList\":[\"on\",\"2\"],\"status\":0,\"userId\":\"3\",\"username\":\"jarrys\"}', '127.0.0.1', '2017-12-28 16:19:42');
 INSERT INTO `sys_log` VALUES ('c6583541-c83e-407a-bc7f-f9730ae1c004', 'admin', '删除菜单', 'com.lcz.manage.base.controller.SysMenuController.delete()', '\"10\"', '127.0.0.1', '2018-01-02 14:32:44');
 INSERT INTO `sys_log` VALUES ('c6bfba97-bd4b-47f4-9a66-299560d907f4', 'admin', '修改用户', 'com.lcz.manage.base.controller.SysUserController.update()', '{\"createUserId\":\"1\",\"email\":\"jarry@qq.com\",\"mobile\":\"13577487265\",\"roleIdList\":[\"3\"],\"status\":1,\"userId\":\"3\",\"username\":\"jarry\"}', '127.0.0.1', '2017-12-29 15:03:46');
@@ -841,7 +865,10 @@ CREATE TABLE `test` (
 -- ----------------------------
 INSERT INTO `test` VALUES ('0ba87afc80d34678b26b59dbe419f4ea', 'mini虾_0ba87afc80d34678b26b59dbe419f4ea');
 INSERT INTO `test` VALUES ('134cbec95d4e4c889258e6c86c3af41a', 'mini虾_134cbec95d4e4c889258e6c86c3af41a');
-INSERT INTO `test` VALUES ('2', '虾_adbf609017874689b9e968977047b2e6');
+INSERT INTO `test` VALUES ('2', '虾_340b473d27b7425a9aa9eb46231e8049');
 INSERT INTO `test` VALUES ('3', 'are you ok?');
+INSERT INTO `test` VALUES ('64fec5f4874c4e45abaced0c990d6494', 'mini虾_64fec5f4874c4e45abaced0c990d6494');
 INSERT INTO `test` VALUES ('7ff1cf866a1548269527c023be241586', 'mini虾_7ff1cf866a1548269527c023be241586');
 INSERT INTO `test` VALUES ('89966576e6194899b026c4d1638d7a79', 'mini虾_89966576e6194899b026c4d1638d7a79');
+INSERT INTO `test` VALUES ('ad9f3b457ff248bd8f2eff6b2c240b76', 'mini虾_ad9f3b457ff248bd8f2eff6b2c240b76');
+INSERT INTO `test` VALUES ('e6068a8222b848e39338323a8697a828', 'mini虾_e6068a8222b848e39338323a8697a828');
