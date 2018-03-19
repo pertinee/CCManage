@@ -50,7 +50,7 @@ var setting = {
     data: {
         simpleData: {
             enable: true,
-            idKey: "deptId",
+            idKey: "id",
             pIdKey: "parentId",
             rootPId: -1
         },
@@ -221,7 +221,7 @@ function getDept(){
     //加载部门树
     $.get("/sys/dept/list", function(r){
         ztree = $.fn.zTree.init($("#deptTree"), setting, r);
-        var node = ztree.getNodeByParam("deptId", deptId);
+        var node = ztree.getNodeByParam("id", deptId);
         if(node != null){
             ztree.selectNode(node);
 
@@ -244,7 +244,7 @@ function deptTree(){
         btn1: function (index) {
             var node = ztree.getSelectedNodes();
             //选择上级部门
-            $("#deptId").val(node[0].deptId);
+            $("#deptId").val(node[0].id);
             $("#deptName").val(node[0].name);
 
             layer.close(index);

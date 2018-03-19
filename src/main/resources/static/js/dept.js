@@ -2,7 +2,7 @@ var setting = {
     data: {
         simpleData: {
             enable: true,
-            idKey: "deptId",
+            idKey: "id",
             pIdKey: "parentId",
             rootPId: -1
         },
@@ -24,7 +24,7 @@ var Dept = {
 Dept.initColumn = function () {
     var columns = [
         {field: 'selectItem', radio: true},
-        {title: '部门ID', field: 'deptId', visible: false, align: 'center', valign: 'middle', width: '80px'},
+        {title: '部门ID', field: 'id', visible: false, align: 'center', valign: 'middle', width: '80px'},
         {title: '部门名称', field: 'name', align: 'center', valign: 'middle', sortable: true, width: '180px'},
         {title: '上级部门', field: 'parentName', align: 'center', valign: 'middle', sortable: true, width: '100px'},
         {title: '排序号', field: 'orderNum', align: 'center', valign: 'middle', sortable: true, width: '100px'}]
@@ -46,10 +46,10 @@ $(function () {
     $.get("/sys/dept/info", function(r){
         var colunms = Dept.initColumn();
         var table = new TreeTable(Dept.id, "/sys/dept/list", colunms);
-        table.setRootCodeValue(r.deptId);
+        table.setRootCodeValue(r.id);
         table.setExpandColumn(2);
-        table.setIdField("deptId");
-        table.setCodeField("deptId");
+        table.setIdField("id");
+        table.setCodeField("id");
         table.setParentCodeField("parentId");
         table.setExpandAll(false);
         table.init();
@@ -59,7 +59,7 @@ $(function () {
 
 //重置
 function reset() {
-    $("#deptId").val("");
+    $("#id").val("");
     $("#name").val("");
     $("#parentId").val("");
     $("#parentName").val("");
@@ -92,16 +92,16 @@ function addView(){
 
 //修改部门跳转页面
 function updateView() {
-    var deptId = getDeptId();
-    if(deptId == null){
+    var id = getDeptId();
+    if(id == null){
         return ;
     }
     $("#editHeaderDiv").text("修改");
     $("#editDeptDiv").removeClass("hide");
     $("#deptDiv").addClass("hide");
-    $.get("/sys/dept/info/"+deptId, function(r){
+    $.get("/sys/dept/info/"+id, function(r){
         debugger
-        $("#deptId").val(r.dept.deptId);
+        $("#id").val(r.dept.id);
         $("#name").val(r.dept.name);
         $("#parentId").val(r.dept.parentId);
         //这里不需要取父级部门名字，在getDept()方法中获取
@@ -113,19 +113,19 @@ function updateView() {
 
 //新增、修改部门
 function saveOrUpdate() {
-    var deptId = $("#deptId").val();
+    var id = $("#id").val();
     var name = $("#name").val();
     var parentId = $("#parentId").val();
     var parentName = $("#parentName").val();
     var orderNum = $("#orderNum").val();
-    var url = (deptId == null || deptId == "") ? "/sys/dept/save" : "/sys/dept/update";
+    var url = (id == null || id == "") ? "/sys/dept/save" : "/sys/dept/update";
     debugger;
     $.ajax({
         type: "POST",
         url: url,
         contentType: "application/json",
         data: JSON.stringify({
-            deptId: deptId,
+            id: id,
             name: name,
             parentId: parentId,
             parentName: parentName,
@@ -145,15 +145,15 @@ function saveOrUpdate() {
 
 //删除部门
 function del() {
-    var deptId = getDeptId();
-    if(deptId == null){
+    var id = getDeptId();
+    if(id == null){
         return ;
     }
     confirm('确定要删除选中的记录？', function(){
         $.ajax({
             type: "POST",
             url: "/sys/dept/delete",
-            data: "deptId=" + deptId,
+            data: "id=" + id,
             success: function(r){
                 if(r.code === 0){
                     alert('操作成功', function(index) {
@@ -174,7 +174,7 @@ function getDept(){
     //加载部门树
     $.get("/sys/dept/select", function(r){
         ztree = $.fn.zTree.init($("#deptTree"), setting, r.deptList);
-        var node = ztree.getNodeByParam("deptId", parentId);
+        var node = ztree.getNodeByParam("id", parentId);
         ztree.selectNode(node);
         $("#parentName").val(node.name);
     })
@@ -195,7 +195,7 @@ function deptTree(){
         btn1: function (index) {
             var node = ztree.getSelectedNodes();
             //选择上级部门
-            $("#parentId").val(node[0].deptId);
+            $("#parentId").val(node[0].id);
             $("#parentName").val(node[0].name);
 
             layer.close(index);

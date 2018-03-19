@@ -23,7 +23,7 @@
 
 
 	<select id="queryList" parameterType="com.lcz.manage.sys.bean.SysUserBean" resultMap="sysUserMap">
-		select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
+		select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
 		<where>
 			<if test="createUserId != null">
 				and u.`create_user_id` = #{createUserId}
@@ -62,7 +62,7 @@
 	</select>
 
 	<select id="queryObject" parameterType="String" resultMap="sysUserMap">
-		select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
+		select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
 		where u.user_id = #{userId}
 	</select>
 

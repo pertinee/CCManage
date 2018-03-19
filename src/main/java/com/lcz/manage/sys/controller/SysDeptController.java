@@ -61,7 +61,7 @@ public class SysDeptController extends SysBaseController {
 		//添加一级部门
 		if(getUserId().equals(Constant.SUPER_ADMIN)){
 			SysDeptBean root = new SysDeptBean();
-			root.setDeptId("0");
+			root.setId("0");
 			root.setName("一级部门");
 			root.setParentId("-1");
 			root.setOpen(true);
@@ -78,23 +78,23 @@ public class SysDeptController extends SysBaseController {
 	@RequestMapping("/sys/dept/info")
 	@RequiresPermissions("sys:dept:list")
 	public R info(){
-		String deptId = "0";
+		String id = "0";
 		if(!getUserId().equals(Constant.SUPER_ADMIN)){
 			SysDeptBean dept = sysDeptService.queryObject(getDeptId());
-			deptId = dept.getParentId();
+			id = dept.getParentId();
 		}
 
-		return R.ok().put("deptId", deptId);
+		return R.ok().put("id", id);
 	}
 	
 	/**
 	 * 信息
 	 */
 	@ResponseBody
-	@RequestMapping("/sys/dept/info/{deptId}")
+	@RequestMapping("/sys/dept/info/{id}")
 	@RequiresPermissions("sys:dept:info")
-	public R info(@PathVariable("deptId") String deptId){
-		SysDeptBean dept = sysDeptService.queryObject(deptId);
+	public R info(@PathVariable("id") String id){
+		SysDeptBean dept = sysDeptService.queryObject(id);
 		
 		return R.ok().put("dept", dept);
 	}
@@ -135,14 +135,14 @@ public class SysDeptController extends SysBaseController {
 	@SysLog("删除部门")
 	@RequestMapping("/sys/dept/delete")
 	@RequiresPermissions("sys:dept:delete")
-	public R delete(String deptId){
+	public R delete(String id){
 		//判断是否有子部门
-		List<String> deptList = sysDeptService.queryDetpIdList(deptId);
+		List<String> deptList = sysDeptService.queryDetpIdList(id);
 		if(deptList.size() > 0){
 			return R.error("请先删除子部门");
 		}
 
-		sysDeptService.delete(deptId);
+		sysDeptService.delete(id);
 		
 		return R.ok();
 	}

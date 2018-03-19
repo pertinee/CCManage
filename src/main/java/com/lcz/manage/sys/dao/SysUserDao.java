@@ -1,5 +1,6 @@
 package com.lcz.manage.sys.dao;
 
+import com.lcz.manage.util.common.base.BaseDao;
 import com.lcz.manage.sys.bean.SysUserBean;
 
 import java.util.List;
@@ -10,25 +11,19 @@ import java.util.Map;
  * @date:2017/12/18
  * @time:16:02
  */
-public interface SysUserDao {
+public interface SysUserDao extends BaseDao<SysUserBean> {
 
-	List<SysUserBean> queryList(Map<String, Object> map);
-
-	int queryTotal(Map<String, Object> map);
-
+	/**
+	 * 根据用户名查询用户
+	 * @param username
+	 * @return
+	 */
 	SysUserBean queryByUserName(String username);
 
-	SysUserBean queryObject(String id);
-
-	void save(SysUserBean sysUser);
-
-	void update(SysUserBean sysUser);
-
-	void delete(String id);
-
-	void deleteBatch(Object[] id);
 	/**
 	 * 查询用户的所有菜单ID
+	 * @param userId
+	 * @return
 	 */
 	List<String> queryAllMenuId(String userId);
 
@@ -40,6 +35,8 @@ public interface SysUserDao {
 
 	/**
 	 * 修改密码
+	 * @param map
+	 * @return
 	 */
 	int updatePassword(Map<String, Object> map);
 }

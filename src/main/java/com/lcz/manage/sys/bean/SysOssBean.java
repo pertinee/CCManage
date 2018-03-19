@@ -1,8 +1,8 @@
 package com.lcz.manage.sys.bean;
 
+import com.lcz.manage.util.common.base.BaseBean;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 
 
@@ -14,14 +14,15 @@ import java.util.Date;
  * @date 2017-03-25 12:13:26
  */
 @Data
-public class SysOssBean implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	//id
-	private String id;
-	//URL地址
+public class SysOssBean extends BaseBean {
+
+	/**
+	 * URL地址
+	 */
 	private String url;
-	//创建时间
+	/**
+	 * 创建时间
+	 */
 	private Date createDate;
 
 }

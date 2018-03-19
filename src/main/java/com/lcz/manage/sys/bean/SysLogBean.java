@@ -1,8 +1,8 @@
 package com.lcz.manage.sys.bean;
 
+import com.lcz.manage.util.common.base.BaseBean;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +10,7 @@ import java.util.Date;
  * @author luchunzhou
  */
 @Data
-public class SysLogBean implements Serializable {
-    private String id;
+public class SysLogBean extends BaseBean {
 
     private String username;
 

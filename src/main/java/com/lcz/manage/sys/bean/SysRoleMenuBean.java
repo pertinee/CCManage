@@ -1,9 +1,8 @@
 package com.lcz.manage.sys.bean;
 
 
+import com.lcz.manage.util.common.base.BaseBean;
 import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  * 角色与菜单对应关系
@@ -13,9 +12,7 @@ import java.io.Serializable;
  * @date 2016年9月18日 上午9:28:13
  */
 @Data
-public class SysRoleMenuBean implements Serializable {
-
-	private String id;
+public class SysRoleMenuBean extends BaseBean {
 
 	/**
 	 * 角色ID

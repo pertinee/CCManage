@@ -46,7 +46,7 @@
 <div id="editDeptDiv" class="panel panel-default hide">
     <div id="editHeaderDiv" class="panel-heading"></div>
     <form class="form-horizontal">
-        <input type="text" class="form-control hide" id="deptId" name="deptId"/>
+        <input type="text" class="form-control hide" id="id" name="id"/>
         <input type="text" class="form-control hide" id="parentId" name="parentId"/>
         <div class="form-group">
             <div class="col-sm-2 control-label">部门名称</div>

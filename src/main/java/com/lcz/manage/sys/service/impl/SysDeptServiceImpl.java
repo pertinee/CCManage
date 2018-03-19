@@ -30,7 +30,7 @@ public class SysDeptServiceImpl implements SysDeptService {
 	
 	@Override
 	public void save(SysDeptBean sysDept){
-		sysDept.setDeptId(IdUtils.uuid());
+		sysDept.setId(IdUtils.uuid());
 		sysDeptDao.save(sysDept);
 	}
 	

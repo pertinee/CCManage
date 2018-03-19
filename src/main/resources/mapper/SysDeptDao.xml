@@ -4,11 +4,11 @@
 <mapper namespace="com.lcz.manage.sys.dao.SysDeptDao">
 
 	<select id="queryObject" resultType="com.lcz.manage.sys.bean.SysDeptBean">
-		select * from sys_dept where dept_id = #{value} and del_flag = 0
+		select * from sys_dept where id = #{value} and del_flag = 0
 	</select>
 
 	<select id="queryList" resultType="com.lcz.manage.sys.bean.SysDeptBean">
-		select d.*,(select p.name from sys_dept p where p.dept_id = d.parent_id) as parentName
+		select d.*,(select p.name from sys_dept p where p.id = d.parent_id) as parentName
 		from sys_dept d where d.del_flag = 0
 		<!--  数据过滤  -->
 		${filterSql}
@@ -25,17 +25,17 @@
 		</if>
 	</select>
 	 
-	<insert id="save" parameterType="com.lcz.manage.sys.bean.SysDeptBean" useGeneratedKeys="true" keyProperty="deptId">
+	<insert id="save" parameterType="com.lcz.manage.sys.bean.SysDeptBean" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_dept
 		(
-			`dept_id`,
+			`id`,
 			`parent_id`, 
 			`name`, 
 			`order_num`
 		)
 		values
 		(
-			#{deptId},
+			#{id},
 			#{parentId}, 
 			#{name}, 
 			#{orderNum}
@@ -49,15 +49,15 @@
 			<if test="name != null">`name` = #{name}, </if>
 			<if test="orderNum != null">`order_num` = #{orderNum}</if>
 		</set>
-		where dept_id = #{deptId}
+		where id = #{id}
 	</update>
 	
 	<update id="delete">
-		update sys_dept set del_flag = -1 where dept_id = #{value}
+		update sys_dept set del_flag = -1 where id = #{value}
 	</update>
 	
 	<select id="queryDetpIdList" resultType="long">
-		select dept_id from sys_dept where parent_id = #{value} and del_flag = 0
+		select id from sys_dept where parent_id = #{value} and del_flag = 0
 	</select>
 
 </mapper>

@@ -1,4 +1,4 @@
-package com.lcz.manage.sys.dao;
+package com.lcz.manage.util.common.base;
 
 import java.util.List;
 import java.util.Map;
