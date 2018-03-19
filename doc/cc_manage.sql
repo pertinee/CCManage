@@ -378,12 +378,12 @@ INSERT INTO `sys_config` VALUES ('2', 'LOST_WISDOM', '{\"id\":\"1\",\"name\":\"l
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept` (
-  `dept_id` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
   `parent_id` varchar(255) DEFAULT NULL COMMENT '上级部门ID，一级部门为0',
   `name` varchar(50) DEFAULT NULL COMMENT '部门名称',
   `order_num` int(11) DEFAULT NULL COMMENT '排序',
   `del_flag` tinyint(4) DEFAULT '0' COMMENT '是否删除  -1：已删除  0：正常',
-  PRIMARY KEY (`dept_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门管理';
 
 -- ----------------------------
