@@ -40,7 +40,8 @@
         <qcloud.cos.version>4.4</qcloud.cos.version>
         <quartz.version>2.3.0</quartz.version>
         <io.springfox.version>2.7.0</io.springfox.version>
-
+        <!--跳过单元测试-->
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
