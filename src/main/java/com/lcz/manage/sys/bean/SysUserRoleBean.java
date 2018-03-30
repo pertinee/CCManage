@@ -7,9 +7,7 @@ import lombok.Data;
 /**
  * 用户与角色对应关系
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年9月18日 上午9:28:39
+ * @author luchunzhou
  */
 @Data
 public class SysUserRoleBean extends BaseBean {

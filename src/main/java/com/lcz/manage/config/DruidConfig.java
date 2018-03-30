@@ -22,9 +22,7 @@ import java.util.List;
 /**
  * Druid配置
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-04-21 0:00
+ * @author luchunzhou
  */
 @Configuration
 public class DruidConfig {

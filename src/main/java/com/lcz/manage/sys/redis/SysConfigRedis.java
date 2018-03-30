@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * 系统配置Redis
+ * Redis配置
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017/7/18 21:08
+ * @author luchunzhou
  */
 @Component
 public class SysConfigRedis {

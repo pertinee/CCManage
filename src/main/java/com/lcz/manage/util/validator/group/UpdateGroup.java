@@ -2,9 +2,8 @@ package com.lcz.manage.util.validator.group;
 
 /**
  * 更新数据 Group
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-03-15 21:21
+ *
+ * @author luchunzhou
  */
 
 public interface UpdateGroup {

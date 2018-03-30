@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 角色表
+ *
  * @author luchunzhou
  */
 @Data

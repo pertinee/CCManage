@@ -5,9 +5,8 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * SQL过滤
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-04-01 16:16
+ *
+ * @author luchunzhou
  */
 public class SQLFilter {
 
@@ -19,7 +18,9 @@ public class SQLFilter {
         if(StringUtils.isBlank(str)){
             return null;
         }
-        //去掉'|"|;|\字符
+        /**
+         * 去掉'|"|;|\字符
+         */
         str = StringUtils.replace(str, "'", "");
         str = StringUtils.replace(str, "\"", "");
         str = StringUtils.replace(str, ";", "");

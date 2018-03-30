@@ -22,7 +22,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 /**
- * Created by luchunzhou on 2018/2/9.
+ * 测试MockMvc
+ *
+ * @author luchunzhou
+ * @date 2018/2/9
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

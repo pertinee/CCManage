@@ -16,7 +16,9 @@ import java.util.List;
 
 /**
  * 定时向管理员发送日志
- * Created by luchunzhou on 2018/3/10.
+ *
+ * @author luchunzhou
+ * @date 2018/3/10
  */
 @Component("emailSendTask")
 public class EmailSendTask {

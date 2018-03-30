@@ -21,11 +21,9 @@ import java.util.Date;
 
 
 /**
- * 系统日志，切面处理类
+ * 系统日志切面处理类
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017年3月8日 上午11:07:35
+ * @author luchunzhou
  */
 @Aspect
 @Component

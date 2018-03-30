@@ -5,6 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
+ * 基础Bean
+ *
  * @author:luchunzhou
  * @date:2018/3/19
  * @time:13:32

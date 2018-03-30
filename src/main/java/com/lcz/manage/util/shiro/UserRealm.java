@@ -16,9 +16,7 @@ import java.util.Set;
 /**
  * 认证
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年11月10日 上午11:55:49
+ * @author luchunzhou
  */
 @Component
 public class UserRealm extends AuthorizingRealm {

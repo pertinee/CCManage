@@ -22,11 +22,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * 登录相关
+ * 登录
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年11月10日 下午1:15:31
+ * @author luchunzhou
  */
 @Controller
 public class SysLoginController {

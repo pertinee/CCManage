@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * 用户表
+ *
  * @author luchunzhou
  */
 @Data

@@ -3,9 +3,7 @@ package com.lcz.manage.util.redis;
 /**
  * Redis所有Keys
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-07-18 19:51
+ * @author luchunzhou
  */
 public class RedisKeys {
 

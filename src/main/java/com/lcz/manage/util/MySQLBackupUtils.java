@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * MySQL数据库备份
  *
- * @author GaoHuanjie
+ * @author luchunzhou
  */
 public class MySQLBackupUtils {
 

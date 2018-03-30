@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * 日志表
+ *
  * @author luchunzhou
  */
 @Data

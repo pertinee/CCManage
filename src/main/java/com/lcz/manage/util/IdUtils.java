@@ -6,7 +6,8 @@ import java.security.SecureRandom;
 import java.util.UUID;
 
 /**
- * 封装各种生成唯一性ID算法的工具类.
+ * 封装各种生成唯一性ID算法的工具类
+ *
  * @author luchunzhou
  * @version 2013-01-15
  */

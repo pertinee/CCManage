@@ -6,7 +6,9 @@ import org.junit.Test;
 
 /**
  * 测试mysql数据库备份
- * Created by luchunzhou on 2018/3/9.
+ *
+ * @author luchunzhou
+ * @date 2018/3/9
  */
 public class MysqlTest {
 

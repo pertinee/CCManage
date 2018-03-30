@@ -22,8 +22,10 @@ import java.util.Map;
 
 
 /**
- * 权限管理页
- * Created by luchunzhou on 2017/12/18.
+ * 权限管理
+ *
+ * @author luchunzhou
+ * @date 2017/12/18
  */
 @Controller
 public class SysRoleController extends SysBaseController{

@@ -13,9 +13,8 @@ import java.io.InputStream;
 
 /**
  * 七牛云存储
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-03-25 15:41
+ *
+ * @author luchunzhou
  */
 public class QiniuCloudStorageService extends CloudStorageService{
     private UploadManager uploadManager;

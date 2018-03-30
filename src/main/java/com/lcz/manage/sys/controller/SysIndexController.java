@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 管理页初始化
- * Created by luchunzhou on 2017/12/18.
+ *
+ * @author luchunzhou
+ * @date 2017/12/18
  */
 @Controller
 public class SysIndexController extends SysBaseController{

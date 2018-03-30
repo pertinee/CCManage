@@ -11,7 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * 测试邮件发送
- * Created by luchunzhou on 2018/3/10.
+ *
+ * @author luchunzhou
+ * @date 2018/3/10
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

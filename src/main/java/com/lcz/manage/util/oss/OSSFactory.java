@@ -8,9 +8,8 @@ import com.lcz.manage.util.SpringContextUtils;
 
 /**
  * 文件上传Factory
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-03-26 10:18
+ *
+ * @author luchunzhou
  */
 public final class OSSFactory {
     private static SysConfigService sysConfigService;

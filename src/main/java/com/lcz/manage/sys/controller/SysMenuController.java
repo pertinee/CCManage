@@ -21,8 +21,10 @@ import java.util.Set;
 
 
 /**
- * 菜单页
- * Created by luchunzhou on 2017/12/18.
+ * 菜单
+ *
+ * @author luchunzhou
+ * @date 2017/12/18
  */
 @Controller
 public class SysMenuController extends SysBaseController{

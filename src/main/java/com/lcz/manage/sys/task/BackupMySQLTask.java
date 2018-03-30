@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * MySQL数据库定时备份
- * Created by luchunzhou on 2018/3/10.
+ *
+ * @author luchunzhou
+ * @date 2018/3/10
  */
 @Component("backupMySQLTask")
 public class BackupMySQLTask {
