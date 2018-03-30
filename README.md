@@ -1,5 +1,7 @@
 # CCManage权限系统
 
+- 项目展示：[CCManage权限系统在线演示平台](https://www.luchunzhou.club)。使用普通用户登录（用户名：tom，密码：tom）。
+
 **一、项目介绍**
 <br>
 CCManage是一个基于springboot的轻量级的权限管理系统，并且在权限功能之外，加上了定时备份数据、定时发送日志邮件等功能，使用简介方便。
