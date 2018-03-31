@@ -70,6 +70,8 @@ CCManage系统的具体模块包括：
 ![image](doc/imgs/oss.png)
 - 定时任务：
 ![image](doc/imgs/schedule.png)
+- 定时任务（日志列表）：
+![image](doc/imgs/schedule_log.png)
 - 日志管理：
 ![image](doc/imgs/logs.png)
 - SQL监控：
