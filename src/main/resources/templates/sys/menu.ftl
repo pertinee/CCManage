@@ -32,7 +32,7 @@
     <div class="grid-btn">
         <a class="btn btn-primary" onclick="addView()"><i class="fa fa-plus"></i>&nbsp;新增</a>
         <a class="btn btn-primary" onclick="updateView()"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
-        <a class="btn btn-primary" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+        <a class="btn btn-danger" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
     </div>
     <table id="menuTable" data-mobile-responsive="true" data-click-to-select="true">
         <thead>

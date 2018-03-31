@@ -13,8 +13,8 @@
         <div class="form-group col-sm-2">
             <input type="text" class="form-control" id="qJobId" placeholder="任务ID">
         </div>
-        <a class="btn btn-default" onclick="query()">查询</a>
-        &nbsp;&nbsp;<input type="button" class="btn btn-warning" onclick="back()" value="返回"/>
+        <a class="btn btn-default" onclick="query()"><i class="fa fa-search"></i>&nbsp;查询</a>
+        <a class="btn btn-warning" onclick="back()"><i class="fa fa-mail-reply"></i>&nbsp;返回</a>
     </div>
     <table id="jqGrid"></table>
     <div id="jqGridPager"></div>

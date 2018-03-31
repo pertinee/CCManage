@@ -23,7 +23,7 @@
             <div class="form-group col-sm-2">
                 <input type="text" class="form-control" id="qKey" placeholder="用户名、用户操作">
             </div>
-            <a class="btn btn-default" onclick="query()">查询</a>
+            <a class="btn btn-default" onclick="query()"><i class="fa fa-search"></i>&nbsp;查询</a>
         </div>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>

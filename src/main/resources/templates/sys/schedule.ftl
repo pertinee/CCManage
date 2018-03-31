@@ -14,14 +14,14 @@
         <div class="form-group col-sm-2">
             <input type="text" class="form-control" id="qBeanName" placeholder="bean名称">
         </div>
-        <a class="btn btn-default" onclick="query()">查询</a>
+        <a class="btn btn-default" onclick="query()"><i class="fa fa-search"></i>&nbsp;查询</a>
         <a class="btn btn-primary" onclick="addView()"><i class="fa fa-plus"></i>&nbsp;新增</a>
         <a class="btn btn-primary" onclick="updateView()"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
-        <a class="btn btn-primary" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
-        <a class="btn btn-primary" onclick="pause()"><i class="fa fa-pause"></i>&nbsp;暂停</a>
-        <a class="btn btn-primary" onclick="resume()"><i class="fa fa-play"></i>&nbsp;恢复</a>
-        <a class="btn btn-primary" onclick="runOnce()"><i class="fa fa-arrow-circle-right"></i>&nbsp;立即执行</a>
-        <a class="btn btn-danger" style="float:right;" href="/sys/schedule_log">日志列表</a>
+        <a class="btn btn-danger" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+        <a class="btn btn-warning" onclick="pause()"><i class="fa fa-pause"></i>&nbsp;暂停</a>
+        <a class="btn btn-info" onclick="resume()"><i class="fa fa-play"></i>&nbsp;恢复</a>
+        <a class="btn btn-success" onclick="runOnce()"><i class="fa fa-arrow-circle-right"></i>&nbsp;立即执行</a>
+        <a class="btn btn-primary" style="float:right;" href="/sys/schedule_log"><i class="fa fa-list"></i>&nbsp;日志列表</a>
     </div>
     <table id="jqGrid"></table>
     <div id="jqGridPager"></div>

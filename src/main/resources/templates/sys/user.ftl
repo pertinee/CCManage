@@ -24,10 +24,10 @@
             <div class="form-group col-sm-2">
                 <input type="text" class="form-control" id="qUsername" placeholder="用户名">
             </div>
-            <a class="btn btn-default" onclick="query()">查询</a>
+            <a class="btn btn-default" onclick="query()"><i class="fa fa-search"></i>&nbsp;查询</a>
             <a class="btn btn-primary" onclick="addView()"><i class="fa fa-plus"></i>&nbsp;新增</a>
             <a class="btn btn-primary" onclick="updateView()"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
-            <a class="btn btn-primary" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+            <a class="btn btn-danger" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
         </div>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>

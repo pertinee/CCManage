@@ -24,9 +24,9 @@
 <body>
     <div id="ossDiv">
         <div class="grid-btn">
-            <a class="btn btn-danger" onclick="addConfig()"><i class="fa fa-sun-o"></i>&nbsp;云存储配置</a>
+            <a class="btn btn-info" onclick="addConfig()"><i class="fa fa-sun-o"></i>&nbsp;云存储配置</a>
             <a class="btn btn-primary" id="upload"><i class="fa fa-plus"></i>&nbsp;上传文件</a>
-            <a class="btn btn-primary" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+            <a class="btn btn-danger" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
         </div>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>
