@@ -59,9 +59,9 @@ CCManage系统的具体模块包括：
 - 用户管理：
 ![image](doc/imgs/user.png)
 - 角色管理：
-![image](doc/imgs/menu.png)
-- 菜单管理：
 ![image](doc/imgs/role.png)
+- 菜单管理：
+![image](doc/imgs/menu.png)
 - 部门管理：
 ![image](doc/imgs/dept.png)
 - 数据字典：
