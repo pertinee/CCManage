@@ -40,8 +40,8 @@ CCManage系统的具体模块包括：
 - 导入doc/cc_manage.sql文件，默认文件中已包含初始化数据；
 - 修改application-dev.yml文件，更新MySQL账号和密码；
 - 在CCManage目录下，执行mvn clean install；
-- 启动CCmanageApplication.java;
-- 在浏览器输入http://127.0.0.1:8080访问登录页面；
+- 启动CCmanageApplication.java；
+- 在浏览器访问登录页面：http://127.0.0.1:8080；
 - 输入用户名：admin,密码：123登录系统。
 
 **五、注意事项**
