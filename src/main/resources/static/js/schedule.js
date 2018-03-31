@@ -43,6 +43,9 @@ $(function () {
             $("#jqGrid").closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" });
         }
     });
+
+    //jqGrid自适应
+    $("#jqGrid").setGridHeight($(window).height() - 130);
 });
 
 //重置

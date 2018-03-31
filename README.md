@@ -52,10 +52,25 @@ CCManage系统的具体模块包括：
 如有其他疑问可在下方留言或者访问[我的博客](https://www.luchunzhou.cn)进行留言。
 
 **七、项目展示**
-![image](http://p20dkvms1.bkt.clouddn.com/d1.png)
-![image](http://p20dkvms1.bkt.clouddn.com/d2.png)
-![image](http://p20dkvms1.bkt.clouddn.com/d3.png)
-![image](http://p20dkvms1.bkt.clouddn.com/d4.png)
-![image](http://p20dkvms1.bkt.clouddn.com/d5.png)
-![image](http://p20dkvms1.bkt.clouddn.com/d6.png)
-![image](http://p20dkvms1.bkt.clouddn.com/d7.png)
+- 登录界面：
+![image](doc/imgs/login_page.png)
+- 主界面：
+![image](doc/imgs/main_page.png)
+- 用户管理：
+![image](doc/imgs/user.png)
+- 菜单管理：
+![image](doc/imgs/menu.png)
+- 角色管理：
+![image](doc/imgs/role.png)
+- 部门管理：
+![image](doc/imgs/dept.png)
+- 数据字典：
+![image](doc/imgs/ddic.png)
+- 文件上传：
+![image](doc/imgs/oss.png)
+- 日志管理：
+![image](doc/imgs/logs.png)
+- SQL监控：
+![image](doc/imgs/druid.png)
+- 接口文档：
+![image](doc/imgs/swagger2.png)
