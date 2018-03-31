@@ -1,6 +1,7 @@
 # CCManage权限系统
 
-- 项目展示：[CCManage权限系统在线演示平台](https://www.luchunzhou.club)。使用普通用户登录（用户名：tom，密码：tom）。
+- 项目展示：https://www.luchunzhou.club
+- 账户：用户名：tom，密码：tom（更多角色用户将在后续开放）
 
 **一、项目介绍**
 <br>
@@ -49,7 +50,7 @@ CCManage系统的具体模块包括：
 
 **六、其他**
 <br>
-如有其他疑问可在下方留言或者访问[我的博客](https://www.luchunzhou.cn)进行留言。
+如有其他疑问可在下方留言或者访问我的博客https://www.luchunzhou.cn进行留言。
 
 **七、项目展示**
 - 登录界面：
