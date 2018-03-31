@@ -50,7 +50,7 @@ CCManage系统的具体模块包括：
 
 **六、其他**
 <br>
-如有其他疑问可在下方留言或者访问我的博客进行留言：https://www.luchunzhou.cn。
+如有其他疑问可在下方留言或者访问我的博客进行留言：https://www.luchunzhou.cn
 
 **七、项目展示**
 - 登录界面：
