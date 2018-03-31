@@ -58,9 +58,9 @@ CCManage系统的具体模块包括：
 ![image](doc/imgs/main_page.png)
 - 用户管理：
 ![image](doc/imgs/user.png)
-- 菜单管理：
-![image](doc/imgs/menu.png)
 - 角色管理：
+![image](doc/imgs/menu.png)
+- 菜单管理：
 ![image](doc/imgs/role.png)
 - 部门管理：
 ![image](doc/imgs/dept.png)
@@ -68,6 +68,8 @@ CCManage系统的具体模块包括：
 ![image](doc/imgs/ddic.png)
 - 文件上传：
 ![image](doc/imgs/oss.png)
+- 定时任务：
+![image](doc/imgs/schedule.png)
 - 日志管理：
 ![image](doc/imgs/logs.png)
 - SQL监控：
