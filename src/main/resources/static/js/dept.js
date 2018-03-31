@@ -44,8 +44,8 @@ function getDeptId () {
 
 $(function () {
     $.get("/sys/dept/info", function(r){
-        var colunms = Dept.initColumn();
-        var table = new TreeTable(Dept.id, "/sys/dept/list", colunms);
+        var columns = Dept.initColumn();
+        var table = new TreeTable(Dept.id, "/sys/dept/list", columns);
         table.setRootCodeValue(r.id);
         table.setExpandColumn(2);
         table.setIdField("id");
