@@ -42,7 +42,7 @@ CCManage系统的具体模块包括：
 - 在CCManage目录下，执行mvn clean install；
 - 启动CCmanageApplication.java；
 - 在浏览器访问登录页面：http://127.0.0.1:8080；
-- 输入用户名：admin,密码：123登录系统。
+- 输入用户名：admin，密码：123登录系统。
 
 **五、注意事项**
 - 超级管理员(sys_user表)的user_id必须是"1"；
@@ -50,7 +50,7 @@ CCManage系统的具体模块包括：
 
 **六、其他**
 <br>
-如有其他疑问可在下方留言或者访问我的博客https://www.luchunzhou.cn进行留言。
+如有其他疑问可在下方留言或者访问我的博客进行留言：https://www.luchunzhou.cn。
 
 **七、项目展示**
 - 登录界面：
