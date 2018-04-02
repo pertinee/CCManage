@@ -1,3 +1,6 @@
+# Tomcat端口配置
+server:
+    port: 8080
 spring:
     redis:
         database: 0
@@ -13,9 +16,9 @@ spring:
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://************:3306/cc_manage?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
-        username: 用户名
-        password: 密码
+        url: jdbc:mysql://127.0.0.1:3306/cc_manage?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        username: root
+        password:
         #连接池的配置信息
         initialSize: 10
         minIdle: 10

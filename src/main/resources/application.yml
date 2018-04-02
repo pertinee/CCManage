@@ -4,14 +4,13 @@ server:
         uri-encoding: UTF-8
         max-threads: 1000
         min-spare-threads: 30
-    port: 8080
     connection-timeout: 5000
     # context-path: /CCManage # 启动项目时加上项目名称，静态文件还有问题，暂时不放开。
 # mysql配置
 spring:
     # 环境 dev|test|pro
     profiles:
-        active: dev
+        active: test
     # jackson时间格式化
     jackson:
         time-zone: GMT+8

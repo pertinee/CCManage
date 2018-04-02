@@ -1,3 +1,6 @@
+# Tomcat端口配置
+server:
+    port: 8080
 spring:
     redis:
         database: 0
