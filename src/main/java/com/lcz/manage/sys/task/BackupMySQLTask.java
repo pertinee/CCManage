@@ -1,8 +1,9 @@
 package com.lcz.manage.sys.task;
 
 import com.lcz.manage.util.MySQLBackupUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.lcz.manage.util.exception.CCException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,18 +13,33 @@ import org.springframework.stereotype.Component;
  * @date 2018/3/10
  */
 @Component("backupMySQLTask")
+@Slf4j
 public class BackupMySQLTask {
-    private Logger logger = LoggerFactory.getLogger(getClass());
 
-    public void backup(){
+    @Value("${backup.hostIP}")
+    private String hostIP;
+    @Value("${backup.userName}")
+    private String userName;
+    @Value("${backup.password}")
+    private String password;
+    @Value("${backup.savePath}")
+    private String savePath;
+    @Value("${backup.fileName}")
+    private String fileName;
+    @Value("${backup.databaseName}")
+    private String databaseName;
+
+    public void backup() {
         try {
-            if (MySQLBackupUtils.backup("127.0.0.1", "lcz", "123", "D:/backupDatabase", "cc_manage", "cc_manage")) {
-                logger.info("【数据库备份成功】");
+            if (MySQLBackupUtils.backup(hostIP, userName, password, savePath, fileName, databaseName)) {
+                log.info("数据库备份成功");
             } else {
-                logger.info("【数据库备份失败】");
+                log.info("数据库备份失败");
+                throw new CCException("数据库备份失败");
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("数据库备份错误");
+            throw new CCException("数据库备份错误");
         }
     }
 

@@ -4,7 +4,6 @@ server:
         uri-encoding: UTF-8
         max-threads: 1000
         min-spare-threads: 30
-    port: 8080
     connection-timeout: 5000
     # context-path: /CCManage # 启动项目时加上项目名称，静态文件还有问题，暂时不放开。
 # mysql配置
@@ -33,7 +32,7 @@ spring:
     mail:
         host: smtp.163.com
         username: 用户名
-        password: 密码（非登录密码）
+        password: 密码
         properties:
             mail:
                 smtp:

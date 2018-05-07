@@ -1,7 +1,10 @@
+# Tomcat端口配置
+server:
+    port: 8080
 spring:
     redis:
         database: 0
-        host: 192.168.178.128
+        host: localhost
         port: 6379
         password:       # 密码（默认为空）
         timeout: 6000  # 连接超时时长（毫秒）
@@ -13,7 +16,7 @@ spring:
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://************:3306/cc_manage?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        url: jdbc:mysql://localhost:3306/cc_manage?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
         username: 用户名
         password: 密码
         #连接池的配置信息
@@ -29,3 +32,12 @@ spring:
 #        testOnReturn: false
 #        poolPreparedStatements: true
 #        maxPoolPreparedStatementPerConnectionSize: 20
+# 一些变量配置
+# 数据库备份路径
+backup:
+    hostIP: localhost
+    userName: 用户名
+    password: 密码（非空）
+    savePath: /备份路径/backup_db
+    fileName: cc_manage
+    databaseName: cc_manage
