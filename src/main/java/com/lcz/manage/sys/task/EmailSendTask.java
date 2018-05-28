@@ -41,7 +41,7 @@ public class EmailSendTask {
         message.setFrom(username);
         message.setTo(email);
         message.setSentDate(new Date());
-        message.setSubject("CCManage权限管理系统（当日日志）");
+        message.setSubject("CCManage权限管理系统【当日日志】");
         List<SysLogBean> sysLogBeanList = sysLogService.queryLogDaily();
         if (sysLogBeanList.size() > 0) {
             message.setText(JSON.toJSONString(sysLogBeanList));
@@ -52,4 +52,25 @@ public class EmailSendTask {
         log.info("当日日志邮件发送成功");
     }
 
+
+    /**
+     * 每周发送日志
+     *
+     * @param email
+     */
+    public void sendLogWeekly(String email) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(username);
+        message.setTo(email);
+        message.setSentDate(new Date());
+        message.setSubject("CCManage权限管理系统【本周日志】");
+        List<SysLogBean> sysLogBeanList = sysLogService.queryLogDaily();
+        if (sysLogBeanList.size() > 0) {
+            message.setText(JSON.toJSONString(sysLogBeanList));
+        } else {
+            message.setText("本周无日志");
+        }
+        javaMailSender.send(message);
+        log.info("本周日志邮件发送成功");
+    }
 }
