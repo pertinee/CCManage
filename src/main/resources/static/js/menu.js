@@ -16,15 +16,16 @@ Menu.initColumn = function () {
         {title: '图标', field: 'icon', align: 'center', valign: 'middle', sortable: true, width: '80px', formatter: function(item, index){
             return item.icon == null ? '' : '<i class="'+item.icon+' fa-lg"></i>';
         }},
-        {title: '类型', field: 'type', align: 'center', valign: 'middle', sortable: true, width: '100px', formatter: function(item, index){
-            if(item.type === 0){
-                return '<span class="label label-primary">目录</span>';
+        {title: '类型', field: 'type', align: 'center', valign: 'middle', sortable: true, width: '80px'},
+        {title: '类型', field: 'typeCn', align: 'center', valign: 'middle', sortable: true, width: '100px', formatter: function(item, index){
+        if(item.type == '0'){
+                return '<span class="label label-primary">'+ item.typeCn +'</span>';
             }
-            if(item.type === 1){
-                return '<span class="label label-success">菜单</span>';
+            if(item.type == '1'){
+                return '<span class="label label-success">'+ item.typeCn +'</span>';
             }
-            if(item.type === 2){
-                return '<span class="label label-warning">按钮</span>';
+            if(item.type == '2'){
+                return '<span class="label label-warning">'+ item.typeCn +'</span>';
             }
         }},
         {title: '排序号', field: 'orderNum', align: 'center', valign: 'middle', sortable: true, width: '100px'},

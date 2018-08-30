@@ -7,6 +7,7 @@ import com.lcz.manage.util.IdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public void saveOrUpdate(String userId, List<String> roleIdList) {
-		if(roleIdList.size() == 0){
+		if(CollectionUtils.isEmpty(roleIdList)){
 			return ;
 		}
 		

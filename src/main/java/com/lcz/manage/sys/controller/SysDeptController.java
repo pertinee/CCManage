@@ -9,6 +9,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -136,7 +137,7 @@ public class SysDeptController extends SysBaseController {
 	public R delete(String id){
 		//判断是否有子部门
 		List<String> deptList = sysDeptService.queryDetpIdList(id);
-		if(deptList.size() > 0){
+		if(!CollectionUtils.isEmpty(deptList)){
 			return R.error("请先删除子部门");
 		}
 

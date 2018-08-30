@@ -45,12 +45,13 @@ public class SysMenuBean implements Serializable {
     /**
      * 类型     0：目录   1：菜单   2：按钮
      */
-    private Integer type;
+    private String type;
+    private String typeCn;
 
     /**
      * 是否为系统菜单      0：否     1：是
      */
-    private Integer isBase;
+    private String isBase;
 
     /**
      * 菜单图标

@@ -52,7 +52,8 @@ public class SysUserBean implements Serializable {
     /**
      * 状态  0：禁用   1：正常
      */
-    private Integer status;
+    private String status;
+    private String statusCn;
 
     /**
      * 角色ID列表

@@ -2,22 +2,22 @@ package com.lcz.manage.sys.service.impl;
 
 import com.lcz.manage.sys.bean.SysUserBean;
 import com.lcz.manage.sys.dao.SysUserDao;
+import com.lcz.manage.sys.enums.UserStatus;
 import com.lcz.manage.sys.service.SysRoleService;
 import com.lcz.manage.sys.service.SysUserRoleService;
 import com.lcz.manage.sys.service.SysUserService;
 import com.lcz.manage.util.Constant;
 import com.lcz.manage.util.IdUtils;
 import com.lcz.manage.util.ShiroUtils;
+import com.lcz.manage.util.StringUtils;
 import com.lcz.manage.util.exception.CCException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.springframework.util.CollectionUtils;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 用户管理
@@ -39,7 +39,15 @@ public class SysUserServiceImpl implements SysUserService{
 
     @Override
     public List<SysUserBean> queryList(Map<String, Object> map) {
-        return sysUserDao.queryList(map);
+        List<SysUserBean> list = sysUserDao.queryList(map);
+        if(!CollectionUtils.isEmpty(list)){
+            for(SysUserBean eachUser : list){
+                if(!StringUtils.isEmpty(eachUser.getStatus())){
+                    eachUser.setStatusCn(UserStatus.find(eachUser.getStatus()).getName());
+                }
+            }
+        }
+        return list;
     }
 
     @Override

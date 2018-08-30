@@ -6,7 +6,6 @@ import org.apache.commons.lang.StringUtils;
 
 import java.io.InputStream;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * 云存储(支持七牛、阿里云、腾讯云、又拍云)
@@ -26,7 +25,7 @@ public abstract class CloudStorageService {
         //生成uuid
         String uuid = IdUtils.uuid2();
         //文件路径
-        String path = DateUtils.format(new Date(), "yyyyMMdd") + "/" + uuid;
+        String path = DateUtils.dateToString(new Date()) + "/" + uuid;
 
         if(StringUtils.isNotBlank(prefix)){
             path = prefix + "/" + path;

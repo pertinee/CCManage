@@ -2,6 +2,7 @@ package com.lcz.manage.sys.service.impl;
 
 import com.lcz.manage.sys.bean.SysMenuBean;
 import com.lcz.manage.sys.dao.SysMenuDao;
+import com.lcz.manage.sys.enums.MenuType;
 import com.lcz.manage.sys.service.SysMenuService;
 import com.lcz.manage.sys.service.SysUserService;
 import com.lcz.manage.util.Constant;
@@ -10,6 +11,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
@@ -51,7 +53,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	@Override
 	public List<SysMenuBean> getUserMenuList(String userId) {
 		//系统管理员，拥有最高权限
-		if("1".equals(userId)){
+		if(Constant.SUPER_ADMIN.equals(userId)){
 			return getAllMenuList(null);
 		}
 
@@ -65,7 +67,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		List<String> permsList;
 
 		//系统管理员，拥有最高权限
-		if("1".equals(userId)){
+		if(Constant.SUPER_ADMIN.equals(userId)){
 			List<SysMenuBean> menuList = queryList(new HashMap<>());
 			permsList = new ArrayList<>(menuList.size());
 			for(SysMenuBean menu : menuList){
@@ -93,7 +95,13 @@ public class SysMenuServiceImpl implements SysMenuService {
 
 	@Override
 	public List<SysMenuBean> queryList(Map<String, Object> map) {
-		return sysMenuDao.queryList(map);
+		List<SysMenuBean> list = sysMenuDao.queryList(map);
+		if(!CollectionUtils.isEmpty(list)){
+			for(SysMenuBean eachMenu : list){
+				eachMenu.setTypeCn(MenuType.find(eachMenu.getType()).getName());
+			}
+		}
+		return list;
 	}
 
 	@Override
@@ -142,7 +150,8 @@ public class SysMenuServiceImpl implements SysMenuService {
 		List<SysMenuBean> subMenuList = new ArrayList<SysMenuBean>();
 
 		for(SysMenuBean entity : menuList){
-			if(entity.getType() == Constant.MenuType.CATALOG.getValue()){//目录
+			//目录
+			if(MenuType.CATALOG.getCode().equals(entity.getType())){
 				entity.setList(getMenuTreeList(queryListParentId(entity.getMenuId(), menuIdList), menuIdList));
 			}
 			subMenuList.add(entity);
@@ -157,7 +166,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	@Override
 	public List<String> querySysMenuList() {
 		List<SysMenuBean> sysMenuList = sysMenuDao.querySysMenuList();
-		if(sysMenuList.size() > 0){
+		if(!CollectionUtils.isEmpty(sysMenuList)){
 			List<String> strList = new ArrayList<>();
 			for(SysMenuBean each : sysMenuList){
 				strList.add(each.getMenuId());

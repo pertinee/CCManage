@@ -2,7 +2,7 @@ package com.lcz.manage.util.schedule;
 
 import com.alibaba.fastjson.JSON;
 import com.lcz.manage.sys.bean.ScheduleJobBean;
-import com.lcz.manage.util.Constant.ScheduleStatus;
+import com.lcz.manage.sys.enums.ScheduleStatus;
 import com.lcz.manage.util.exception.CCException;
 import org.quartz.*;
 

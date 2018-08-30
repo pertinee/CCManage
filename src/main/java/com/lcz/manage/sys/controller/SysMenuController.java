@@ -1,9 +1,9 @@
 package com.lcz.manage.sys.controller;
 
 import com.lcz.manage.sys.bean.SysMenuBean;
+import com.lcz.manage.sys.enums.MenuType;
 import com.lcz.manage.sys.service.SysMenuService;
 import com.lcz.manage.util.Constant;
-import com.lcz.manage.util.Constant.MenuType;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.annotation.SysLog;
 import com.lcz.manage.util.exception.CCException;
@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -168,7 +168,7 @@ public class SysMenuController extends SysBaseController{
 
         //判断是否有子菜单或按钮
         List<SysMenuBean> menuList = sysMenuService.queryListParentId(menuId);
-        if(menuList.size() > 0){
+        if(!CollectionUtils.isEmpty(menuList)){
             return R.error("请先删除子菜单或按钮");
         }
 
@@ -222,31 +222,31 @@ public class SysMenuController extends SysBaseController{
         }
 
         //菜单
-        if(menu.getType() == MenuType.MENU.getValue()){
+        if(MenuType.MENU.getCode().equals(menu.getType())){
             if(StringUtils.isBlank(menu.getUrl())){
                 throw new CCException("菜单URL不能为空");
             }
         }
 
         //上级菜单类型
-        int parentType = MenuType.CATALOG.getValue();
-        if(!"0".equals(menu.getParentId())){
+        String parentType = MenuType.CATALOG.getCode();
+        if(!Constant.IS_TOP_MENU.equals(menu.getParentId())){
             SysMenuBean parentMenu = sysMenuService.queryObject(menu.getParentId());
             parentType = parentMenu.getType();
         }
 
         //目录、菜单
-        if(menu.getType() == MenuType.CATALOG.getValue() ||
-                menu.getType() == MenuType.MENU.getValue()){
-            if(parentType != MenuType.CATALOG.getValue()){
+        if(MenuType.CATALOG.getCode().equals(menu.getType()) ||
+                MenuType.MENU.getCode().equals(menu.getType())){
+            if(!MenuType.CATALOG.getCode().equals(parentType)){
                 throw new CCException("上级菜单只能为目录类型");
             }
             return ;
         }
 
         //按钮
-        if(menu.getType() == MenuType.BUTTON.getValue()){
-            if(parentType != MenuType.MENU.getValue()){
+        if(MenuType.BUTTON.getCode().equals(menu.getType())){
+            if(!MenuType.MENU.getCode().equals(parentType)){
                 throw new CCException("上级菜单只能为菜单类型");
             }
             return ;

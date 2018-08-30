@@ -7,6 +7,7 @@ import com.lcz.manage.util.IdUtils;
 import com.qiniu.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,7 @@ public class SysDeptServiceImpl implements SysDeptService {
 	private void getDeptTreeList(List<String> subIdList, List<String> deptIdList){
 		for(String deptId : subIdList){
 			List<String> list = queryDetpIdList(deptId);
-			if(list.size() > 0){
+			if(!CollectionUtils.isEmpty(list)){
 				getDeptTreeList(list, deptIdList);
 			}
 

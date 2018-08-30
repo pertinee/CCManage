@@ -2,6 +2,7 @@ package com.lcz.manage.sys.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.lcz.manage.sys.bean.SysOssBean;
+import com.lcz.manage.sys.enums.CloudService;
 import com.lcz.manage.sys.service.SysConfigService;
 import com.lcz.manage.sys.service.SysOssService;
 import com.lcz.manage.util.*;
@@ -88,13 +89,13 @@ public class SysOssController {
 		//校验类型
 		ValidatorUtils.validateEntity(config);
 
-		if(config.getType() == Constant.CloudService.QINIU.getValue()){
+		if(config.getType() == CloudService.QINIU.getValue()){
 			//校验七牛数据
 			ValidatorUtils.validateEntity(config, QiniuGroup.class);
-		}else if(config.getType() == Constant.CloudService.ALIYUN.getValue()){
+		}else if(config.getType() == CloudService.ALIYUN.getValue()){
 			//校验阿里云数据
 			ValidatorUtils.validateEntity(config, AliyunGroup.class);
-		}else if(config.getType() == Constant.CloudService.QCLOUD.getValue()){
+		}else if(config.getType() == CloudService.QCLOUD.getValue()){
 			//校验腾讯云数据
 			ValidatorUtils.validateEntity(config, QcloudGroup.class);
 		}

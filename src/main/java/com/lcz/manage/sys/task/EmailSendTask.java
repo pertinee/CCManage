@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -43,7 +44,7 @@ public class EmailSendTask {
         message.setSentDate(new Date());
         message.setSubject("CCManage权限管理系统【当日日志】");
         List<SysLogBean> sysLogBeanList = sysLogService.queryLogDaily();
-        if (sysLogBeanList.size() > 0) {
+        if (!CollectionUtils.isEmpty(sysLogBeanList)) {
             message.setText(JSON.toJSONString(sysLogBeanList));
         } else {
             message.setText("当日无日志");
@@ -65,7 +66,7 @@ public class EmailSendTask {
         message.setSentDate(new Date());
         message.setSubject("CCManage权限管理系统【本周日志】");
         List<SysLogBean> sysLogBeanList = sysLogService.queryLogDaily();
-        if (sysLogBeanList.size() > 0) {
+        if (!CollectionUtils.isEmpty(sysLogBeanList)) {
             message.setText(JSON.toJSONString(sysLogBeanList));
         } else {
             message.setText("本周无日志");

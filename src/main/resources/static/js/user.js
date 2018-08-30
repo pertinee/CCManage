@@ -9,10 +9,14 @@ $(function () {
             { label: '所属部门', name: 'deptName', width: 75 },
             { label: '邮箱', name: 'email', width: 90 },
             { label: '手机号', name: 'mobile', width: 100 },
-            { label: '状态', name: 'status', width: 80, formatter: function(value, options, row){
-                return value === 0 ?
-                    '<span class="label label-danger">禁用</span>' :
-                    '<span class="label label-success">正常</span>';
+            { label: '状态', name: 'status', width: 75},
+            { label: '状态', name: 'statusCn', width: 75, formatter: function(value, options, row){
+                if(row.status == '1'){
+                    return '<span class="label label-success">'+ row.statusCn +'</span>';
+                }
+                if(row.status == '0'){
+                    return '<span class="label label-danger">'+ row.statusCn +'</span>';
+                }
             }},
             { label: '创建时间', name: 'createDate', index: "create_date", width: 80}
         ],
