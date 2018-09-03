@@ -7,7 +7,7 @@ import com.lcz.manage.sys.service.SysMenuService;
 import com.lcz.manage.sys.service.SysUserService;
 import com.lcz.manage.util.Constant;
 import com.lcz.manage.util.IdUtils;
-import org.apache.commons.lang.StringUtils;
+import com.lcz.manage.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,7 +80,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		//用户权限列表
 		Set<String> permsSet = new HashSet<String>();
 		for(String perms : permsList){
-			if(StringUtils.isBlank(perms)){
+			if(StringUtils.isEmpty(perms)){
 				continue;
 			}
 			permsSet.addAll(Arrays.asList(perms.trim().split(",")));

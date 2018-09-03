@@ -5,9 +5,9 @@ import com.lcz.manage.sys.enums.MenuType;
 import com.lcz.manage.sys.service.SysMenuService;
 import com.lcz.manage.util.Constant;
 import com.lcz.manage.util.R;
+import com.lcz.manage.util.StringUtils;
 import com.lcz.manage.util.annotation.SysLog;
 import com.lcz.manage.util.exception.CCException;
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -213,17 +213,17 @@ public class SysMenuController extends SysBaseController{
      * 验证参数是否正确
      */
     private void verifyForm(SysMenuBean menu){
-        if(StringUtils.isBlank(menu.getName())){
+        if(StringUtils.isEmpty(menu.getName())){
             throw new CCException("菜单名称不能为空");
         }
 
-        if(menu.getParentId() == null){
+        if(StringUtils.isEmpty(menu.getParentId())){
             throw new CCException("上级菜单不能为空");
         }
 
         //菜单
         if(MenuType.MENU.getCode().equals(menu.getType())){
-            if(StringUtils.isBlank(menu.getUrl())){
+            if(StringUtils.isEmpty(menu.getUrl())){
                 throw new CCException("菜单URL不能为空");
             }
         }

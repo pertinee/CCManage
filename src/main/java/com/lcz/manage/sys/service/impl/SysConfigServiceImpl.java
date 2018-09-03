@@ -6,8 +6,8 @@ import com.lcz.manage.sys.dao.SysConfigDao;
 import com.lcz.manage.sys.redis.SysConfigRedis;
 import com.lcz.manage.sys.service.SysConfigService;
 import com.lcz.manage.util.IdUtils;
+import com.lcz.manage.util.StringUtils;
 import com.lcz.manage.util.exception.CCException;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -84,7 +84,7 @@ public class SysConfigServiceImpl implements SysConfigService {
 	@Override
 	public <T> T getConfigObject(String key, Class<T> clazz) {
 		String value = getValue(key, null);
-		if(StringUtils.isNotBlank(value)){
+		if(!StringUtils.isEmpty(value)){
 			return JSON.parseObject(value, clazz);
 		}
 

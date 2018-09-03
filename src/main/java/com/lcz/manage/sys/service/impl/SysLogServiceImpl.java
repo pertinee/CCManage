@@ -1,10 +1,10 @@
 package com.lcz.manage.sys.service.impl;
 
-import com.alibaba.druid.util.StringUtils;
 import com.lcz.manage.sys.bean.SysLogBean;
 import com.lcz.manage.sys.dao.SysLogDao;
 import com.lcz.manage.sys.service.SysLogService;
 import com.lcz.manage.util.IdUtils;
+import com.lcz.manage.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
