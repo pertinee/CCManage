@@ -36,7 +36,7 @@ public class SysOssController {
     @Autowired
     private SysConfigService sysConfigService;
 
-    private final static String KEY = ConfigConstant.CLOUD_STORAGE_CONFIG_KEY;
+    private final static String KEY = Constants.CLOUD_STORAGE_CONFIG_KEY;
 
 	/**
 	 * 初始化

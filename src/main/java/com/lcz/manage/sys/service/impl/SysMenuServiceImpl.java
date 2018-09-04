@@ -5,7 +5,7 @@ import com.lcz.manage.sys.dao.SysMenuDao;
 import com.lcz.manage.sys.enums.MenuType;
 import com.lcz.manage.sys.service.SysMenuService;
 import com.lcz.manage.sys.service.SysUserService;
-import com.lcz.manage.util.Constant;
+import com.lcz.manage.util.Constants;
 import com.lcz.manage.util.IdUtils;
 import com.lcz.manage.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +53,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	@Override
 	public List<SysMenuBean> getUserMenuList(String userId) {
 		//系统管理员，拥有最高权限
-		if(Constant.SUPER_ADMIN.equals(userId)){
+		if(Constants.SUPER_ADMIN.equals(userId)){
 			return getAllMenuList(null);
 		}
 
@@ -67,7 +67,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		List<String> permsList;
 
 		//系统管理员，拥有最高权限
-		if(Constant.SUPER_ADMIN.equals(userId)){
+		if(Constants.SUPER_ADMIN.equals(userId)){
 			List<SysMenuBean> menuList = queryList(new HashMap<>());
 			permsList = new ArrayList<>(menuList.size());
 			for(SysMenuBean menu : menuList){

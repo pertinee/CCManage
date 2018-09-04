@@ -3,7 +3,7 @@ package com.lcz.manage.sys.controller;
 import com.lcz.manage.sys.bean.SysRoleBean;
 import com.lcz.manage.sys.service.SysRoleMenuService;
 import com.lcz.manage.sys.service.SysRoleService;
-import com.lcz.manage.util.Constant;
+import com.lcz.manage.util.Constants;
 import com.lcz.manage.util.PageUtils;
 import com.lcz.manage.util.Query;
 import com.lcz.manage.util.R;
@@ -12,7 +12,6 @@ import org.apache.log4j.Logger;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -55,7 +54,7 @@ public class SysRoleController extends SysBaseController{
     @RequiresPermissions("sys:role:list")
     public R list(@RequestParam Map<String, Object> params){
         //如果不是超级管理员，则只查询自己创建的角色列表
-        if(!getUserId().equals(Constant.SUPER_ADMIN)){
+        if(!getUserId().equals(Constants.SUPER_ADMIN)){
             params.put("createUserId", getUserId());
         }
 
@@ -79,7 +78,7 @@ public class SysRoleController extends SysBaseController{
         Map<String, Object> map = new HashMap<>();
 
         //如果不是超级管理员，则只查询自己所拥有的角色列表
-        if(getUserId().equals(Constant.SUPER_ADMIN)){
+        if(getUserId().equals(Constants.SUPER_ADMIN)){
             map.put("createUserId", getUserId());
         }
         List<SysRoleBean> list = sysRoleService.queryList(map);

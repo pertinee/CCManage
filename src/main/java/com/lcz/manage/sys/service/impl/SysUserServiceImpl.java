@@ -6,7 +6,7 @@ import com.lcz.manage.sys.enums.UserStatus;
 import com.lcz.manage.sys.service.SysRoleService;
 import com.lcz.manage.sys.service.SysUserRoleService;
 import com.lcz.manage.sys.service.SysUserService;
-import com.lcz.manage.util.Constant;
+import com.lcz.manage.util.Constants;
 import com.lcz.manage.util.IdUtils;
 import com.lcz.manage.util.ShiroUtils;
 import com.lcz.manage.util.StringUtils;
@@ -132,7 +132,7 @@ public class SysUserServiceImpl implements SysUserService{
      */
     private void checkRole(SysUserBean user){
         //如果不是超级管理员，则需要判断用户的角色是否自己创建
-        if(user.getCreateUserId().equals(Constant.SUPER_ADMIN)){
+        if(user.getCreateUserId().equals(Constants.SUPER_ADMIN)){
             return ;
         }
 

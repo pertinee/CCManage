@@ -3,7 +3,7 @@ package com.lcz.manage.sys.controller;
 import com.lcz.manage.sys.bean.SysMenuBean;
 import com.lcz.manage.sys.enums.MenuType;
 import com.lcz.manage.sys.service.SysMenuService;
-import com.lcz.manage.util.Constant;
+import com.lcz.manage.util.Constants;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.StringUtils;
 import com.lcz.manage.util.annotation.SysLog;
@@ -97,7 +97,7 @@ public class SysMenuController extends SysBaseController{
         List<SysMenuBean> menuList = null;
 
         //只有超级管理员，才能查看所有管理员列表
-        if(getUserId().equals(Constant.SUPER_ADMIN)){
+        if(getUserId().equals(Constants.SUPER_ADMIN)){
             menuList = sysMenuService.queryList(new HashMap<String, Object>());
         }else{
             menuList = sysMenuService.queryUserList(getUserId());
@@ -230,7 +230,7 @@ public class SysMenuController extends SysBaseController{
 
         //上级菜单类型
         String parentType = MenuType.CATALOG.getCode();
-        if(!Constant.IS_TOP_MENU.equals(menu.getParentId())){
+        if(!Constants.IS_TOP_MENU.equals(menu.getParentId())){
             SysMenuBean parentMenu = sysMenuService.queryObject(menu.getParentId());
             parentType = parentMenu.getType();
         }
