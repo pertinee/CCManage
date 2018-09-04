@@ -96,7 +96,7 @@ public class SysUserController extends SysBaseController{
         List<SysUserBean> userList = sysUserService.queryList(params);
         int total = sysUserService.queryTotal(params);
         PageUtils pageUtil = new PageUtils(userList, total, query.getLimit(), query.getPage());
-        return R.ok().put(CcConstants.PAGE,pageUtil);
+        return R.ok().put("page",pageUtil);
     }
 
     /**

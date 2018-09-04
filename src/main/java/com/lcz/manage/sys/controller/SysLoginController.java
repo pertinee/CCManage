@@ -2,7 +2,6 @@ package com.lcz.manage.sys.controller;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-import com.lcz.manage.sys.constants.ExceptionCode;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.ShiroUtils;
 import org.apache.log4j.Logger;
@@ -69,7 +68,7 @@ public class SysLoginController {
 	public R login(String username, String password, String captcha)throws IOException {
 		String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
 		if(!captcha.equalsIgnoreCase(kaptcha)){
-			return R.error(ExceptionCode.CAPTCHA_ERROR);
+			return R.error("验证码不正确");
 		}
 
 		try{
@@ -85,7 +84,7 @@ public class SysLoginController {
 		}catch (LockedAccountException e) {
 			return R.error(e.getMessage());
 		}catch (AuthenticationException e) {
-			return R.error(ExceptionCode.ACCOUNT_CHECK_ERROR);
+			return R.error("账户验证失败");
 		}
 
 		return R.ok();

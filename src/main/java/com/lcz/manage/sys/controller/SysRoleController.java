@@ -65,7 +65,7 @@ public class SysRoleController extends SysBaseController{
 
         PageUtils pageUtil = new PageUtils(list, total, query.getLimit(), query.getPage());
 
-        return R.ok().put(CcConstants.PAGE, pageUtil);
+        return R.ok().put("page", pageUtil);
     }
 
     /**

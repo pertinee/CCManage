@@ -49,7 +49,7 @@ public class ScheduleJobController {
 		
 		PageUtils pageUtil = new PageUtils(jobList, total, query.getLimit(), query.getPage());
 		
-		return R.ok().put(CcConstants.PAGE, pageUtil);
+		return R.ok().put("page", pageUtil);
 	}
 	
 	/**

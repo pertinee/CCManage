@@ -7,9 +7,6 @@ package com.lcz.manage.sys.constants;
  */
 public class CcConstants {
 
-	public static final String PAGE = "page";
-
-
 	/** 超级管理员ID */
 	public static final String SUPER_ADMIN = "1";
 
@@ -18,12 +15,9 @@ public class CcConstants {
 	 */
 	public static final String IS_TOP_MENU = "0";
 
-
 	/**
 	 * 云存储配置KEY
 	 */
 	public final static String CLOUD_STORAGE_CONFIG_KEY = "CLOUD_STORAGE_CONFIG_KEY";
-
-
 
 }
