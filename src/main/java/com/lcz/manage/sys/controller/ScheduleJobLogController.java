@@ -1,6 +1,7 @@
 package com.lcz.manage.sys.controller;
 
 import com.lcz.manage.sys.bean.ScheduleJobLogBean;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.sys.service.ScheduleJobLogService;
 import com.lcz.manage.util.PageUtils;
 import com.lcz.manage.util.Query;
@@ -46,7 +47,7 @@ public class ScheduleJobLogController {
 		
 		PageUtils pageUtil = new PageUtils(jobList, total, query.getLimit(), query.getPage());
 		
-		return R.ok().put("page", pageUtil);
+		return R.ok().put(CcConstants.PAGE, pageUtil);
 	}
 	
 	/**

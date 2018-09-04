@@ -9,30 +9,34 @@ import java.util.Map;
  * @author luchunzhou
  */
 public class R extends HashMap<String, Object> {
-	private static final long serialVersionUID = 1L;
+
+	private static final String CODE = "code";
+	private static final String MSG = "msg";
+	private static final Integer FIVE_HUNDRED = 500;
+	private static final String UNKNOWN_EXCEPTION = "未知异常，请联系管理员";
 	
 	public R() {
-		put("code", 0);
+		put(CODE, 0);
 	}
 	
 	public static R error() {
-		return error(500, "未知异常，请联系管理员");
+		return error(FIVE_HUNDRED, UNKNOWN_EXCEPTION);
 	}
 	
 	public static R error(String msg) {
-		return error(500, msg);
+		return error(FIVE_HUNDRED, msg);
 	}
 	
 	public static R error(int code, String msg) {
 		R r = new R();
-		r.put("code", code);
-		r.put("msg", msg);
+		r.put(CODE, code);
+		r.put(MSG, msg);
 		return r;
 	}
 
 	public static R ok(String msg) {
 		R r = new R();
-		r.put("msg", msg);
+		r.put(MSG, msg);
 		return r;
 	}
 	

@@ -1,6 +1,7 @@
 package com.lcz.manage.sys.controller;
 
 import com.lcz.manage.sys.bean.SysConfigBean;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.sys.service.SysConfigService;
 import com.lcz.manage.util.PageUtils;
 import com.lcz.manage.util.Query;
@@ -48,7 +49,7 @@ public class SysConfigController extends SysBaseController {
 		
 		PageUtils pageUtil = new PageUtils(configList, total, query.getLimit(), query.getPage());
 		
-		return R.ok().put("page", pageUtil);
+		return R.ok().put(CcConstants.PAGE, pageUtil);
 	}
 	
 	

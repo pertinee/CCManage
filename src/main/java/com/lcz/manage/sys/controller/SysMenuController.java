@@ -3,7 +3,7 @@ package com.lcz.manage.sys.controller;
 import com.lcz.manage.sys.bean.SysMenuBean;
 import com.lcz.manage.sys.enums.MenuType;
 import com.lcz.manage.sys.service.SysMenuService;
-import com.lcz.manage.util.Constants;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.StringUtils;
 import com.lcz.manage.util.annotation.SysLog;
@@ -54,16 +54,6 @@ public class SysMenuController extends SysBaseController{
 
         return menuList;
     }
-//    public R list(@RequestParam Map<String, Object> params){
-//        //查询列表数据
-//        Query query = new Query(params);
-//        List<SysMenuBean> menuList = sysMenuService.queryList(query);
-//        int total = sysMenuService.queryTotal(query);
-//
-//        PageUtils pageUtil = new PageUtils(menuList, total, query.getLimit(), query.getPage());
-//
-//        return R.ok().put("page", pageUtil);
-//    }
 
     /**
      * 选择菜单(添加、修改菜单)
@@ -97,7 +87,7 @@ public class SysMenuController extends SysBaseController{
         List<SysMenuBean> menuList = null;
 
         //只有超级管理员，才能查看所有管理员列表
-        if(getUserId().equals(Constants.SUPER_ADMIN)){
+        if(getUserId().equals(CcConstants.SUPER_ADMIN)){
             menuList = sysMenuService.queryList(new HashMap<String, Object>());
         }else{
             menuList = sysMenuService.queryUserList(getUserId());
@@ -230,7 +220,7 @@ public class SysMenuController extends SysBaseController{
 
         //上级菜单类型
         String parentType = MenuType.CATALOG.getCode();
-        if(!Constants.IS_TOP_MENU.equals(menu.getParentId())){
+        if(!CcConstants.IS_TOP_MENU.equals(menu.getParentId())){
             SysMenuBean parentMenu = sysMenuService.queryObject(menu.getParentId());
             parentType = parentMenu.getType();
         }
@@ -241,7 +231,6 @@ public class SysMenuController extends SysBaseController{
             if(!MenuType.CATALOG.getCode().equals(parentType)){
                 throw new CCException("上级菜单只能为目录类型");
             }
-            return ;
         }
 
         //按钮
@@ -249,7 +238,6 @@ public class SysMenuController extends SysBaseController{
             if(!MenuType.MENU.getCode().equals(parentType)){
                 throw new CCException("上级菜单只能为菜单类型");
             }
-            return ;
         }
     }
 }

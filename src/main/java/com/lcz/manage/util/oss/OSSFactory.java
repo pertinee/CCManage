@@ -3,7 +3,7 @@ package com.lcz.manage.util.oss;
 
 import com.lcz.manage.sys.enums.CloudService;
 import com.lcz.manage.sys.service.SysConfigService;
-import com.lcz.manage.util.Constants;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.util.SpringContextUtils;
 
 /**
@@ -20,7 +20,7 @@ public final class OSSFactory {
 
     public static CloudStorageService build(){
         //获取云存储配置信息
-        CloudStorageConfig config = sysConfigService.getConfigObject(Constants.CLOUD_STORAGE_CONFIG_KEY, CloudStorageConfig.class);
+        CloudStorageConfig config = sysConfigService.getConfigObject(CcConstants.CLOUD_STORAGE_CONFIG_KEY, CloudStorageConfig.class);
 
         if(config.getType() == CloudService.QINIU.getValue()){
             return new QiniuCloudStorageService(config);

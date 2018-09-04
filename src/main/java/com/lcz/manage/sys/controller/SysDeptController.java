@@ -2,7 +2,7 @@ package com.lcz.manage.sys.controller;
 
 import com.lcz.manage.sys.bean.SysDeptBean;
 import com.lcz.manage.sys.service.SysDeptService;
-import com.lcz.manage.util.Constants;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.annotation.SysLog;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -57,7 +57,7 @@ public class SysDeptController extends SysBaseController {
 		List<SysDeptBean> deptList = sysDeptService.queryList(new HashMap<String, Object>());
 
 		//添加一级部门
-		if(getUserId().equals(Constants.SUPER_ADMIN)){
+		if(getUserId().equals(CcConstants.SUPER_ADMIN)){
 			SysDeptBean root = new SysDeptBean();
 			root.setId("0");
 			root.setName("一级部门");
@@ -77,7 +77,7 @@ public class SysDeptController extends SysBaseController {
 	@RequiresPermissions("sys:dept:list")
 	public R info(){
 		String id = "0";
-		if(!getUserId().equals(Constants.SUPER_ADMIN)){
+		if(!getUserId().equals(CcConstants.SUPER_ADMIN)){
 			SysDeptBean dept = sysDeptService.queryObject(getDeptId());
 			id = dept.getParentId();
 		}

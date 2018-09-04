@@ -2,6 +2,7 @@ package com.lcz.manage.sys.controller;
 
 import com.lcz.manage.sys.bean.SysRoleBean;
 import com.lcz.manage.sys.bean.SysUserBean;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.sys.service.SysRoleService;
 import com.lcz.manage.sys.service.SysUserService;
 import com.lcz.manage.util.PageUtils;
@@ -95,7 +96,7 @@ public class SysUserController extends SysBaseController{
         List<SysUserBean> userList = sysUserService.queryList(params);
         int total = sysUserService.queryTotal(params);
         PageUtils pageUtil = new PageUtils(userList, total, query.getLimit(), query.getPage());
-        return R.ok().put("page",pageUtil);
+        return R.ok().put(CcConstants.PAGE,pageUtil);
     }
 
     /**

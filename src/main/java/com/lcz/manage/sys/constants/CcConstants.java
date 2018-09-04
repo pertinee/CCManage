@@ -1,11 +1,15 @@
-package com.lcz.manage.util;
+package com.lcz.manage.sys.constants;
 
 /**
  * 常量
  * 
  * @author luchunzhou
  */
-public class Constants {
+public class CcConstants {
+
+	public static final String PAGE = "page";
+
+
 	/** 超级管理员ID */
 	public static final String SUPER_ADMIN = "1";
 
@@ -19,5 +23,7 @@ public class Constants {
 	 * 云存储配置KEY
 	 */
 	public final static String CLOUD_STORAGE_CONFIG_KEY = "CLOUD_STORAGE_CONFIG_KEY";
+
+
 
 }

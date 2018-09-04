@@ -5,7 +5,7 @@ import com.lcz.manage.sys.dao.SysRoleDao;
 import com.lcz.manage.sys.service.SysRoleMenuService;
 import com.lcz.manage.sys.service.SysRoleService;
 import com.lcz.manage.sys.service.SysUserService;
-import com.lcz.manage.util.Constants;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.util.IdUtils;
 import com.lcz.manage.util.exception.CCException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +87,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 	 */
 	private void checkPrems(SysRoleBean role){
 		//如果不是超级管理员，则需要判断角色的权限是否超过自己的权限
-		if(role.getCreateUserId().equals(Constants.SUPER_ADMIN)){
+		if(role.getCreateUserId().equals(CcConstants.SUPER_ADMIN)){
 			return ;
 		}
 		

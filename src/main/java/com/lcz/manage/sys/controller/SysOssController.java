@@ -2,6 +2,7 @@ package com.lcz.manage.sys.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.lcz.manage.sys.bean.SysOssBean;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.sys.enums.CloudService;
 import com.lcz.manage.sys.service.SysConfigService;
 import com.lcz.manage.sys.service.SysOssService;
@@ -36,7 +37,7 @@ public class SysOssController {
     @Autowired
     private SysConfigService sysConfigService;
 
-    private final static String KEY = Constants.CLOUD_STORAGE_CONFIG_KEY;
+    private final static String KEY = CcConstants.CLOUD_STORAGE_CONFIG_KEY;
 
 	/**
 	 * 初始化
@@ -62,7 +63,7 @@ public class SysOssController {
 		
 		PageUtils pageUtil = new PageUtils(sysOssList, total, query.getLimit(), query.getPage());
 		
-		return R.ok().put("page", pageUtil);
+		return R.ok().put(CcConstants.PAGE, pageUtil);
 	}
 
 
