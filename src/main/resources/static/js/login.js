@@ -31,3 +31,11 @@ function login() {
         }
     });
 }
+
+// 绑定键盘按下事件
+$(document).keypress(function(e) {
+    // 回车键事件，登录
+    if(e.which == 13) {
+        login();
+    }
+});
