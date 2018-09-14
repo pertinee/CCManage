@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcz.manage.sys.dao.SysDictInfoDao">
+
+	<select id="queryDictInfo" resultType="com.lcz.manage.sys.bean.SysDictInfoBean">
+		select * from sys_dict_info where id = #{id} and dict_value = #{dictValue}
+	</select>
+
+	<select id="queryDictInfoList" resultType="com.lcz.manage.sys.bean.SysDictInfoBean">
+		select * from sys_dict_info
+		<where>
+			<if test="id != null and id.trim() != ''">
+				id = #{id}
+			</if>
+			<if test="dictValue != null and dictValue.trim() != ''">
+				dict_value = #{dictValue}
+			</if>
+			<if test="dictPrompt != null and dictPrompt.trim() != ''">
+				dict_prompt like concat('%',#{dictPrompt},'%')
+			</if>
+			<if test="accessLevel != null and accessLevel.trim() != ''">
+				access_level = #{accessLevel}
+			</if>
+			<if test="orderId != null and orderId.trim() != ''">
+				order_id = #{orderId}
+			</if>
+			<if test="remark != null and remark.trim() != ''">
+				remark like concat('%',#{remark},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="sidx != null and sidx.trim() != ''">
+				order by ${sidx} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<insert id="saveDictInfo" parameterType="com.lcz.manage.sys.bean.SysDictInfoBean">
+		insert into sys_dict_info
+		(
+			`id`,
+			`dict_value`,
+			`dict_prompt`,
+			`access_level`,
+			`order_id`,
+			`remark`
+		)
+		values
+		(
+			#{id},
+			#{dictValue},
+			#{dictPrompt},
+			#{accessLevel},
+			#{orderId},
+			#{remark}
+		)
+	</insert>
+	 
+	<update id="updateDictInfo" parameterType="com.lcz.manage.sys.bean.SysDictInfoBean">
+		update sys_dict_info
+		<set>
+			<if test="dictPrompt != null">`dict_prompt` = #{dictPrompt}, </if>
+			<if test="accessLevel != null">`access_level` = #{accessLevel}, </if>
+			<if test="orderId != null">`order_id` = #{orderId}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+		</set>
+		where id = #{id} and dict_value = #{dictValue}
+	</update>
+	
+	<delete id="deleteDictInfo">
+		delete from sys_dict_info where id = #{id} and dict_value = #{dictValue}
+	</delete>
+	
+</mapper>
