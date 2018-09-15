@@ -2,6 +2,7 @@ package com.lcz.manage.util.share;
 
 import com.lcz.manage.sys.bean.SysDictBean;
 import com.lcz.manage.sys.bean.SysDictInfoBean;
+import com.lcz.manage.sys.bean.SysDictInfoKey;
 import com.lcz.manage.sys.dao.SysDictDao;
 import com.lcz.manage.sys.dao.SysDictInfoDao;
 import com.lcz.manage.util.StringUtils;
@@ -58,7 +59,10 @@ public class DictShareImpl extends DictShare {
     @Override
     public String getDictPrompt(String dictId, String value) {
         if(!StringUtils.isEmpty(dictId) && !StringUtils.isEmpty(value)) {
-            SysDictInfoBean item = this.sysDictInfoDao.queryDictInfo(dictId, value);
+            SysDictInfoKey key = new SysDictInfoKey();
+            key.setId(dictId);
+            key.setDictValue(value);
+            SysDictInfoBean item = this.sysDictInfoDao.queryDictInfo(key);
             if(item != null) {
                 return item.getDictPrompt();
             }

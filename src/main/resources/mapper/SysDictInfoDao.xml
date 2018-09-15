@@ -3,11 +3,11 @@
 
 <mapper namespace="com.lcz.manage.sys.dao.SysDictInfoDao">
 
-	<select id="queryDictInfo" resultType="com.lcz.manage.sys.bean.SysDictInfoBean">
+	<select id="queryDictInfo" parameterType="com.lcz.manage.sys.bean.SysDictInfoKey" resultType="com.lcz.manage.sys.bean.SysDictInfoBean">
 		select * from sys_dict_info where id = #{id} and dict_value = #{dictValue}
 	</select>
 
-	<select id="queryDictInfoList" resultType="com.lcz.manage.sys.bean.SysDictInfoBean">
+	<select id="queryDictInfoList" parameterType="com.lcz.manage.sys.bean.SysDictInfoBean" resultType="com.lcz.manage.sys.bean.SysDictInfoBean">
 		select * from sys_dict_info
 		<where>
 			<if test="id != null and id.trim() != ''">
@@ -29,17 +29,6 @@
 				remark like concat('%',#{remark},'%')
 			</if>
 		</where>
-		<choose>
-			<when test="sidx != null and sidx.trim() != ''">
-				order by ${sidx} ${order}
-			</when>
-			<otherwise>
-				order by id desc
-			</otherwise>
-		</choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
 	</select>
 
 	<insert id="saveDictInfo" parameterType="com.lcz.manage.sys.bean.SysDictInfoBean">
@@ -74,7 +63,7 @@
 		where id = #{id} and dict_value = #{dictValue}
 	</update>
 	
-	<delete id="deleteDictInfo">
+	<delete id="deleteDictInfo" parameterType="com.lcz.manage.sys.bean.SysDictInfoKey">
 		delete from sys_dict_info where id = #{id} and dict_value = #{dictValue}
 	</delete>
 	
