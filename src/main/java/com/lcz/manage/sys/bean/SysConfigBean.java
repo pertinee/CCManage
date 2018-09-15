@@ -2,7 +2,6 @@ package com.lcz.manage.sys.bean;
 
 
 import com.lcz.manage.util.common.base.BaseBean;
-import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -10,7 +9,6 @@ import org.hibernate.validator.constraints.NotBlank;
  * 
  * @author luchunzhou
  */
-@Data
 public class SysConfigBean extends BaseBean {
 
 	@NotBlank(message="参数名不能为空")
@@ -23,4 +21,35 @@ public class SysConfigBean extends BaseBean {
 	 */
 	private Integer status;
 
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 }

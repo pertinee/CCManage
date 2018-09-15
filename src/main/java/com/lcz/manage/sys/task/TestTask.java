@@ -1,6 +1,7 @@
 package com.lcz.manage.sys.task;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,9 +11,8 @@ import org.springframework.stereotype.Component;
  * @author luchunzhou
  */
 @Component("testTask")
-@Slf4j
 public class TestTask {
-
+    private static final Logger log = LoggerFactory.getLogger(TestTask.class);
     public void test(String params) {
         log.info("我是带参数的test方法，正在被执行，参数为：" + params);
         try {

@@ -2,14 +2,12 @@ package com.lcz.manage.sys.bean;
 
 
 import com.lcz.manage.util.common.base.BaseBean;
-import lombok.Data;
 
 /**
  * 角色与菜单对应关系
  * 
  * @author luchunzhou
  */
-@Data
 public class SysRoleMenuBean extends BaseBean {
 
 	/**
@@ -22,4 +20,19 @@ public class SysRoleMenuBean extends BaseBean {
 	 */
 	private String menuId;
 
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
+
+	public String getMenuId() {
+		return menuId;
+	}
+
+	public void setMenuId(String menuId) {
+		this.menuId = menuId;
+	}
 }

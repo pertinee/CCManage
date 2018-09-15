@@ -51,6 +51,30 @@
 			#{remark}
 		)
 	</insert>
+
+	<!-- 批量插入 -->
+	<insert id="saveBatchDictInfo" parameterType="java.util.List">
+		insert into sys_dict_info
+		(
+			`id`,
+			`dict_value`,
+			`dict_prompt`,
+			`access_level`,
+			`order_id`,
+			`remark`
+		)
+		values
+		<foreach collection="dictInfoList" item="item" index="index" separator=",">
+		(
+			#{item.id},
+			#{item.dictValue},
+			#{item.dictPrompt},
+			#{item.accessLevel},
+			#{item.orderId},
+			#{item.remark}
+		)
+		</foreach>
+	</insert>
 	 
 	<update id="updateDictInfo" parameterType="com.lcz.manage.sys.bean.SysDictInfoBean">
 		update sys_dict_info

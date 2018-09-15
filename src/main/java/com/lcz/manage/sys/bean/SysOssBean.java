@@ -1,8 +1,6 @@
 package com.lcz.manage.sys.bean;
 
 import com.lcz.manage.util.common.base.BaseBean;
-import lombok.Data;
-
 import java.util.Date;
 
 
@@ -11,7 +9,6 @@ import java.util.Date;
  * 
  * @author luchunzhou
  */
-@Data
 public class SysOssBean extends BaseBean {
 
 	/**
@@ -23,4 +20,19 @@ public class SysOssBean extends BaseBean {
 	 */
 	private Date createDate;
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 }

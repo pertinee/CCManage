@@ -2,14 +2,12 @@ package com.lcz.manage.sys.bean;
 
 
 import com.lcz.manage.util.common.base.BaseBean;
-import lombok.Data;
 
 /**
  * 用户与角色对应关系
  * 
  * @author luchunzhou
  */
-@Data
 public class SysUserRoleBean extends BaseBean {
 
 	/**
@@ -22,4 +20,19 @@ public class SysUserRoleBean extends BaseBean {
 	 */
 	private String roleId;
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
 }

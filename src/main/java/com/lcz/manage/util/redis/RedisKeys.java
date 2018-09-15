@@ -14,4 +14,8 @@ public class RedisKeys {
     public static String getShiroSessionKey(String key){
         return "sessionid:" + key;
     }
+
+    public static String getSysDictKey(String key){
+        return "sys:dict:" + key;
+    }
 }

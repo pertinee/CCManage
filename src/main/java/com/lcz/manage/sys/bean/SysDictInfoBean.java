@@ -1,14 +1,12 @@
 package com.lcz.manage.sys.bean;
 
 import com.lcz.manage.util.common.base.BaseBean;
-import lombok.Data;
 
 /**
  * 数据字典详情表
  *
  * @author luchunzhou
  */
-@Data
 public class SysDictInfoBean extends BaseBean {
 
     /**
@@ -36,4 +34,43 @@ public class SysDictInfoBean extends BaseBean {
      */
     private String remark;
 
+    public String getDictValue() {
+        return dictValue;
+    }
+
+    public void setDictValue(String dictValue) {
+        this.dictValue = dictValue;
+    }
+
+    public String getDictPrompt() {
+        return dictPrompt;
+    }
+
+    public void setDictPrompt(String dictPrompt) {
+        this.dictPrompt = dictPrompt;
+    }
+
+    public String getAccessLevel() {
+        return accessLevel;
+    }
+
+    public void setAccessLevel(String accessLevel) {
+        this.accessLevel = accessLevel;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }

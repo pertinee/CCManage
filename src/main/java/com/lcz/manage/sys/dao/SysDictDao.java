@@ -22,4 +22,6 @@ public interface SysDictDao {
 
     int deleteDict(String id);
 
+    int deleteBatchDict(String[] id);
+
 }

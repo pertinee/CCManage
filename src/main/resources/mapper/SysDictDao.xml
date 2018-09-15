@@ -60,5 +60,12 @@
 	<delete id="deleteDict">
 		delete from sys_dict where id = #{value}
 	</delete>
+
+	<delete id="deleteBatchDict" parameterType="int">
+		delete from sys_dict where id in
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
 	
 </mapper>

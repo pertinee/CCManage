@@ -2,7 +2,8 @@ package com.lcz.manage.sys.task;
 
 import com.lcz.manage.util.MySQLBackupUtils;
 import com.lcz.manage.util.exception.CCException;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -13,9 +14,8 @@ import org.springframework.stereotype.Component;
  * @date 2018/3/10
  */
 @Component("backupMySQLTask")
-@Slf4j
 public class BackupMySQLTask {
-
+    private static final Logger log = LoggerFactory.getLogger(BackupMySQLTask.class);
     @Value("${backup.hostIP}")
     private String hostIP;
     @Value("${backup.userName}")

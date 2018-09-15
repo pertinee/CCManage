@@ -1,6 +1,5 @@
 package com.lcz.manage.sys.bean;
 
-import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;
@@ -13,7 +12,6 @@ import java.util.List;
  *
  * @author luchunzhou
  */
-@Data
 public class SysRoleBean implements Serializable {
     
     /**
@@ -44,4 +42,51 @@ public class SysRoleBean implements Serializable {
      */
     private Date createDate;
 
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getCreateUserId() {
+        return createUserId;
+    }
+
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
+    }
+
+    public List<String> getMenuIdList() {
+        return menuIdList;
+    }
+
+    public void setMenuIdList(List<String> menuIdList) {
+        this.menuIdList = menuIdList;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 }

@@ -18,6 +18,8 @@ public interface SysDictInfoDao {
 
     void saveDictInfo(SysDictInfoBean sysDict);
 
+    void saveBatchDictInfo(List<SysDictInfoBean> dictInfoList);
+
     int updateDictInfo(SysDictInfoBean sysDict);
 
     int deleteDictInfo(SysDictInfoKey key);

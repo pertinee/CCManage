@@ -3,7 +3,8 @@ package com.lcz.manage.sys.task;
 import com.alibaba.fastjson.JSON;
 import com.lcz.manage.sys.bean.SysLogBean;
 import com.lcz.manage.sys.service.SysLogService;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -21,9 +22,8 @@ import java.util.List;
  * @date 2018/3/10
  */
 @Component("emailSendTask")
-@Slf4j
 public class EmailSendTask {
-
+    private static final Logger log = LoggerFactory.getLogger(EmailSendTask.class);
     @Value("${spring.mail.username}")
     private String username;
 
