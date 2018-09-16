@@ -9,7 +9,7 @@ $(function () {
             { label: '所属部门', name: 'deptName', width: 75 },
             { label: '邮箱', name: 'email', width: 90 },
             { label: '手机号', name: 'mobile', width: 100 },
-            { label: '状态', name: 'status', width: 75},
+            { label: '状态', name: 'status', width: 75, hidden:true},
             { label: '状态', name: 'statusCn', width: 75, formatter: function(value, options, row){
                 if(row.status == '1'){
                     return '<span class="label label-success">'+ row.statusCn +'</span>';

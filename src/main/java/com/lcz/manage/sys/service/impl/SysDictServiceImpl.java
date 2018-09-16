@@ -1,10 +1,12 @@
 package com.lcz.manage.sys.service.impl;
 
 import com.lcz.manage.sys.bean.SysDictBean;
+import com.lcz.manage.sys.bean.SysDictFront;
 import com.lcz.manage.sys.bean.SysDictInfoBean;
 import com.lcz.manage.sys.bean.SysDictInfoKey;
 import com.lcz.manage.sys.dao.SysDictDao;
 import com.lcz.manage.sys.dao.SysDictInfoDao;
+import com.lcz.manage.sys.enums.AccessLevel;
 import com.lcz.manage.sys.redis.SysDictRedis;
 import com.lcz.manage.sys.service.SysDictService;
 import com.lcz.manage.util.IdUtils;
@@ -14,9 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 @Service("sysDictService")
@@ -68,6 +68,24 @@ public class SysDictServiceImpl implements SysDictService {
     @Override
     public SysDictBean queryDict(String id) {
         return sysDictDao.queryDict(id);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public List<SysDictBean> queryDictList(SysDictBean sysDict) {
+        List<SysDictBean> dictList = sysDictDao.queryDictList(sysDict);
+        if(!CollectionUtils.isEmpty(dictList)){
+            for(SysDictBean eachDict : dictList){
+                SysDictInfoBean qryDict = new SysDictInfoBean();
+                qryDict.setId(eachDict.getId());
+                List<SysDictInfoBean> infoList = sysDictInfoDao.queryDictInfoList(qryDict);
+                if(!CollectionUtils.isEmpty(infoList)){
+                    eachDict.setDictInfoList(infoList);
+                }
+                sysDictRedis.saveOrUpdate(eachDict);
+            }
+        }
+        return dictList;
     }
 
     @Override
@@ -135,5 +153,22 @@ public class SysDictServiceImpl implements SysDictService {
     @Override
     public List<SysDictInfoBean> queryDictInfoList(SysDictInfoBean sysDict) {
         return sysDictInfoDao.queryDictInfoList(sysDict);
+    }
+
+    @Override
+    public List<SysDictFront> queryDictFrontList(Map<String, Object> map) {
+        List<SysDictFront> list = new ArrayList<>();
+        list = sysDictDao.queryDictFrontList(map);
+        if(!CollectionUtils.isEmpty(list)){
+            for(SysDictFront eachDict : list){
+                eachDict.setAccessLevelCn(AccessLevel.find(eachDict.getAccessLevel()).getName());
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public int queryTotal(Map<String, Object> map) {
+        return sysDictDao.queryTotal(map);
     }
 }

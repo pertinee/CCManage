@@ -3,8 +3,10 @@ package com.lcz.manage.sys.service;
 import com.lcz.manage.sys.bean.SysDictBean;
 import com.lcz.manage.sys.bean.SysDictInfoBean;
 import com.lcz.manage.sys.bean.SysDictInfoKey;
+import com.lcz.manage.sys.bean.SysDictFront;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 数据字典信息服务
@@ -37,6 +39,11 @@ public interface SysDictService {
 	public SysDictBean queryDict(String id);
 
 	/**
+	 * 获取数据字典列表
+	 */
+	public List<SysDictBean> queryDictList(SysDictBean sysDict);
+
+	/**
 	 * 保存配置信息详情
 	 */
 	public void saveDictInfo(SysDictInfoBean dict);
@@ -55,5 +62,12 @@ public interface SysDictService {
 	 * 获取数据字典详情列表
 	 */
 	public List<SysDictInfoBean> queryDictInfoList(SysDictInfoBean sysDict);
+
+	/**
+	 * 前台显示数据字典列表
+	 */
+	public List<SysDictFront> queryDictFrontList(Map<String, Object> map);
+
+	public int queryTotal(Map<String, Object> map);
 	
 }

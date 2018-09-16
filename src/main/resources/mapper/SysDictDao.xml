@@ -3,6 +3,10 @@
 
 <mapper namespace="com.lcz.manage.sys.dao.SysDictDao">
 
+	<sql id="Page_Column_List">
+		d.id, d.dict_name, di.dict_value, di.dict_prompt, di.access_level, di.order_id, di.remark
+	</sql>
+
 	<select id="queryDict" resultType="com.lcz.manage.sys.bean.SysDictBean">
 		select * from sys_dict where id = #{value}
 	</select>
@@ -20,17 +24,6 @@
 				remark like concat('%',#{remark},'%')
 			</if>
 		</where>
-		<choose>
-			<when test="sidx != null and sidx.trim() != ''">
-				order by ${sidx} ${order}
-			</when>
-			<otherwise>
-				order by id desc
-			</otherwise>
-		</choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
 	</select>
 
 	<insert id="saveDict" parameterType="com.lcz.manage.sys.bean.SysDictBean">
@@ -67,5 +60,37 @@
 			#{id}
 		</foreach>
 	</delete>
-	
+
+	<select id="queryDictFrontList" resultType="com.lcz.manage.sys.bean.SysDictFront">
+		select
+		<include refid="Page_Column_List" />
+		from sys_dict d, sys_dict_info di
+		where d.id = di.id
+		<if test="dictName != null and dictName.trim() != ''">
+			and d.`dict_name` like concat('%',#{dictName},'%')
+		</if>
+		<choose>
+			<when test="sidx != null and sidx.trim() != ''">
+				order by ${sidx} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="queryTotal" resultType="int">
+		select
+			count(*)
+		from sys_dict d, sys_dict_info di
+		<where>
+			<if test="dictName != null and dictName.trim() != ''">
+				and d.`dict_name` like concat('%',#{dictName},'%')
+			</if>
+		</where>
+	</select>
+
 </mapper>

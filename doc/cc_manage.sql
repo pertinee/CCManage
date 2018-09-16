@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2018-09-16 00:36:45
+Date: 2018-09-16 16:50:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -174,7 +174,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('CCScheduler', 'LCZ-PC1537029233925', '1537029396798', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('CCScheduler', 'LCZ-PC1537087648006', '1537087808188', '15000');
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -705,6 +705,11 @@ CREATE TABLE `sys_menu` (
 -- Records of sys_menu
 -- ----------------------------
 INSERT INTO `sys_menu` VALUES ('1', '0', '基础管理', null, null, '0', '1', 'fa fa-cog', '0');
+INSERT INTO `sys_menu` VALUES ('10', '1', '数据字典', '/sys/dict', '', '1', '1', 'fa fa-book', '8');
+INSERT INTO `sys_menu` VALUES ('101', '10', '查看', '', 'sys:dict:list,sys:dict:info', '2', '1', '', '0');
+INSERT INTO `sys_menu` VALUES ('102', '10', '新增', '', 'sys:dict:save,sys:dict:select', '2', '1', '', '0');
+INSERT INTO `sys_menu` VALUES ('103', '10', '修改', '', 'sys:dict:update,sys:dict:select', '2', '1', '', '0');
+INSERT INTO `sys_menu` VALUES ('104', '10', '删除', '', 'sys:dict:delete', '2', '1', '', '0');
 INSERT INTO `sys_menu` VALUES ('1b4e6925-32ac-4fc6-af9d-fc510d3961ac', '7', '接口文档', '/swagger-ui.html', '', '1', '1', 'fa fa-book', '3');
 INSERT INTO `sys_menu` VALUES ('2', '1', '用户管理', '/sys/user/page', null, '1', '1', 'fa fa-user', '1');
 INSERT INTO `sys_menu` VALUES ('21', '2', '查看', null, 'sys:user:list,sys:user:info', '2', '1', null, '0');
@@ -731,7 +736,7 @@ INSERT INTO `sys_menu` VALUES ('6b03c9d4-9f26-49c7-a0be-0f68bd707afb', 'c77961d7
 INSERT INTO `sys_menu` VALUES ('7', '0', '系统管理', null, null, '0', '1', 'fa fa-cogs', '1');
 INSERT INTO `sys_menu` VALUES ('733ad909-2733-463a-aba0-f13d6cf5cade', '1', '部门管理', '/sys/dept', '', '1', '1', 'fa fa-file-code-o', '3');
 INSERT INTO `sys_menu` VALUES ('7468c3a4-0df9-40c8-be3a-ec52d038614e', '733ad909-2733-463a-aba0-f13d6cf5cade', '查看', '', 'sys:dept:list,sys:dept:info', '2', '1', null, '0');
-INSERT INTO `sys_menu` VALUES ('8', '1', '数据字典', '/sys/config', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', '1', 'fa fa-book', '5');
+INSERT INTO `sys_menu` VALUES ('8', '1', '系统配置', '/sys/config', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', '1', 'fa fa-book', '5');
 INSERT INTO `sys_menu` VALUES ('9', '1', '文件上传', '/sys/oss', 'sys:oss:all', '1', '1', 'fa fa-file-image-o', '6');
 INSERT INTO `sys_menu` VALUES ('a2552209-90e3-456b-984c-01e43d91e597', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '删除', '', 'sys:schedule:delete', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('ac54df09-6f2f-4529-abf1-98efae1a96ef', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '日志列表', '', 'sys:schedule:log', '2', '1', null, '0');
