@@ -61,9 +61,8 @@ public class RedisShiroSessionDAO extends EnterpriseCacheSessionDAO {
     }
 
     private void setShiroSession(String key, Session session){
-        redisTemplate.opsForValue().set(key, session);
         //60分钟过期
-        redisTemplate.expire(key, 60, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(key, session, 60, TimeUnit.MINUTES);
     }
 
 }
