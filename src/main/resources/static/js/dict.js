@@ -3,7 +3,8 @@ $(function () {
         url: '/sys/dict/list',
         datatype: "json",
         colModel: [
-            { label: '字典ID', name: 'id', index: "dict_id", width: 45, key: true, hidden:true },
+            { label: '字典唯一ID', name: 'id', index: "id", width: 45, key: true, hidden:true },
+            { label: '字典ID', name: 'dict_id', index: "dict_id", width: 45 },
             { label: '字典名称', name: 'dictName', index: "dict_name", width: 75 },
             { label: '字典数值', name: 'dictValue', index: "dict_value", width: 75 },
             { label: '字典提示', name: 'dictPrompt', index: "dict_prompt", width: 75 },

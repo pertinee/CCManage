@@ -69,5 +69,9 @@ public interface SysDictService {
 	public List<SysDictFront> queryDictFrontList(Map<String, Object> map);
 
 	public int queryTotal(Map<String, Object> map);
-	
+
+	/**
+	 * 删除数据字典
+	 */
+	public void deleteBatch(String[] ids);
 }

@@ -4,7 +4,7 @@
 <mapper namespace="com.lcz.manage.sys.dao.SysDictDao">
 
 	<sql id="Page_Column_List">
-		d.id, d.dict_name, di.dict_value, di.dict_prompt, di.access_level, di.order_id, di.remark
+		di.id as dict_id, d.dict_name, di.dict_value, di.dict_prompt, di.access_level, di.order_id, di.remark
 	</sql>
 
 	<select id="queryDict" resultType="com.lcz.manage.sys.bean.SysDictBean">
@@ -74,7 +74,7 @@
 				order by ${sidx} ${order}
 			</when>
 			<otherwise>
-				order by id desc
+				order by di.id desc
 			</otherwise>
 		</choose>
 		<if test="offset != null and limit != null">

@@ -161,6 +161,7 @@ public class SysDictServiceImpl implements SysDictService {
         list = sysDictDao.queryDictFrontList(map);
         if(!CollectionUtils.isEmpty(list)){
             for(SysDictFront eachDict : list){
+                eachDict.setId(eachDict.getDictId() + "_" + eachDict.getDictValue());
                 eachDict.setAccessLevelCn(AccessLevel.find(eachDict.getAccessLevel()).getName());
             }
         }
@@ -170,5 +171,17 @@ public class SysDictServiceImpl implements SysDictService {
     @Override
     public int queryTotal(Map<String, Object> map) {
         return sysDictDao.queryTotal(map);
+    }
+
+    @Override
+    public void deleteBatch(String[] ids) {
+        List<SysDictInfoKey> keys = new ArrayList<>();
+        for(String each : ids){
+            SysDictInfoKey key = new SysDictInfoKey();
+            key.setId(each.split("_")[0]);
+            key.setDictValue(each.split("_")[1]);
+            keys.add(key);
+        }
+        deleteBatchDictInfo(keys);
     }
 }

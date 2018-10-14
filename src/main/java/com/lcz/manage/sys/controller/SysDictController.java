@@ -6,14 +6,12 @@ import com.lcz.manage.sys.service.SysDictService;
 import com.lcz.manage.util.PageUtils;
 import com.lcz.manage.util.Query;
 import com.lcz.manage.util.R;
+import com.lcz.manage.util.annotation.SysLog;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -58,6 +56,19 @@ public class SysDictController extends SysBaseController{
         PageUtils pageUtil = new PageUtils(sysDictFrontList, total, query.getLimit(), query.getPage());
 
         return R.ok().put("page", pageUtil);
+    }
+
+    /**
+     * 删除
+     */
+    @ResponseBody
+    @SysLog("删除数据字典")
+    @RequestMapping("/sys/dict/delete")
+    @RequiresPermissions("sys:dict:delete")
+    public R delete(@RequestBody String[] ids){
+        sysDictService.deleteBatch(ids);
+
+        return R.ok();
     }
 
 }

@@ -2,7 +2,6 @@ package com.lcz.manage.sys.controller;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-import com.lcz.manage.sys.enums.ProfilesActive;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.ShiroUtils;
 import org.apache.log4j.Logger;
@@ -10,7 +9,6 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,8 +33,6 @@ public class SysLoginController {
 
 	@Autowired
 	private Producer producer;
-	@Value("${spring.profiles.active}")
-	private String profilesActive;
 
 	/**
 	 * 跳转到登录页
@@ -71,11 +67,8 @@ public class SysLoginController {
 	@RequestMapping(value = "/sys/login", method = RequestMethod.POST)
 	public R login(String username, String password, String captcha)throws IOException {
 		String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
-		// STEP1：开发环境不需要验证码验证
-		if(!ProfilesActive.DEV.getCode().equals(profilesActive)){
-			if(!captcha.equalsIgnoreCase(kaptcha)){
-				return R.error("验证码不正确");
-			}
+		if(!captcha.equalsIgnoreCase(kaptcha)){
+			return R.error("验证码不正确");
 		}
 
 		try{

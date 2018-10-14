@@ -13,6 +13,11 @@ import java.util.List;
 public class SysDictFront extends BaseBean {
 
     /**
+     * 字典id
+     */
+    private String dictId;
+
+    /**
      * 字典名称
      */
     private String dictName;
@@ -43,6 +48,14 @@ public class SysDictFront extends BaseBean {
      * 备注
      */
     private String remark;
+
+    public String getDictId() {
+        return dictId;
+    }
+
+    public void setDictId(String dictId) {
+        this.dictId = dictId;
+    }
 
     public String getDictName() {
         return dictName;

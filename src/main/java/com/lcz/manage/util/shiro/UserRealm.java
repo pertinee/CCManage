@@ -1,9 +1,7 @@
 package com.lcz.manage.util.shiro;
 
 import com.lcz.manage.sys.bean.SysUserBean;
-import com.lcz.manage.sys.enums.ProfilesActive;
 import com.lcz.manage.sys.enums.UserStatus;
-import com.lcz.manage.sys.enums.YesOrNo;
 import com.lcz.manage.sys.service.SysMenuService;
 import com.lcz.manage.sys.service.SysUserService;
 import org.apache.shiro.authc.*;
@@ -12,7 +10,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -29,8 +26,6 @@ public class UserRealm extends AuthorizingRealm {
     private SysUserService sysUserService;
     @Autowired
     private SysMenuService sysMenuService;
-    @Value("${spring.profiles.active}")
-    private String profilesActive;
     
     /**
      * 授权(验证权限时调用)
@@ -65,12 +60,10 @@ public class UserRealm extends AuthorizingRealm {
         if(user == null) {
             throw new UnknownAccountException("账号或密码不正确");
         }
-        // STEP2：开发环境不需要密码验证
-        if(!ProfilesActive.DEV.getCode().equals(profilesActive)){
-            //密码错误
-            if(!password.equals(user.getPassword())) {
-                throw new IncorrectCredentialsException("账号或密码不正确");
-            }
+
+        //密码错误
+        if(!password.equals(user.getPassword())) {
+            throw new IncorrectCredentialsException("账号或密码不正确");
         }
 
         //账号锁定
@@ -78,7 +71,7 @@ public class UserRealm extends AuthorizingRealm {
         	throw new LockedAccountException("账号已被锁定,请联系管理员");
         }
         
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getPassword(), getName());
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, password, getName());
         return info;
 	}
 
