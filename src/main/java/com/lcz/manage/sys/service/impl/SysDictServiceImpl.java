@@ -174,6 +174,7 @@ public class SysDictServiceImpl implements SysDictService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteBatch(String[] ids) {
         List<SysDictInfoKey> keys = new ArrayList<>();
         for(String each : ids){
@@ -186,6 +187,7 @@ public class SysDictServiceImpl implements SysDictService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void saveDict(SysDictFront dictFront) {
         // TODO
 
