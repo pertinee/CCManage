@@ -11,12 +11,11 @@ import com.lcz.manage.util.annotation.SysLog;
 import com.lcz.manage.util.validator.ValidatorUtils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -85,8 +84,10 @@ public class SysDictController extends SysBaseController{
     @RequiresPermissions("sys:dict:update")
     public R update(@RequestBody SysDictFront dictFront){
         ValidatorUtils.validateEntity(dictFront);
-
-        //sysDictService.update(dictFront);
+        SysDictInfoBean updateDict = new SysDictInfoBean();
+        BeanUtils.copyProperties(dictFront, updateDict);
+        updateDict.setId(dictFront.getDictId());
+        sysDictService.updateDictInfo(updateDict);
 
         return R.ok();
     }
