@@ -4,7 +4,7 @@ $(function () {
         datatype: "json",
         colModel: [
             { label: '字典唯一ID', name: 'id', index: "id", width: 45, key: true, hidden:true },
-            { label: '字典ID', name: 'dict_id', index: "dict_id", width: 45 },
+            { label: '字典ID', name: 'dictId', index: "dict_id", width: 45 },
             { label: '字典名称', name: 'dictName', index: "dict_name", width: 75 },
             { label: '字典数值', name: 'dictValue', index: "dict_value", width: 75 },
             { label: '字典提示', name: 'dictPrompt', index: "dict_prompt", width: 75 },
@@ -63,6 +63,7 @@ var setting = {
 
 //重置
 function reset() {
+    $("#id").val("");
     $("#dictId").val("");
     $("#dictName").val("");
     $("#dictValue").val("");
@@ -79,7 +80,6 @@ function query() {
 
 //刷新页面
 function reload() {
-    //重置
     reset();
     $("#dictDiv").removeClass("hide");
     $("#editDictDiv").addClass("hide");
@@ -104,32 +104,34 @@ function addView(){
 function updateView() {
     //重置
     reset();
-    $("#editHeaderDiv").text("修改");
-
-    var id = getSelectedRow();
-    if(id == null){
+    var data = getSelectedRowData();
+    if(data == null){
         return;
     }
-    $("#dictId").val(id);
+    $("#editHeaderDiv").text("修改");
     $("#editDictDiv").removeClass("hide");
     $("#dictDiv").addClass("hide");
+
+    $("#id").val(data.id);
+    $("#dictId").val(data.dictId);
+    $("#dictName").val(data.dictName);
+    $("#dictValue").val(data.dictValue);
+    $("#dictPrompt").val(data.dictPrompt);
+    $("#accessLevel").val(data.accessLevel);
+    $("#orderId").val(data.orderId);
+    $("#remark").val(data.remark);
 }
 
 //新增、修改字典
 function saveOrUpdate() {
-    var id = $("#dictId").val();
+    var id = $("#id").val();
+    var dictId = $("#dictId").val();
     var dictName = $("#dictName").val();
     var dictValue = $("#dictValue").val();
     var dictPrompt = $("#dictPrompt").val();
     var accessLevel = $("#accessLevel").val();
     var orderId = $("#orderId").val();
     var remark = $("#remark").val();
-    //获取选择的菜单
-    var nodes = ztree.getCheckedNodes(true);
-    var menuIdList = new Array();
-    for(var i=0; i<nodes.length; i++) {
-        menuIdList.push(nodes[i].menuId);
-    }
     var url = (id == null || id == "") ? "/sys/dict/save" : "/sys/dict/update";
     $.ajax({
         type: "POST",
@@ -137,13 +139,13 @@ function saveOrUpdate() {
         contentType: "application/json",
         data: JSON.stringify({
             id: id,
+            dictId: dictId,
             dictName: dictName,
             dictValue: dictValue,
             dictPrompt: dictPrompt,
             accessLevel: accessLevel,
             orderId: orderId,
-            remark: remark,
-            menuIdList : menuIdList
+            remark: remark
         }),
         success: function(r){
             if(r.code === 0){

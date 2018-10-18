@@ -61,3 +61,21 @@ function getSelectedRows() {
 
     return grid.getGridParam("selarrrow");
 }
+
+//选择一条选中的记录信息
+function getSelectedRowData() {
+    var grid = $("#jqGrid");
+    var rowKey = grid.getGridParam("selrow");
+    if(!rowKey){
+        layer.msg("请选择一条记录");
+        return ;
+    }
+
+    var selectedIDs = grid.getGridParam("selarrrow");
+    if(selectedIDs.length > 1){
+        layer.msg("只能选择一条记录");
+        return ;
+    }
+
+    return grid.getRowData(rowKey);
+}

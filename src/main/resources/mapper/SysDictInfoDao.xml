@@ -11,22 +11,22 @@
 		select * from sys_dict_info
 		<where>
 			<if test="id != null and id.trim() != ''">
-				id = #{id}
+				and id = #{id}
 			</if>
 			<if test="dictValue != null and dictValue.trim() != ''">
-				dict_value = #{dictValue}
+				and dict_value = #{dictValue}
 			</if>
 			<if test="dictPrompt != null and dictPrompt.trim() != ''">
-				dict_prompt like concat('%',#{dictPrompt},'%')
+				and dict_prompt like concat('%',#{dictPrompt},'%')
 			</if>
 			<if test="accessLevel != null and accessLevel.trim() != ''">
-				access_level = #{accessLevel}
+				and access_level = #{accessLevel}
 			</if>
 			<if test="orderId != null and orderId.trim() != ''">
-				order_id = #{orderId}
+				and order_id = #{orderId}
 			</if>
 			<if test="remark != null and remark.trim() != ''">
-				remark like concat('%',#{remark},'%')
+				and remark like concat('%',#{remark},'%')
 			</if>
 		</where>
 	</select>

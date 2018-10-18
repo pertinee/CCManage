@@ -40,23 +40,42 @@
     <div id="editDictDiv" class="panel panel-default hide">
         <div id="editHeaderDiv" class="panel-heading"></div>
         <form class="form-horizontal">
+            <input type="text" class="form-control hide" id="id" name="id"/>
             <input type="text" class="form-control hide" id="dictId" name="dictId"/>
             <div class="form-group">
                 <div class="col-sm-2 control-label">字典名称</div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="dictName" name="dictName" placeholder="字典名称"/>
+                    <input type="text" class="form-control" id="dictName" name="dictName" placeholder="字典名称" disabled="disabled"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">字典数值</div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="dictValue" name="dictValue" placeholder="字典数值"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">字典提示</div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="dictPrompt" name="dictPrompt" placeholder="字典提示"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">权限</div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="accessLevel" name="accessLevel" placeholder="权限"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 control-label">排序</div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="orderId" name="orderId" placeholder="排序"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-2 control-label">备注</div>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="remark" name="remark" placeholder="备注"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-2 control-label">授权</div>
-                <div class="col-sm-10">
-                    <ul id="menuTree" class="ztree"></ul>
                 </div>
             </div>
             <div class="form-group">

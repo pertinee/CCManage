@@ -2,15 +2,18 @@ package com.lcz.manage.sys.controller;
 
 import com.lcz.manage.sys.bean.SysDictBean;
 import com.lcz.manage.sys.bean.SysDictFront;
+import com.lcz.manage.sys.bean.SysDictInfoBean;
 import com.lcz.manage.sys.service.SysDictService;
 import com.lcz.manage.util.PageUtils;
 import com.lcz.manage.util.Query;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.annotation.SysLog;
+import com.lcz.manage.util.validator.ValidatorUtils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -56,6 +59,36 @@ public class SysDictController extends SysBaseController{
         PageUtils pageUtil = new PageUtils(sysDictFrontList, total, query.getLimit(), query.getPage());
 
         return R.ok().put("page", pageUtil);
+    }
+
+    /**
+     * 保存数据字典
+     */
+    @ResponseBody
+    @SysLog("保存数据字典")
+    @RequestMapping("/sys/dict/save")
+    @RequiresPermissions("sys:dict:save")
+    public R save(@RequestBody SysDictFront dictFront){
+        ValidatorUtils.validateEntity(dictFront);
+
+        //sysDictService.save(dictFront);
+
+        return R.ok();
+    }
+
+    /**
+     * 修改数据字典
+     */
+    @ResponseBody
+    @SysLog("修改数据字典")
+    @RequestMapping("/sys/dict/update")
+    @RequiresPermissions("sys:dict:update")
+    public R update(@RequestBody SysDictFront dictFront){
+        ValidatorUtils.validateEntity(dictFront);
+
+        //sysDictService.update(dictFront);
+
+        return R.ok();
     }
 
     /**

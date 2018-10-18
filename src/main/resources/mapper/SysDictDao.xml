@@ -15,13 +15,13 @@
 		select * from sys_dict
 		<where>
 			<if test="id != null and id.trim() != ''">
-				id = #{id}
+				and id = #{id}
 			</if>
 			<if test="dictName != null and dictName.trim() != ''">
-				dict_name like concat('%',#{dictName},'%')
+				and dict_name like concat('%',#{dictName},'%')
 			</if>
 			<if test="remark != null and remark.trim() != ''">
-				remark like concat('%',#{remark},'%')
+				and remark like concat('%',#{remark},'%')
 			</if>
 		</where>
 	</select>
