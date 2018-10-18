@@ -184,4 +184,10 @@ public class SysDictServiceImpl implements SysDictService {
         }
         deleteBatchDictInfo(keys);
     }
+
+    @Override
+    public void saveDict(SysDictFront dictFront) {
+        // TODO
+
+    }
 }

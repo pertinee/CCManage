@@ -70,7 +70,7 @@ public class SysDictController extends SysBaseController{
     public R save(@RequestBody SysDictFront dictFront){
         ValidatorUtils.validateEntity(dictFront);
 
-        //sysDictService.save(dictFront);
+        sysDictService.saveDict(dictFront);
 
         return R.ok();
     }

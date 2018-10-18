@@ -74,4 +74,6 @@ public interface SysDictService {
 	 * 删除数据字典
 	 */
 	public void deleteBatch(String[] ids);
+
+	public void saveDict(SysDictFront dictFront);
 }
