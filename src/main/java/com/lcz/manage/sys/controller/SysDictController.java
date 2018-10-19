@@ -84,10 +84,8 @@ public class SysDictController extends SysBaseController{
     @RequiresPermissions("sys:dict:update")
     public R update(@RequestBody SysDictFront dictFront){
         ValidatorUtils.validateEntity(dictFront);
-        SysDictInfoBean updateDict = new SysDictInfoBean();
-        BeanUtils.copyProperties(dictFront, updateDict);
-        updateDict.setId(dictFront.getDictId());
-        sysDictService.updateDictInfo(updateDict);
+
+        sysDictService.updateDict(dictFront);
 
         return R.ok();
     }

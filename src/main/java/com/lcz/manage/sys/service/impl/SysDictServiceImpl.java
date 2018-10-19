@@ -110,24 +110,6 @@ public class SysDictServiceImpl implements SysDictService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void updateDictInfo(SysDictInfoBean dict) {
-        sysDictInfoDao.updateDictInfo(dict);
-        //更新原先数据字典
-        SysDictBean dictBean = sysDictDao.queryDict(dict.getId());
-        if(null == dictBean){
-            throw new CCException("数据字典详情更新失败");
-        }
-        SysDictInfoBean sysDict = new SysDictInfoBean();
-        sysDict.setId(dictBean.getId());
-        List<SysDictInfoBean> infoList = sysDictInfoDao.queryDictInfoList(sysDict);
-        if(!CollectionUtils.isEmpty(infoList)){
-            dictBean.setDictInfoList(infoList);
-        }
-        sysDictRedis.saveOrUpdate(dictBean);
-    }
-
-    @Override
-    @Transactional(rollbackFor = Exception.class)
     public void deleteBatchDictInfo(List<SysDictInfoKey> keys) {
         Set<String> delIds = new HashSet<>();
         for(SysDictInfoKey key : keys){
@@ -201,6 +183,33 @@ public class SysDictServiceImpl implements SysDictService {
             BeanUtils.copyProperties(dictFront, dictInfo);
             dictInfo.setId(dictFront.getDictId());
             this.saveDictInfo(dictInfo);
+        }
+
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateDict(SysDictFront dictFront){
+        // 删除原先的数据，再新增这一条数据，最后更新redis缓存数据
+        if(!StringUtils.isEmpty(dictFront.getId()) && dictFront.getId().split("_").length == 2){
+            SysDictInfoKey key = new SysDictInfoKey();
+            String[] str = dictFront.getId().split("_");
+            key.setId(str[0]);
+            key.setDictValue(str[1]);
+            sysDictInfoDao.deleteDictInfo(key);
+            SysDictInfoBean dict = new SysDictInfoBean();
+            BeanUtils.copyProperties(dictFront, dict);
+            dict.setId(dictFront.getDictId());
+            sysDictInfoDao.saveDictInfo(dict);
+            //更新redis
+            SysDictBean dictBean = sysDictDao.queryDict(dict.getId());
+            SysDictInfoBean sysDict = new SysDictInfoBean();
+            sysDict.setId(dictBean.getId());
+            List<SysDictInfoBean> infoList = sysDictInfoDao.queryDictInfoList(sysDict);
+            if(!CollectionUtils.isEmpty(infoList)){
+                dictBean.setDictInfoList(infoList);
+            }
+            sysDictRedis.saveOrUpdate(dictBean);
         }
 
     }

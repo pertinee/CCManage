@@ -14,19 +14,22 @@ import java.util.Map;
  * @author luchunzhou
  */
 public interface SysDictService {
-	
+
 	/**
-	 * 保存配置信息
+	 * 保存数据字典
+	 * @param dict
 	 */
 	public void saveDict(SysDictBean dict);
-	
+
 	/**
-	 * 更新配置信息
+	 * 更新数据字典
+	 * @param dict
 	 */
 	public void updateDict(SysDictBean dict);
 
 	/**
 	 * 批量删除数据字典
+	 * @param ids
 	 */
 	public void deleteBatchDict(String[] ids);
 
@@ -40,40 +43,59 @@ public interface SysDictService {
 
 	/**
 	 * 获取数据字典列表
+	 * @param sysDict
+	 * @return
 	 */
 	public List<SysDictBean> queryDictList(SysDictBean sysDict);
 
 	/**
-	 * 保存配置信息详情
+	 * 保存数据字典详情
+	 * @param dict
 	 */
 	public void saveDictInfo(SysDictInfoBean dict);
 
 	/**
-	 * 更新配置信息详情
-	 */
-	public void updateDictInfo(SysDictInfoBean dict);
-
-	/**
 	 * 批量删除数据字典详情
+	 * @param keys
 	 */
 	public void deleteBatchDictInfo(List<SysDictInfoKey> keys);
 
 	/**
 	 * 获取数据字典详情列表
+	 * @param sysDict
+	 * @return
 	 */
 	public List<SysDictInfoBean> queryDictInfoList(SysDictInfoBean sysDict);
 
 	/**
 	 * 前台显示数据字典列表
+	 * @param map
+	 * @return
 	 */
 	public List<SysDictFront> queryDictFrontList(Map<String, Object> map);
 
+	/**
+	 * 前台查询数据字典数量
+	 * @param map
+	 * @return
+	 */
 	public int queryTotal(Map<String, Object> map);
 
 	/**
 	 * 删除数据字典
+	 * @param ids
 	 */
 	public void deleteBatch(String[] ids);
 
+	/**
+	 * 更新数据字典-面向前台
+	 * @param dictFront
+	 */
 	public void saveDict(SysDictFront dictFront);
+
+	/**
+	 * 保存数据字典-面向前台
+	 * @param dictFront
+	 */
+	public void updateDict(SysDictFront dictFront);
 }
