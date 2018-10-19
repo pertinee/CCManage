@@ -68,7 +68,10 @@ function reset() {
     $("#dictName").val("");
     $("#dictValue").val("");
     $("#dictPrompt").val("");
-    $("#accessLevel").val("");
+    // 初始化checkbox，使之全部未选中
+    $("input[name='accessLevel']").each(function(){
+        $(this).prop("checked",false);
+    });
     $("#orderId").val("");
     $("#remark").val("");
 }
@@ -83,6 +86,7 @@ function reload() {
     reset();
     $("#dictDiv").removeClass("hide");
     $("#editDictDiv").addClass("hide");
+    $("#dictName").removeAttr("readonly","readonly");
     var qDictName = $("#qDictName").val();
     var page = $("#jqGrid").jqGrid('getGridParam','page');
     $("#jqGrid").jqGrid('setGridParam',{
@@ -97,7 +101,17 @@ function addView(){
     reset();
     $("#editDictDiv").removeClass("hide");
     $("#dictDiv").addClass("hide");
-    $("#editHeaderDiv").text("新增");
+    var data = getSelectedRowData();
+    if(data == null){
+        // 新增数据字典和数据字典详情
+        $("#editHeaderDiv").text("新增");
+    }else{
+        // 扩展数据字典详情
+        $("#editHeaderDiv").text("扩展");
+        $("#dictName").attr("readonly","readonly");
+        $("#dictId").val(data.dictId);
+        $("#dictName").val(data.dictName);
+    }
 }
 
 //修改按钮跳转页面
@@ -117,7 +131,7 @@ function updateView() {
     $("#dictName").val(data.dictName);
     $("#dictValue").val(data.dictValue);
     $("#dictPrompt").val(data.dictPrompt);
-    $("#accessLevel").val(data.accessLevel);
+    $("input:radio[value= "+ data.accessLevel +"]").prop('checked',true);//设置当前选中项
     $("#orderId").val(data.orderId);
     $("#remark").val(data.remark);
 }
@@ -129,7 +143,7 @@ function saveOrUpdate() {
     var dictName = $("#dictName").val();
     var dictValue = $("#dictValue").val();
     var dictPrompt = $("#dictPrompt").val();
-    var accessLevel = $("#accessLevel").val();
+    var accessLevel = $("input[name='accessLevel']:checked").val();
     var orderId = $("#orderId").val();
     var remark = $("#remark").val();
     var url = (id == null || id == "") ? "/sys/dict/save" : "/sys/dict/update";

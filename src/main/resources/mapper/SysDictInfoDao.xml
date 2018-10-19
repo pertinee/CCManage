@@ -64,7 +64,7 @@
 			`remark`
 		)
 		values
-		<foreach collection="dictInfoList" item="item" index="index" separator=",">
+		<foreach collection="list" item="item" index="index" separator=",">
 		(
 			#{item.id},
 			#{item.dictValue},

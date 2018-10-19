@@ -45,7 +45,7 @@
             <div class="form-group">
                 <div class="col-sm-2 control-label">字典名称</div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="dictName" name="dictName" placeholder="字典名称" disabled="disabled"/>
+                    <input type="text" class="form-control" id="dictName" name="dictName" placeholder="字典名称"/>
                 </div>
             </div>
             <div class="form-group">
@@ -62,14 +62,20 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-2 control-label">权限</div>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="accessLevel" name="accessLevel" placeholder="权限"/>
-                </div>
+                <label class="radio-inline">
+                    <input type="radio" value="0" name="accessLevel"/> 隐藏
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="1" name="accessLevel"/> 只读
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="2" name="accessLevel"/> 可修改
+                </label>
             </div>
             <div class="form-group">
                 <div class="col-sm-2 control-label">排序</div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="orderId" name="orderId" placeholder="排序"/>
+                    <input type="number" class="form-control" id="orderId" name="orderId" placeholder="排序"/>
                 </div>
             </div>
             <div class="form-group">

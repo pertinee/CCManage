@@ -10,7 +10,9 @@ import com.lcz.manage.sys.enums.AccessLevel;
 import com.lcz.manage.sys.redis.SysDictRedis;
 import com.lcz.manage.sys.service.SysDictService;
 import com.lcz.manage.util.IdUtils;
+import com.lcz.manage.util.StringUtils;
 import com.lcz.manage.util.exception.CCException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -189,7 +191,36 @@ public class SysDictServiceImpl implements SysDictService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void saveDict(SysDictFront dictFront) {
-        // TODO
+        if(StringUtils.isEmpty(dictFront.getDictId())){
+            // 新增数据字典和数据字典详情
+            SysDictBean dict = this.executeDict(dictFront);
+            this.saveDict(dict);
+        }else{
+            // 扩展数据字典详情
+            SysDictInfoBean dictInfo = new SysDictInfoBean();
+            BeanUtils.copyProperties(dictFront, dictInfo);
+            dictInfo.setId(dictFront.getDictId());
+            this.saveDictInfo(dictInfo);
+        }
 
+    }
+
+    /**
+     * 封装数据字典和数据字典详情
+     * @param dictFront
+     * @return
+     */
+    private SysDictBean executeDict(SysDictFront dictFront){
+        String id = IdUtils.uuid();
+        SysDictBean dict = new SysDictBean();
+        List<SysDictInfoBean> dictInfoList = new ArrayList<>();
+        SysDictInfoBean infoBean = new SysDictInfoBean();
+        dict.setId(id);
+        dict.setDictName(dictFront.getDictName());
+        BeanUtils.copyProperties(dictFront, infoBean);
+        infoBean.setId(id);
+        dictInfoList.add(infoBean);
+        dict.setDictInfoList(dictInfoList);
+        return dict;
     }
 }
