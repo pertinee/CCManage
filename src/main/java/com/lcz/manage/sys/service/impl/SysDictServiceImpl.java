@@ -196,7 +196,12 @@ public class SysDictServiceImpl implements SysDictService {
             String[] str = dictFront.getId().split("_");
             key.setId(str[0]);
             key.setDictValue(str[1]);
-            sysDictInfoDao.deleteDictInfo(key);
+            // 判断原先的数据字典，可修改再修改
+            SysDictInfoBean infoBean = this.sysDictInfoDao.queryDictInfo(key);
+            if(!AccessLevel.EDITABLE.getCode().equals(infoBean.getAccessLevel())){
+                throw new CCException("数据字典不可修改");
+            }
+            this.sysDictInfoDao.deleteDictInfo(key);
             SysDictInfoBean dict = new SysDictInfoBean();
             BeanUtils.copyProperties(dictFront, dict);
             dict.setId(dictFront.getDictId());

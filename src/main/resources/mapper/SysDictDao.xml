@@ -86,11 +86,10 @@
 		select
 			count(*)
 		from sys_dict d, sys_dict_info di
-		<where>
-			<if test="dictName != null and dictName.trim() != ''">
-				and d.`dict_name` like concat('%',#{dictName},'%')
-			</if>
-		</where>
+		where d.id = di.id
+		<if test="dictName != null and dictName.trim() != ''">
+			and d.`dict_name` like concat('%',#{dictName},'%')
+		</if>
 	</select>
 
 </mapper>

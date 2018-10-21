@@ -122,6 +122,10 @@ function updateView() {
     if(data == null){
         return;
     }
+    if(data.accessLevel != '2'){
+        alert("数据字典不可修改");
+        return;
+    }
     $("#editHeaderDiv").text("修改");
     $("#editDictDiv").removeClass("hide");
     $("#dictDiv").addClass("hide");
