@@ -5,13 +5,6 @@ import com.lcz.manage.sys.bean.SysDictInfoBean;
 
 import java.util.List;
 
-/**
- * 说明:
- * 
- * @author zhangyf18255 <zhangyf18255@hundsun.com>
- * @date 2016年9月7日 下午5:11:57
- * @version V1.1
- */
 public abstract class DictShare {
 
 	/**

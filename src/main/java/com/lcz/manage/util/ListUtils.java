@@ -1,7 +1,3 @@
-/**
- * Hangzhou Hundsun Cloud Financing Network Technology Co.,Ltd.
- * Copyright 2015-2018 | www.hsjry.com . All rights reserved .
- */
 package com.lcz.manage.util;
 
 import org.apache.log4j.Logger;
