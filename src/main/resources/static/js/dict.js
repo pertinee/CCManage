@@ -9,7 +9,13 @@ $(function () {
             { label: '字典数值', name: 'dictValue', index: "dict_value", width: 75 },
             { label: '字典提示', name: 'dictPrompt', index: "dict_prompt", width: 75 },
             { label: '权限', name: 'accessLevel', index: "access_level", width: 75, hidden:true },
-            { label: '权限', name: 'accessLevelCn', index: "access_level", width: 75 },
+            { label: '权限', name: 'accessLevelCn', index: "access_level", width: 75 , formatter: function(item, index){
+                if(item == '可修改'){
+                    return '<span class="label label-success">'+ item +'</span>';
+                }else{
+                    return '<span class="label label-warning">'+ item +'</span>';
+                }
+            }},
             { label: '排序', name: 'orderId', index: "order_id", width: 75 },
             { label: '备注', name: 'remark', index: "remark", width: 100 }
         ],
@@ -40,7 +46,7 @@ $(function () {
     });
 
     //jqGrid自适应
-    $("#jqGrid").setGridHeight($(window).height() - 130);
+    $("#jqGrid").setGridHeight($(window).height() - 150); // 因为有新增提示信息，所以这边底部路边要减去更大一点
 });
 
 var setting = {
