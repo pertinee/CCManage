@@ -33,6 +33,7 @@
             <a class="btn btn-primary" onclick="updateView()"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
             <a class="btn btn-danger" onclick="del()"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
         </div>
+        <code style="margin-top:4px;display: block;">新增功能：选中一条数据再点击新增，是新增当前数据字典扩展信息；不选中，则是新增新的数据字典。</code>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>
     </div>
