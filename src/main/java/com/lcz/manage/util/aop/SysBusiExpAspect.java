@@ -8,16 +8,14 @@ import com.lcz.manage.util.IPUtils;
 import com.lcz.manage.util.ShiroUtils;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
- * 说明: 系统异常切面处理类
+ * 说明: 系统业务异常切面处理类
  *
  * @author lcz <lucz25053@hsjry.com>
  * @version CFM-V1.0
@@ -25,20 +23,20 @@ import java.util.Date;
  */
 @Aspect
 @Component
-public class SysExpAspect {
-    private static Logger logger = Logger.getLogger(SysExpAspect.class);
+public class SysBusiExpAspect {
+    private static Logger logger = Logger.getLogger(SysBusiExpAspect.class);
 
     @Autowired
     private SysLogService sysLogService;
 
 
-    @Pointcut("execution(* com.lcz.manage.sys.service.*.*(..))")
+    @Pointcut("execution(* com.lcz.manage.*.service.*.*(..))")
     private void pointcut() {
     }
 
     //Before增强：在目标方法被执行的时候织入增强
-    //匹配com.lcz.manage.sys.service包下面的所有类的所有方法的执行作为切入点
-    @Before("execution(* com.lcz.manage.sys.service.*.*(..))")
+    //匹配com.lcz.manage.*.service包下面的所有类的所有方法的执行作为切入点
+    @Before("execution(* com.lcz.manage.*.service.*.*(..))")
     public void before(JoinPoint joinPoint) {
         String className = joinPoint.getTarget().getClass().getName();//切入方法所属类名
         String methodName = joinPoint.getSignature().getName();//切入的方法名
@@ -65,7 +63,7 @@ public class SysExpAspect {
 
     //AfterThrowing增强：处理程序中未处理的异常
     //ex是目标方法拋出的异常
-    @AfterThrowing(value = "execution(* com.lcz.manage.sys.service.*.*(..))", throwing = "e")
+    @AfterThrowing(value = "execution(* com.lcz.manage.*.service.*.*(..))", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, Throwable e) {
         SysLogBean sysLog = new SysLogBean();
 
