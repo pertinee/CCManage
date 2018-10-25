@@ -1,5 +1,6 @@
 package com.lcz.manage.util;
 
+import com.lcz.manage.util.exception.CCException;
 import org.apache.log4j.Logger;
 
 import java.beans.PropertyDescriptor;
@@ -82,8 +83,7 @@ public class ListUtils {
             Object valObj = method.invoke(item);
             return valObj == null ? null : valObj;
         } catch (Exception e) {
-            logger.error("获取对象主键失败", e);
-            return null;
+            throw new CCException("获取对象主键失败", e);
         }
     }
 }
