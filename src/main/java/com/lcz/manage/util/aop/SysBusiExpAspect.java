@@ -23,7 +23,7 @@ import java.util.Date;
  */
 @Aspect
 @Component
-public class SysBusiExpAspect {
+public class  SysBusiExpAspect {
     private static Logger logger = Logger.getLogger(SysBusiExpAspect.class);
 
     @Autowired
