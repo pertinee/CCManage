@@ -20,4 +20,14 @@ public class CcConstants {
 	 */
 	public final static String CLOUD_STORAGE_CONFIG_KEY = "CLOUD_STORAGE_CONFIG_KEY";
 
+	/**
+	 * 系统维护开始日期
+	 */
+	public final static String SYS_MAINTENANCE_START_TIME = "SYS_MAINTENANCE_START_TIME";
+
+	/**
+	 * 系统维护结束日期
+	 */
+	public final static String SYS_MAINTENANCE_END_TIME = "SYS_MAINTENANCE_END_TIME";
+
 }

@@ -70,6 +70,8 @@ public class SysLoginController {
 		if(!captcha.equalsIgnoreCase(kaptcha)){
 			return R.error("验证码不正确");
 		}
+		// 登录运营时间前置判断
+
 
 		try{
 			Subject subject = ShiroUtils.getSubject();
