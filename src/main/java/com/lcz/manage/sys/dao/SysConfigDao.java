@@ -20,5 +20,6 @@ public interface SysConfigDao extends BaseDao<SysConfigBean> {
 	 * 根据key，更新value
 	 */
 	int updateValueByKey(@Param("key") String key, @Param("value") String value);
-	
+
+	int deleteBatchByKey(Object[] key);
 }

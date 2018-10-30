@@ -31,6 +31,11 @@ public interface SysConfigService {
 	 * 删除配置信息
 	 */
 	public void deleteBatch(String[] ids);
+
+	/**
+	 * 根据key删除配置信息
+	 */
+	public void deleteBatchByKey(String[] keys);
 	
 	/**
 	 * 获取List列表
@@ -42,6 +47,8 @@ public interface SysConfigService {
 	public int queryTotal(Map<String, Object> map);
 	
 	public SysConfigBean queryObject(String id);
+
+	public SysConfigBean queryByKey(String key);
 	
 	/**
 	 * 根据key，获取配置的value值

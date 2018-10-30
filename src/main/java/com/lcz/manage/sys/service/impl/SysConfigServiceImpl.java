@@ -11,7 +11,9 @@ import com.lcz.manage.util.exception.CCException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,6 +57,16 @@ public class SysConfigServiceImpl implements SysConfigService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public void deleteBatchByKey(String[] keys) {
+		for(String key : keys){
+			SysConfigBean config = queryByKey(key);
+			sysConfigRedis.delete(config.getKey());
+		}
+		sysConfigDao.deleteBatchByKey(keys);
+	}
+
+	@Override
 	public List<SysConfigBean> queryList(Map<String, Object> map) {
 		return sysConfigDao.queryList(map);
 	}
@@ -67,6 +79,11 @@ public class SysConfigServiceImpl implements SysConfigService {
 	@Override
 	public SysConfigBean queryObject(String id) {
 		return sysConfigDao.queryObject(id);
+	}
+
+	@Override
+	public SysConfigBean queryByKey(String key) {
+		return sysConfigDao.queryByKey(key);
 	}
 
 	@Override

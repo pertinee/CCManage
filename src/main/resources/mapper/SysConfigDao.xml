@@ -52,6 +52,12 @@
 			#{id}
 		</foreach>
 	</delete>
-	
+
+	<delete id="deleteBatchByKey" parameterType="string">
+		delete from sys_config where `key` in
+		<foreach item="key" collection="array" open="(" separator="," close=")">
+			#{key}
+		</foreach>
+	</delete>
 	
 </mapper>

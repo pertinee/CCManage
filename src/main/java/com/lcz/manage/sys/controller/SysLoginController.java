@@ -2,6 +2,7 @@ package com.lcz.manage.sys.controller;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
+import com.lcz.manage.util.CommonUtils;
 import com.lcz.manage.util.R;
 import com.lcz.manage.util.ShiroUtils;
 import org.apache.log4j.Logger;
@@ -71,7 +72,10 @@ public class SysLoginController {
 			return R.error("验证码不正确");
 		}
 		// 登录运营时间前置判断
-
+		boolean flag = CommonUtils.executeLegalTime();
+		if(!flag){
+			return R.error("系统维护中，请稍后登录");
+		}
 
 		try{
 			Subject subject = ShiroUtils.getSubject();
