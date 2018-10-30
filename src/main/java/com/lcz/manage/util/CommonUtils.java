@@ -62,7 +62,7 @@ public class CommonUtils {
         String day = DateUtils.formatDate(date, "yyyyMMdd");
 
         String startTimeStr = day+startTime.replaceAll(":", "")+"00";
-        String endTimeStr = day+startTime.replaceAll(":", "")+"00";
+        String endTimeStr = day+endTime.replaceAll(":", "")+"00";
         logger.debug("系统营业开始时间"+startTimeStr);
         logger.debug("系统营业结束时间"+endTimeStr);
         Long startTimeDetail;
