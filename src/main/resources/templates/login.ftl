@@ -22,7 +22,7 @@
     <div class="well col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 shadow">
         <form role="form">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" id="username" placeholder="用户名">
+                <input type="text" class="form-control" id="username" placeholder="用户名" autofocus>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
