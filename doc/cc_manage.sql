@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50624
+Source Server         : localhost
+Source Server Version : 50640
 Source Host           : localhost:3306
 Source Database       : cc_manage
 
 Target Server Type    : MYSQL
-Target Server Version : 50624
+Target Server Version : 50640
 File Encoding         : 65001
 
-Date: 2018-10-21 14:10:42
+Date: 2018-10-31 10:48:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -65,10 +65,10 @@ CREATE TABLE `qrtz_cron_triggers` (
 -- ----------------------------
 -- Records of qrtz_cron_triggers
 -- ----------------------------
-INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_1', 'DEFAULT', '*/5 * * * * ?', 'Asia/Shanghai');
-INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_2', 'DEFAULT', '0 0/30 * * * ?', 'Asia/Shanghai');
-INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_3', 'DEFAULT', '0/10 * * * * ? ', 'Asia/Shanghai');
-INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_4', 'DEFAULT', '0 0 0 1/1 * ? ', 'Asia/Shanghai');
+INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_1', 'DEFAULT', '*/5 * * * * ?', 'GMT+08:00');
+INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_2', 'DEFAULT', '0 0/30 * * * ?', 'GMT+08:00');
+INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_3', 'DEFAULT', '0/10 * * * * ? ', 'GMT+08:00');
+INSERT INTO `qrtz_cron_triggers` VALUES ('CCScheduler', 'TASK_4', 'DEFAULT', '0 0 0 1/1 * ? ', 'GMT+08:00');
 
 -- ----------------------------
 -- Table structure for qrtz_fired_triggers
@@ -174,7 +174,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('CCScheduler', 'LCZ-PC1540101495862', '1540102236075', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('CCScheduler', 'luchunzhou-pc-a1540953859551', '1540954096811', '15000');
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -378,7 +378,8 @@ CREATE TABLE `sys_config` (
 -- Records of sys_config
 -- ----------------------------
 INSERT INTO `sys_config` VALUES ('1', 'CLOUD_STORAGE_CONFIG_KEY', '{\"aliyunAccessKeyId\":\"\",\"aliyunAccessKeySecret\":\"\",\"aliyunBucketName\":\"\",\"aliyunDomain\":\"\",\"aliyunEndPoint\":\"\",\"aliyunPrefix\":\"\",\"qcloudBucketName\":\"\",\"qcloudDomain\":\"\",\"qcloudPrefix\":\"\",\"qcloudRegion\":\"\",\"qcloudSecretId\":\"\",\"qcloudSecretKey\":\"\",\"qiniuAccessKey\":\"xwmlqT9V1GuzFMRj2i920lmLR8Dj0gNohDS_nkrS\",\"qiniuBucketName\":\"common-zone\",\"qiniuDomain\":\"http://p20dkvms1.bkt.clouddn.com\",\"qiniuPrefix\":\"upload\",\"qiniuSecretKey\":\"eZUIG2UueNgIPd3aNtzdycr1Xjk7Umw2HmOFr-XS\",\"type\":1}', '1', '云存储配置信息');
-INSERT INTO `sys_config` VALUES ('2', 'LOST_WISDOM', '{\"id\":\"1\",\"name\":\"lost_wisdom\",\"remark\":\"失了智\"}	', '0', '失了智');
+INSERT INTO `sys_config` VALUES ('2', 'SYS_BUSINESS_START_TIME', '08:00', '1', '系统运营开始日期');
+INSERT INTO `sys_config` VALUES ('3', 'SYS_BUSINESS_END_TIME', '23:00', '1', '系统运营结束日期');
 
 -- ----------------------------
 -- Table structure for sys_dept
@@ -425,6 +426,8 @@ INSERT INTO `sys_dict` VALUES ('1', '布尔值', '1-是 0-否');
 INSERT INTO `sys_dict` VALUES ('2', '性别', '0-未知 1-男 2-女 3-保密');
 INSERT INTO `sys_dict` VALUES ('3', '角色', '0-普通用户 1-管理员');
 INSERT INTO `sys_dict` VALUES ('4', '菜单', '0-目录 1-菜单 2-按钮');
+INSERT INTO `sys_dict` VALUES ('5', '菜单权限', '0-隐藏 1-只读 2-可修改');
+INSERT INTO `sys_dict` VALUES ('6', '用户状态', '0-禁用   1-正常');
 INSERT INTO `sys_dict` VALUES ('6f6c6ce5-23ec-46c7-a1dd-71240f90e0e8', '币种', null);
 
 -- ----------------------------
@@ -455,6 +458,11 @@ INSERT INTO `sys_dict_info` VALUES ('3', '1', '管理员', '1', '1', '角色');
 INSERT INTO `sys_dict_info` VALUES ('4', '0', '目录', '1', '0', '菜单');
 INSERT INTO `sys_dict_info` VALUES ('4', '1', '菜单', '1', '1', '菜单');
 INSERT INTO `sys_dict_info` VALUES ('4', '2', '按钮', '1', '2', '菜单');
+INSERT INTO `sys_dict_info` VALUES ('5', '0', '隐藏', '1', '0', '菜单权限');
+INSERT INTO `sys_dict_info` VALUES ('5', '1', '只读', '1', '1', '菜单权限');
+INSERT INTO `sys_dict_info` VALUES ('5', '2', '可修改', '1', '2', '菜单权限');
+INSERT INTO `sys_dict_info` VALUES ('6', '0', '禁用', '1', '0', '用户状态');
+INSERT INTO `sys_dict_info` VALUES ('6', '1', '正常', '1', '1', '用户状态');
 INSERT INTO `sys_dict_info` VALUES ('6f6c6ce5-23ec-46c7-a1dd-71240f90e0e8', 'CNY', '人民币', '2', '1', '人民币');
 INSERT INTO `sys_dict_info` VALUES ('6f6c6ce5-23ec-46c7-a1dd-71240f90e0e8', 'USD', '美元', '2', '2', '美元');
 
@@ -506,6 +514,7 @@ INSERT INTO `sys_log` VALUES ('1d177384-1416-43e0-9e81-cb1c737f7a74', 'admin', '
 INSERT INTO `sys_log` VALUES ('1d7b601d-c29e-4b84-929d-13a5805d92eb', 'admin', '删除菜单', 'com.lcz.manage.sys.controller.SysMenuController.delete()', '\"d1acde2c-01c9-4d4e-9033-70a2476052f6\"', '127.0.0.1', '2018-01-09 13:32:01');
 INSERT INTO `sys_log` VALUES ('1dda9fa0-66e8-4a75-9999-3b4abaa40535', 'admin', '修改密码', 'com.lcz.manage.base.controller.SysUserController.password()', '\"1234\"', '127.0.0.1', '2017-12-27 08:55:07');
 INSERT INTO `sys_log` VALUES ('1e5270aa-60cc-4415-98a5-2680edcbb6b0', 'admin', '修改用户', 'com.lcz.manage.base.controller.SysUserController.update()', '{\"email\":\"jarrys@gmail.com\",\"mobile\":\"15367668711\",\"password\":\"\",\"roleIdList\":[\"1\",\"2\"],\"status\":0,\"userId\":\"3\",\"username\":\"jarrys\"}', '127.0.0.1', '2017-12-27 13:36:32');
+INSERT INTO `sys_log` VALUES ('1e7f1004-c6a1-4fc7-a4ce-32f8ffd48c12', 'admin', '全局异常', 'com.lcz.manage.sys.service.impl.SysDictServiceImpl.queryDictFrontList()', '[参数]:{_search=false, nd=1540952378619, limit=10, page=1, sidx=null, order=asc, _=1540952378369, offset=0},', '0:0:0:0:0:0:0:1', '2018-10-31 10:19:51');
 INSERT INTO `sys_log` VALUES ('1eda20a6-f8c7-43f3-95e7-d1980a9943bd', 'admin', '删除菜单', 'com.lcz.manage.sys.controller.SysMenuController.delete()', '\"2986b3ad-3de9-4422-9927-8d8eed7964dd\"', '127.0.0.1', '2018-02-07 09:46:03');
 INSERT INTO `sys_log` VALUES ('1fb0a41d-afc5-422f-b6ba-072b36a40123', 'admin', '保存菜单', 'com.lcz.manage.sys.controller.SysMenuController.save()', '{\"icon\":\"\",\"menuId\":\"\",\"name\":\"贴吧\",\"orderNum\":0,\"parentId\":\"0f3a5ee1-58b5-4ec3-966b-6c49d5eef45e\",\"parentName\":\"百度\",\"perms\":\"\",\"type\":1,\"url\":\"/tieba\"}', '127.0.0.1', '2018-01-28 13:38:45');
 INSERT INTO `sys_log` VALUES ('22570bf9-96a8-49be-8410-076ad12dff9b', 'admin', '暂停定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.pause()', '[1]', '127.0.0.1', '2018-01-22 10:51:07');
@@ -515,6 +524,7 @@ INSERT INTO `sys_log` VALUES ('264d02d0-5c8c-4603-a8cb-4fea83b62178', 'admin', '
 INSERT INTO `sys_log` VALUES ('26e9d8dd-48b5-4ba0-a56b-96db7c9d9775', 'admin', '保存角色', 'com.lcz.manage.sys.controller.SysRoleController.save()', '{\"menuIdList\":[\"7\",\"6\"],\"remark\":\"\",\"roleId\":\"\",\"roleName\":\"\"}', '127.0.0.1', '2018-01-09 13:28:27');
 INSERT INTO `sys_log` VALUES ('28de5a97-d6e3-4c55-b3d9-bbc57efabae8', 'admin', '保存菜单', 'com.lcz.manage.sys.controller.SysMenuController.save()', '{\"icon\":\"\",\"menuId\":\"\",\"name\":\"cc\",\"orderNum\":2,\"parentId\":\"0\",\"parentName\":\"一级菜单\",\"perms\":\"\",\"type\":0,\"url\":\"\"}', '127.0.0.1', '2018-01-09 13:30:19');
 INSERT INTO `sys_log` VALUES ('291f98e6-4d1c-43f6-a9bb-32ba1e8f1684', 'admin', '修改密码', 'com.lcz.manage.base.controller.SysUserController.password()', '\"1234\"', '127.0.0.1', '2017-12-27 08:53:14');
+INSERT INTO `sys_log` VALUES ('29efc66f-6538-4a04-af48-8f4973ca1f7a', 'admin', '全局异常', 'com.lcz.manage.sys.service.impl.SysDictServiceImpl.queryDictFrontList()', '[参数]:{_search=false, nd=1540952539126, limit=10, page=1, sidx=null, order=asc, _=1540952538853, offset=0},', '0:0:0:0:0:0:0:1', '2018-10-31 10:22:19');
 INSERT INTO `sys_log` VALUES ('2ab5c13a-41ff-48c3-84f2-724e45c6b976', 'admin', '保存角色', 'com.lcz.manage.base.controller.SysRoleController.save()', '{\"menuIdList\":[\"1\",\"2\",\"15\",\"16\",\"17\",\"18\"],\"remark\":\"测试用户的权限2\",\"roleId\":\"\",\"roleName\":\"测试用户2\"}', '127.0.0.1', '2017-12-27 18:53:46');
 INSERT INTO `sys_log` VALUES ('2bd361e7-6a39-413c-a9b6-b8088a93c855', 'admin', '暂停定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.pause()', '[1,2]', '127.0.0.1', '2018-02-01 20:50:29');
 INSERT INTO `sys_log` VALUES ('2c274149-4292-464c-af8c-f7e5e5b7bc29', 'admin', '修改角色', 'com.lcz.manage.sys.controller.SysRoleController.update()', '{\"menuIdList\":[\"7\",\"5\"],\"remark\":\"查看系统日志、sql监控。\",\"roleId\":\"d15422bd-780b-45dc-a67e-57c804cb35f1\",\"roleName\":\"系统管理员\"}', '127.0.0.1', '2018-01-04 21:40:18');
@@ -591,6 +601,7 @@ INSERT INTO `sys_log` VALUES ('6d8552af-8cab-464c-8158-44691ba0f513', 'admin', '
 INSERT INTO `sys_log` VALUES ('6df613e1-b9c4-4a24-a6ac-e3eee0e8dc96', 'admin', '修改配置', 'com.lcz.manage.sys.controller.SysConfigController.update()', '{\"id\":\"d4285677-467b-49be-ac88-ea0decfaf3cb\",\"key\":\"22\",\"remark\":\"22\",\"status\":0,\"value\":\"22\"}', '127.0.0.1', '2018-01-09 13:33:57');
 INSERT INTO `sys_log` VALUES ('6df6e08c-c2a6-4271-a5cc-e06b0a357f11', 'admin', '修改角色', 'com.lcz.manage.base.controller.SysRoleController.update()', '{\"menuIdList\":[\"1\",\"2\",\"15\",\"3\",\"19\",\"4\",\"23\"],\"remark\":\"只拥有查看权限\",\"roleId\":\"2\",\"roleName\":\"普通管理员\"}', '127.0.0.1', '2017-12-28 09:41:40');
 INSERT INTO `sys_log` VALUES ('6e0574e0-20c9-4861-a361-bfe23e10dd20', 'admin', '保存菜单', 'com.lcz.manage.sys.controller.SysMenuController.save()', '{\"icon\":\"\",\"menuId\":\"\",\"name\":\"c1\",\"orderNum\":0,\"parentId\":\"bb6ce871-3ada-40bf-8545-aa6ab458d97a\",\"parentName\":\"cc\",\"perms\":\"\",\"type\":1,\"url\":\"2\"}', '127.0.0.1', '2018-01-09 11:28:19');
+INSERT INTO `sys_log` VALUES ('6e71d26a-f359-427b-8224-ad3851e7fca0', 'admin', '全局异常', 'com.lcz.manage.sys.service.impl.SysDictServiceImpl.queryDictFrontList()', '[参数]:{_search=false, nd=1540952553080, limit=10, page=1, sidx=null, order=asc, _=1540952552833, offset=0},', '0:0:0:0:0:0:0:1', '2018-10-31 10:22:33');
 INSERT INTO `sys_log` VALUES ('6f680344-647b-4ebb-8672-b5982bb30d90', 'admin', '修改角色', 'com.lcz.manage.sys.controller.SysRoleController.update()', '{\"menuIdList\":[\"7\",\"6\"],\"remark\":\"1\",\"roleId\":\"0798fa1c-3a04-4d6a-9778-ef2bad11f738\",\"roleName\":\"1\"}', '127.0.0.1', '2018-01-09 13:28:35');
 INSERT INTO `sys_log` VALUES ('6ff6ffa8-8268-4036-9959-9c73595a0eca', 'admin', '修改角色', 'com.lcz.manage.base.controller.SysRoleController.update()', '{\"menuIdList\":[\"1\",\"2\",\"15\",\"3\",\"19\",\"4\",\"23\"],\"remark\":\"只拥有查看权限\",\"roleId\":\"2\",\"roleName\":\"普通用户\"}', '127.0.0.1', '2017-12-28 09:41:50');
 INSERT INTO `sys_log` VALUES ('70cfe7af-ff02-4b12-8032-db7b72b648f4', 'admin', '暂停定时任务', 'com.lcz.manage.sys.controller.ScheduleJobController.pause()', '[1,2]', '127.0.0.1', '2018-01-28 14:00:08');
@@ -673,6 +684,7 @@ INSERT INTO `sys_log` VALUES ('dd16cb5b-4042-44d0-b428-dd11fb917872', 'admin', '
 INSERT INTO `sys_log` VALUES ('dd7c419a-6a6c-4710-9326-bda938ac7683', 'admin', '保存用户', 'com.lcz.manage.sys.controller.SysUserController.save()', '{\"createUserId\":\"\",\"email\":\"herry@cc.com\",\"mobile\":\"13655437717\",\"roleIdList\":[\"3\"],\"status\":1,\"userId\":\"\",\"username\":\"herry\"}', '127.0.0.1', '2018-01-09 11:04:37');
 INSERT INTO `sys_log` VALUES ('e0e4c9ee-13a5-4fc6-b848-7d35ce4b073e', 'admin', '修改密码', 'com.lcz.manage.sys.controller.SysUserController.password()', '\"1\"', '127.0.0.1', '2018-01-16 09:06:28');
 INSERT INTO `sys_log` VALUES ('e12e1316-92bb-4e41-96de-c24f9483f196', 'admin', '保存菜单', 'com.lcz.manage.base.controller.SysMenuController.save()', '{\"icon\":\"fa fa-cc\",\"menuId\":\"\",\"name\":\"关于\",\"orderNum\":1,\"parentId\":\"0\",\"parentName\":\"一级菜单\",\"perms\":\"\",\"type\":0,\"url\":\"\"}', '127.0.0.1', '2017-12-31 11:08:12');
+INSERT INTO `sys_log` VALUES ('e2145239-486a-4a91-a5b0-d30307f67d63', 'admin', '全局异常', 'com.lcz.manage.sys.service.impl.SysDictServiceImpl.queryDictFrontList()', '[参数]:{_search=false, nd=1540952569411, limit=10, page=1, sidx=null, order=asc, _=1540952569158, offset=0},', '0:0:0:0:0:0:0:1', '2018-10-31 10:23:15');
 INSERT INTO `sys_log` VALUES ('e46e4d7f-6990-429c-9cac-4b709db72bb1', 'admin', '保存菜单', 'com.lcz.manage.sys.controller.SysMenuController.save()', '{\"icon\":\"\",\"menuId\":\"\",\"name\":\"首页\",\"orderNum\":0,\"parentId\":\"0f3a5ee1-58b5-4ec3-966b-6c49d5eef45e\",\"parentName\":\"百度\",\"perms\":\"\",\"type\":1,\"url\":\"/index\"}', '127.0.0.1', '2018-01-28 13:38:17');
 INSERT INTO `sys_log` VALUES ('e76b9ef2-dedd-49e5-8a60-35ac6589e56c', 'admin', '删除菜单', 'com.lcz.manage.base.controller.SysMenuController.delete()', '\"10\"', '127.0.0.1', '2018-01-02 14:35:40');
 INSERT INTO `sys_log` VALUES ('e77cc3a2-2ffb-4755-8c7e-d9065095448e', 'admin', '保存用户', 'com.lcz.manage.base.controller.SysUserController.save()', '{}', '127.0.0.1', '2017-12-25 16:44:28');
@@ -720,7 +732,7 @@ INSERT INTO `sys_menu` VALUES ('101', '10', '查看', '', 'sys:dict:list,sys:dic
 INSERT INTO `sys_menu` VALUES ('102', '10', '新增', '', 'sys:dict:save,sys:dict:select', '2', '1', '', '0');
 INSERT INTO `sys_menu` VALUES ('103', '10', '修改', '', 'sys:dict:update,sys:dict:select', '2', '1', '', '0');
 INSERT INTO `sys_menu` VALUES ('104', '10', '删除', '', 'sys:dict:delete', '2', '1', '', '0');
-INSERT INTO `sys_menu` VALUES ('1b4e6925-32ac-4fc6-af9d-fc510d3961ac', '7', '接口文档', '/swagger-ui.html', '', '1', '1', 'fa fa-book', '3');
+INSERT INTO `sys_menu` VALUES ('1b4e6925-32ac-4fc6-af9d-fc510d3961ac', '7', '接口文档', '/swagger-ui.html', '', '1', '1', 'fa fa-book', '4');
 INSERT INTO `sys_menu` VALUES ('2', '1', '用户管理', '/sys/user/page', null, '1', '1', 'fa fa-user', '1');
 INSERT INTO `sys_menu` VALUES ('21', '2', '查看', null, 'sys:user:list,sys:user:info', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('22', '2', '新增', null, 'sys:user:save,sys:role:select', '2', '1', null, '0');
@@ -740,19 +752,19 @@ INSERT INTO `sys_menu` VALUES ('43', '4', '修改', null, 'sys:menu:update,sys:m
 INSERT INTO `sys_menu` VALUES ('44', '4', '删除', null, 'sys:menu:delete', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('5', '7', '系统日志', '/sys/log', 'sys:log:list', '1', '1', 'fa fa-file-text-o', '1');
 INSERT INTO `sys_menu` VALUES ('5dbf9237-e8e3-45cd-bc1f-a3230290689f', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '暂停', '', 'sys:schedule:pause', '2', '1', null, '0');
-INSERT INTO `sys_menu` VALUES ('6', '7', 'SQL监控', '/druid/sql.html', null, '1', '1', 'fa fa-bug', '2');
+INSERT INTO `sys_menu` VALUES ('6', '7', 'SQL监控', '/druid/sql.html', null, '1', '1', 'fa fa-bug', '3');
 INSERT INTO `sys_menu` VALUES ('632f18e0-ce4b-43c5-8148-1df216c37299', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '立即执行', '', 'sys:schedule:run', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('6b03c9d4-9f26-49c7-a0be-0f68bd707afb', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '修改', '', 'sys:schedule:update', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('7', '0', '系统管理', null, null, '0', '1', 'fa fa-cogs', '1');
-INSERT INTO `sys_menu` VALUES ('733ad909-2733-463a-aba0-f13d6cf5cade', '1', '部门管理', '/sys/dept', '', '1', '1', 'fa fa-file-code-o', '3');
+INSERT INTO `sys_menu` VALUES ('733ad909-2733-463a-aba0-f13d6cf5cade', '1', '部门管理', '/sys/dept', '', '1', '1', 'fa fa-file-code-o', '4');
 INSERT INTO `sys_menu` VALUES ('7468c3a4-0df9-40c8-be3a-ec52d038614e', '733ad909-2733-463a-aba0-f13d6cf5cade', '查看', '', 'sys:dept:list,sys:dept:info', '2', '1', null, '0');
-INSERT INTO `sys_menu` VALUES ('8', '1', '系统配置', '/sys/config', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', '1', 'fa fa-book', '5');
-INSERT INTO `sys_menu` VALUES ('9', '1', '文件上传', '/sys/oss', 'sys:oss:all', '1', '1', 'fa fa-file-image-o', '6');
+INSERT INTO `sys_menu` VALUES ('8', '7', '系统配置', '/sys/config', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', '1', 'fa fa-book', '2');
+INSERT INTO `sys_menu` VALUES ('9', '1', '文件上传', '/sys/oss', 'sys:oss:all', '1', '1', 'fa fa-file-image-o', '5');
 INSERT INTO `sys_menu` VALUES ('a2552209-90e3-456b-984c-01e43d91e597', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '删除', '', 'sys:schedule:delete', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('ac54df09-6f2f-4529-abf1-98efae1a96ef', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '日志列表', '', 'sys:schedule:log', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('aeab4bf5-30f7-4724-94da-6baaa31d4a41', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '查看', '', 'sys:schedule:list,sys:schedule:info', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('c2c6c1e3-b48a-409a-966f-08962e06433f', '733ad909-2733-463a-aba0-f13d6cf5cade', '新增', '', 'sys:dept:save,sys:dept:select', '2', '1', null, '0');
-INSERT INTO `sys_menu` VALUES ('c77961d7-d049-4763-bfa9-b97ffeeec5ff', '1', '定时任务', '/sys/schedule', '', '1', '1', 'fa fa-tasks', '7');
+INSERT INTO `sys_menu` VALUES ('c77961d7-d049-4763-bfa9-b97ffeeec5ff', '1', '定时任务', '/sys/schedule', '', '1', '1', 'fa fa-tasks', '6');
 INSERT INTO `sys_menu` VALUES ('e7b1951e-54ca-4c5f-851c-d204507c31a3', '733ad909-2733-463a-aba0-f13d6cf5cade', '修改', '', 'sys:dept:update,sys:dept:select', '2', '1', null, '0');
 INSERT INTO `sys_menu` VALUES ('f02fbbe1-d390-483b-88a9-f82498087df5', 'c77961d7-d049-4763-bfa9-b97ffeeec5ff', '恢复', '', 'sys:schedule:resume', '2', '1', null, '0');
 
