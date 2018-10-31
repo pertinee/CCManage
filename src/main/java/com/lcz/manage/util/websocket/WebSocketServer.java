@@ -1,5 +1,6 @@
 package com.lcz.manage.util.websocket;
 
+import com.lcz.manage.util.exception.CCException;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +39,7 @@ public class WebSocketServer {
             sendMessage("连接成功");
         } catch (IOException e) {
             logger.error("websocket IO异常");
+            throw new CCException("websocket IO异常");
         }
     }
     //	//连接打开时执行

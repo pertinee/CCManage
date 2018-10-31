@@ -21,9 +21,14 @@ public class SysWebSocketController {
 
 	private Logger logger = Logger.getLogger(SysWebSocketController.class);
 
+    /**
+     * 群发消息
+     * @param userId
+     * @return
+     */
 	@ResponseBody
-	@RequestMapping(value = "/websocket/newUserIn/{userId}", method = RequestMethod.GET)
-	public R newUserIn(@PathVariable("userId") String userId) {
+	@RequestMapping(value = "/websocket/sendInfo/{userId}", method = RequestMethod.GET)
+	public R sendInfo(@PathVariable("userId") String userId) {
 		try {
 			logger.info("有新客户呼入,userId:"+ userId);
 			WebSocketServer.sendInfo("有新客户呼入,userId:"+ userId);

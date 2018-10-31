@@ -58,7 +58,8 @@ function websocketInit() {
         socket.onmessage = function(msg) {
             console.log(msg.data);
             //发现消息进入    调后台获取
-            //getCallingList();
+            alert(msg.data);
+            //getCallsingList();
         };
         //关闭事件
         socket.onclose = function() {
@@ -67,7 +68,7 @@ function websocketInit() {
         //发生了错误事件
         socket.onerror = function() {
             alert("Socket发生了错误");
-        }
+        };
         $(window).unload(function(){
             socket.close();
         });
