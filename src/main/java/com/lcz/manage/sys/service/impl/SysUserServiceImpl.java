@@ -7,6 +7,7 @@ import com.lcz.manage.sys.service.SysRoleService;
 import com.lcz.manage.sys.service.SysUserRoleService;
 import com.lcz.manage.sys.service.SysUserService;
 import com.lcz.manage.sys.constants.CcConstants;
+import com.lcz.manage.util.DictUtils;
 import com.lcz.manage.util.IdUtils;
 import com.lcz.manage.util.ShiroUtils;
 import com.lcz.manage.util.StringUtils;
@@ -43,7 +44,7 @@ public class SysUserServiceImpl implements SysUserService{
         if(!CollectionUtils.isEmpty(list)){
             for(SysUserBean eachUser : list){
                 if(!StringUtils.isEmpty(eachUser.getStatus())){
-                    eachUser.setStatusCn(UserStatus.find(eachUser.getStatus()).getName());
+                    eachUser.setStatusCn(StringUtils.isEmpty(eachUser.getStatus()) ? "" : DictUtils.getDictPrompt(CcConstants.DICT_ID_6, eachUser.getStatus()));
                 }
             }
         }

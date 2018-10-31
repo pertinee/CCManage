@@ -30,4 +30,19 @@ public class CcConstants {
 	 */
 	public final static String SYS_BUSINESS_END_TIME = "SYS_BUSINESS_END_TIME";
 
+	/**
+	 * 菜单 0-目录 1-菜单 2-按钮
+	 */
+	public static final String DICT_ID_4 = "4";
+
+	/**
+	 * 菜单权限 0-隐藏 1-只读 2-可修改
+	 */
+	public static final String DICT_ID_5 = "5";
+
+	/**
+	 * 用户状态 0-禁用 1-正常
+	 */
+	public static final String DICT_ID_6 = "6";
+
 }

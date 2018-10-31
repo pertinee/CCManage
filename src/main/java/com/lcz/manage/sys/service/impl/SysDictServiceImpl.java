@@ -4,11 +4,13 @@ import com.lcz.manage.sys.bean.SysDictBean;
 import com.lcz.manage.sys.bean.SysDictFront;
 import com.lcz.manage.sys.bean.SysDictInfoBean;
 import com.lcz.manage.sys.bean.SysDictInfoKey;
+import com.lcz.manage.sys.constants.CcConstants;
 import com.lcz.manage.sys.dao.SysDictDao;
 import com.lcz.manage.sys.dao.SysDictInfoDao;
 import com.lcz.manage.sys.enums.AccessLevel;
 import com.lcz.manage.sys.redis.SysDictRedis;
 import com.lcz.manage.sys.service.SysDictService;
+import com.lcz.manage.util.DictUtils;
 import com.lcz.manage.util.IdUtils;
 import com.lcz.manage.util.StringUtils;
 import com.lcz.manage.util.exception.CCException;
@@ -141,12 +143,12 @@ public class SysDictServiceImpl implements SysDictService {
 
     @Override
     public List<SysDictFront> queryDictFrontList(Map<String, Object> map) {
-        List<SysDictFront> list = new ArrayList<>();
+        List<SysDictFront> list;
         list = sysDictDao.queryDictFrontList(map);
         if(!CollectionUtils.isEmpty(list)){
             for(SysDictFront eachDict : list){
                 eachDict.setId(eachDict.getDictId() + "_" + eachDict.getDictValue());
-                eachDict.setAccessLevelCn(AccessLevel.find(eachDict.getAccessLevel()).getName());
+                eachDict.setAccessLevelCn(StringUtils.isEmpty(eachDict.getAccessLevel()) ? "" : DictUtils.getDictPrompt(CcConstants.DICT_ID_5, eachDict.getAccessLevel()));
             }
         }
         return list;

@@ -6,6 +6,7 @@ import com.lcz.manage.sys.enums.MenuType;
 import com.lcz.manage.sys.service.SysMenuService;
 import com.lcz.manage.sys.service.SysUserService;
 import com.lcz.manage.sys.constants.CcConstants;
+import com.lcz.manage.util.DictUtils;
 import com.lcz.manage.util.IdUtils;
 import com.lcz.manage.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,7 +99,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		List<SysMenuBean> list = sysMenuDao.queryList(map);
 		if(!CollectionUtils.isEmpty(list)){
 			for(SysMenuBean eachMenu : list){
-				eachMenu.setTypeCn(MenuType.find(eachMenu.getType()).getName());
+				eachMenu.setTypeCn(StringUtils.isEmpty(eachMenu.getType()) ? "" : DictUtils.getDictPrompt(CcConstants.DICT_ID_4, eachMenu.getType()));
 			}
 		}
 		return list;
