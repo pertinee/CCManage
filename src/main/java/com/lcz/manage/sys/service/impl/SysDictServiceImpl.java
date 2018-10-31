@@ -167,6 +167,11 @@ public class SysDictServiceImpl implements SysDictService {
             SysDictInfoKey key = new SysDictInfoKey();
             key.setId(each.split("_")[0]);
             key.setDictValue(each.split("_")[1]);
+            // 判断数据字典，可删除再删除
+            SysDictInfoBean infoBean = this.sysDictInfoDao.queryDictInfo(key);
+            if(!AccessLevel.EDITABLE.getCode().equals(infoBean.getAccessLevel())){
+                throw new CCException("数据字典【" + infoBean.getDictPrompt() + "】不可删除");
+            }
             keys.add(key);
         }
         deleteBatchDictInfo(keys);
@@ -201,7 +206,7 @@ public class SysDictServiceImpl implements SysDictService {
             // 判断原先的数据字典，可修改再修改
             SysDictInfoBean infoBean = this.sysDictInfoDao.queryDictInfo(key);
             if(!AccessLevel.EDITABLE.getCode().equals(infoBean.getAccessLevel())){
-                throw new CCException("数据字典不可修改");
+                throw new CCException("数据字典【" + infoBean.getDictPrompt() + "】不可修改");
             }
             this.sysDictInfoDao.deleteDictInfo(key);
             SysDictInfoBean dict = new SysDictInfoBean();
