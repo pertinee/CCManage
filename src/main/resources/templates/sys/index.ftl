@@ -37,6 +37,7 @@
             </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li><a id="onlineUserNum" href="javascript:void(0);">1</a></li>
                     <li><a href="/swagger-ui.html" target="_blank"><i class="fa fa-book"></i> &nbsp;接口文档</a></li>
                     <#--<li><a data-toggle="modal" data-target="#updatePasswordModal"><i class="fa fa-lock"></i> &nbsp;修改密码</a></li>-->
                     <!-- User Account: style can be found in dropdown.less -->

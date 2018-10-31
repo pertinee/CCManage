@@ -1,6 +1,7 @@
 //初始化用户菜单
 $(function () {
     menuInit();
+    websocketInit();
 });
 
 //初始化用户菜单
@@ -98,4 +99,48 @@ function logoutConfirm() {
         //退出
         parent.location.href ='/logout';
     });
+}
+
+//在线人数统计、消息群发
+function websocketInit() {
+    var socket;
+    if(typeof(WebSocket) == "undefined") {
+        console.log("您的浏览器不支持WebSocket");
+    }else{
+        console.log("您的浏览器支持WebSocket");
+        //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+        socket = new WebSocket("ws://localhost:8080/websocket");
+        //打开事件
+        socket.onopen = function() {
+            console.log("Socket 已打开");
+        };
+        //获得消息事件
+        socket.onmessage = function(msg) {
+            console.log(msg.data);
+            //发现消息进入    调后台获取
+            // 在线人数
+            var onlineUserNum = "<i class='fa fa-user-circle' title='在线人数'></i> &nbsp;" + msg.data;
+            $("#onlineUserNum").html(onlineUserNum);
+            //getCallsingList();
+        };
+        //关闭事件
+        socket.onclose = function() {
+            console.log("Socket已关闭");
+        };
+        //发生了错误事件
+        socket.onerror = function() {
+            alert("Socket发生了错误");
+        };
+        $(window).unload(function(){
+            socket.close();
+        });
+
+        // $("#btnSend").click(function() {
+        //     socket.send("这是来自客户端的消息" + location.href + new Date());
+        // });
+        //
+        // $("#btnClose").click(function() {
+        //     socket.close();
+        // });
+    }
 }

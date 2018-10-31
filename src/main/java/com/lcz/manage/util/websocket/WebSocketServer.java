@@ -36,7 +36,8 @@ public class WebSocketServer {
         addOnlineCount();
         logger.info("有新连接加入！当前在线人数为" + getOnlineCount());
         try {
-            sendMessage("连接成功");
+//            sendMessage(getOnlineCount() + "人在线");
+            sendInfo(getOnlineCount() + "人在线");
         } catch (IOException e) {
             logger.error("websocket IO异常");
             throw new CCException("websocket IO异常");
@@ -59,6 +60,12 @@ public class WebSocketServer {
         //在线数减1
         subOnlineCount();
         logger.info("有一连接关闭！当前在线人数为" + getOnlineCount());
+        try {
+            sendInfo(getOnlineCount() + "人在线");
+        } catch (IOException e) {
+            logger.error("websocket IO异常");
+            throw new CCException("websocket IO异常");
+        }
     }
 
     /**
