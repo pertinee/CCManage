@@ -84,8 +84,8 @@ public class  SysBusiExpAspect {
         log.append("[异常]:").append(e.getMessage());
         logger.error(log);
 
-        //保存全局异常日志
-        sysLog.setOperation("全局异常");
+        //保存系统业务异常日志
+        sysLog.setOperation("系统业务异常");
         sysLog.setMethod(className + "." + methodName + "()");
         sysLog.setParams(paraSb.toString());
         sysLog.setIp(IPUtils.getIpAddr(HttpContextUtils.getHttpServletRequest()));
