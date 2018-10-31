@@ -83,6 +83,8 @@ public class ShiroConfig {
         filterMap.put("/swagger-resources/**", "anon");
         //api不需要验证
         filterMap.put("/api/**", "anon");
+        //websocket不需要验证
+        filterMap.put("/websocket/**", "anon");
 
         //filterMap.put("/logout", "logout");
         filterMap.put("/**", "authc");
