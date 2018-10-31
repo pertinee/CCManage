@@ -38,7 +38,8 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li><a id="onlineUserNum" href="javascript:void(0);">1</a></li>
-                    <li><a href="/swagger-ui.html" target="_blank"><i class="fa fa-book"></i> &nbsp;接口文档</a></li>
+                    <#--<li><a href="/swagger-ui.html" target="_blank"><i class="fa fa-book"></i> &nbsp;接口文档</a></li>-->
+                    <li><a id="nowTime" href="javascript:void(0);"></a></li>
                     <#--<li><a data-toggle="modal" data-target="#updatePasswordModal"><i class="fa fa-lock"></i> &nbsp;修改密码</a></li>-->
                     <!-- User Account: style can be found in dropdown.less -->
                     <#--<li class="dropdown user user-menu">-->
@@ -220,7 +221,7 @@
                     <form>
                         <div class="form-group">
                             <label for="username" class="control-label">账号:</label>
-                            <span class="label label-success" style="vertical-align: bottom;">${currentUser.username}</span>
+                            <span class="label label-success" style="vertical-align: middle;">${currentUser.username}</span>
                         </div>
                         <div class="form-group">
                             <label for="password" class="control-label">原密码:</label>
@@ -229,6 +230,10 @@
                         <div class="form-group">
                             <label for="newPassword" class="control-label">新密码:</label>
                             <input type="password" class="form-control" id="newPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="rePassword" class="control-label">确认密码:</label>
+                            <input type="password" class="form-control" id="rePassword">
                         </div>
                     </form>
                 </div>

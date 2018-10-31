@@ -2,6 +2,7 @@
 $(function () {
     menuInit();
     websocketInit();
+    nowTimeInit();
 });
 
 //初始化用户菜单
@@ -64,12 +65,21 @@ function showMenuContent(menuUrl, desc) {
 function updatePassword(){
     var password = $("#password").val();
     var newPassword = $("#newPassword").val();
+    var rePassword = $("#rePassword").val();
     if("" == password){
         layer.msg('原密码不能为空');
         return;
     }
     if("" == newPassword){
         layer.msg('新密码不能为空');
+        return;
+    }
+    if("" == rePassword){
+        layer.msg('确认密码不能为空');
+        return;
+    }
+    if(newPassword != rePassword){
+        layer.msg('新密码与确认密码不一致');
         return;
     }
     var data = "password="+password+"&newPassword="+newPassword;
@@ -79,7 +89,6 @@ function updatePassword(){
         data: data,
         dataType: "json",
         success: function(result){
-            debugger;
             if(result.code == 0){
                 layer.msg('更新成功');
                 location.reload();
@@ -99,6 +108,11 @@ function logoutConfirm() {
         //退出
         parent.location.href ='/logout';
     });
+}
+
+//当前时间显示
+function nowTimeInit() {
+    setInterval("nowTime.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
 }
 
 //在线人数统计、消息群发
