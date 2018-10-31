@@ -5,10 +5,7 @@ import com.lcz.manage.sys.redis.SysConfigRedis;
 import com.lcz.manage.sys.service.SysConfigService;
 import com.lcz.manage.util.exception.CCException;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.text.ParseException;
 import java.util.Date;
 
@@ -19,30 +16,16 @@ import java.util.Date;
  * @version CFM-V1.0
  * @date 2018年10月30日19:31:58
  */
-@Component
 public class CommonUtils {
 
     private static final Logger logger = Logger.getLogger(CommonUtils.class);
 
-    @Autowired
-    private SysConfigService testSysConfigService;
-
+    private static SysConfigRedis sysConfigRedis;
     private static SysConfigService sysConfigService;
 
-    @Autowired
-    private SysConfigRedis testSysConfigRedis;
-
-    private static SysConfigRedis sysConfigRedis;
-
-    @PostConstruct
-    public void init() {
-        sysConfigService = testSysConfigService;
-        sysConfigRedis = testSysConfigRedis;
-    }
-
-    public CommonUtils(SysConfigService configService, SysConfigRedis configRedis) {
-        sysConfigService = configService;
-        sysConfigRedis = configRedis;
+    static {
+        CommonUtils.sysConfigRedis = (SysConfigRedis) SpringContextUtils.getBean("sysConfigRedis");
+        CommonUtils.sysConfigService = (SysConfigService) SpringContextUtils.getBean("sysConfigService");
     }
 
     /**
