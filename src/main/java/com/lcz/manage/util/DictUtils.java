@@ -27,8 +27,8 @@ public class DictUtils {
         dictShare = testConfig;
     }
 
-    public DictUtils(DictShare dictShare) {
-        this.dictShare = dictShare;
+    public DictUtils(DictShare share) {
+        dictShare = share;
     }
 
     /**

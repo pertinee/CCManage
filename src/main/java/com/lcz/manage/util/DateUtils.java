@@ -17,6 +17,11 @@ public class DateUtils {
 	/** 年月日时分秒 */
 	public static final String YYYY_MM_DD_HH_MM_SS = "yyyy/MM/dd HH:mm:ss";
 
+	private static final String ZERO = "0";
+	private static final String ONE = "1";
+	private static final String TWO = "2";
+	private static final String THREE = "3";
+
 	public static Date addYear(Date date,int amount){
 		return add(date,Calendar.YEAR,amount);
 	}
@@ -170,8 +175,9 @@ public class DateUtils {
 				+ _date.substring(6, 8);
 	}
 	public static String formatTimeToMinute(Integer time) {
-		if(time.compareTo(0) ==0 )
+		if(time.compareTo(0) ==0 ) {
 			return "00";
+		}
 		String _time = "000000"+String.valueOf(time);
 		
 		_time =_time.substring(_time.length()-6,_time.length());
@@ -179,8 +185,9 @@ public class DateUtils {
 	}
 
 	public static String formatTime(Integer time) {
-		if(time.compareTo(0) ==0 )
+		if(time.compareTo(0) ==0 ) {
 			return "00";
+		}
 		String _time = "000000"+String.valueOf(time);
 		
 		_time =_time.substring(_time.length()-6,_time.length());
@@ -469,8 +476,9 @@ public class DateUtils {
 		Calendar calendar = Calendar.getInstance();
 	    calendar.setTime(getSystemDay());
 	    int hour = calendar.get(Calendar.HOUR_OF_DAY);
-	    if(hour == 0)
-	    	return "00";
+	    if(hour == 0) {
+			return "00";
+		}
 	    return Integer.toString(hour);
 	}
 	
@@ -482,8 +490,9 @@ public class DateUtils {
 		Calendar calendar = Calendar.getInstance();
 	    calendar.setTime(getSystemDay());
 	    int minute  = calendar.get(Calendar.MINUTE);
-	    if(minute == 0)
-	    	return "00";
+	    if(minute == 0) {
+			return "00";
+		}
 	    
 	    return Integer.toString(minute);
 	}
@@ -531,18 +540,18 @@ public class DateUtils {
 			Date date=f.parse(datestr);
 			Calendar starCal = Calendar.getInstance();
             starCal.setTime(date);
-            if(unit.equals("0")){
+            if(ZERO.equals(unit)){
             	starCal.add(Calendar.DAY_OF_YEAR, increment);
             }
-            if(unit.equals("1")){
+            if(ONE.equals(unit)){
             	starCal.add(Calendar.MONTH,increment);
             	starCal.add(Calendar.DAY_OF_YEAR,-1);
             }
-            if(unit.equals("2")){
+            if(TWO.equals(unit)){
             	starCal.add(Calendar.MONTH,3*increment);
             	starCal.add(Calendar.DAY_OF_YEAR,-1);
             }
-            if(unit.equals("3")){
+            if(THREE.equals(unit)){
             	starCal.add(Calendar.YEAR,increment);
             	starCal.add(Calendar.DAY_OF_YEAR,-1);
             }
