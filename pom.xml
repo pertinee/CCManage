@@ -39,6 +39,7 @@
         <qcloud.cos.version>4.4</qcloud.cos.version>
         <quartz.version>2.3.0</quartz.version>
         <io.springfox.version>2.7.0</io.springfox.version>
+        <commons.lang3.version>3.4</commons.lang3.version>
         <!--跳过单元测试-->
         <skipTests>true</skipTests>
     </properties>
@@ -200,6 +201,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${io.springfox.version}</version>
+        </dependency>
+        <!-- 定时任务线程池改为手动创建时用到 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
         </dependency>
     </dependencies>
 

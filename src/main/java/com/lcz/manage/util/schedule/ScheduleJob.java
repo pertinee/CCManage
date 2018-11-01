@@ -13,9 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 
 
 /**
@@ -25,7 +24,12 @@ import java.util.concurrent.Future;
  */
 public class ScheduleJob extends QuartzJobBean {
 	private static final Logger logger = LoggerFactory.getLogger(ScheduleJob.class);
-	private ExecutorService service = Executors.newSingleThreadExecutor();
+	//private ExecutorService service = Executors.newSingleThreadExecutor();
+	/**
+	 * 定时任务线程池改为手动创建
+	 */
+	private ScheduledExecutorService service = new ScheduledThreadPoolExecutor(1,
+			new BasicThreadFactory.Builder().namingPattern("cc-schedule-pool-%d").daemon(true).build());
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
