@@ -29,7 +29,7 @@ import java.util.Map;
 @Controller
 public class SysRoleController extends SysBaseController{
 
-    private Logger logger = Logger.getLogger(SysRoleController.class);
+    private static final Logger logger = Logger.getLogger(SysRoleController.class);
 
     @Autowired
     private SysRoleService sysRoleService;

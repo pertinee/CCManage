@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  */
 @Component("testTask")
 public class TestTask {
-    private static final Logger log = LoggerFactory.getLogger(TestTask.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestTask.class);
     public void test(String params) {
-        log.info("我是带参数的test方法，正在被执行，参数为：" + params);
+        logger.info("我是带参数的test方法，正在被执行，参数为：" + params);
         try {
             Thread.sleep(1000L);
         } catch (InterruptedException e) {
@@ -24,6 +24,6 @@ public class TestTask {
 
 
     public void test2() {
-        log.info("我是不带参数的test2方法，正在被执行");
+        logger.info("我是不带参数的test2方法，正在被执行");
     }
 }

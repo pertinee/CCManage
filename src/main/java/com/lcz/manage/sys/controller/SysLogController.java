@@ -27,7 +27,7 @@ import java.util.Map;
 @Controller
 public class SysLogController {
 
-	private Logger logger = Logger.getLogger(SysLogController.class);
+	private static final Logger logger = Logger.getLogger(SysLogController.class);
 
 	@Autowired
 	private SysLogService sysLogService;

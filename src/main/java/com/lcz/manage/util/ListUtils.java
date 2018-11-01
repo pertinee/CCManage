@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class ListUtils {
 
-    private static Logger logger = Logger.getLogger(ListUtils.class);
+    private static final Logger logger = Logger.getLogger(ListUtils.class);
 
     /**
      * List转换为map

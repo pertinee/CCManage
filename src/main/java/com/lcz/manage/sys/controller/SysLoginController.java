@@ -30,7 +30,7 @@ import java.io.IOException;
 @Controller
 public class SysLoginController {
 
-	private Logger logger = Logger.getLogger(SysLoginController.class);
+	private static final Logger logger = Logger.getLogger(SysLoginController.class);
 
 	@Autowired
 	private Producer producer;

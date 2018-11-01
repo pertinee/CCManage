@@ -19,7 +19,7 @@ import java.io.IOException;
 @Controller
 public class SysWebSocketController {
 
-	private Logger logger = Logger.getLogger(SysWebSocketController.class);
+	private static final Logger logger = Logger.getLogger(SysWebSocketController.class);
 
     /**
      * 群发消息

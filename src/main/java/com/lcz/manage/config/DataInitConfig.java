@@ -17,16 +17,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DataInitConfig implements CommandLineRunner {
-    private static final Logger log = LoggerFactory.getLogger(DataInitConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(DataInitConfig.class);
     @Autowired
     SysDictService sysDictService;
 
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("执行数据初始化操作【开始】");
+        logger.info("执行数据初始化操作【开始】");
         //查询所有菜单时包含存入redis操作，所以不需要再存入redis
         sysDictService.queryDictList(new SysDictBean());
-        log.info("执行数据初始化操作【完成】");
+        logger.info("执行数据初始化操作【完成】");
     }
 }

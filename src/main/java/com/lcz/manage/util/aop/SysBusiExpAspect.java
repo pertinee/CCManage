@@ -24,7 +24,7 @@ import java.util.Date;
 @Aspect
 @Component
 public class  SysBusiExpAspect {
-    private static Logger logger = Logger.getLogger(SysBusiExpAspect.class);
+    private static final Logger logger = Logger.getLogger(SysBusiExpAspect.class);
 
     @Autowired
     private SysLogService sysLogService;

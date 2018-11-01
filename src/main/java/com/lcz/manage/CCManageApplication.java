@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.lcz.manage.*.dao")
 public class CCManageApplication {
-	private static Logger log = LoggerFactory.getLogger(CCManageApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(CCManageApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(CCManageApplication.class, args);
-		log.info("========== CCManage启动成功 ==========");
+		logger.info("========== CCManage启动成功 ==========");
 	}
 }

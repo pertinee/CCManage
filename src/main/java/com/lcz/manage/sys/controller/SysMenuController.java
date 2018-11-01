@@ -29,7 +29,7 @@ import java.util.Set;
 @Controller
 public class SysMenuController extends SysBaseController{
 
-    private Logger logger = Logger.getLogger(SysMenuController.class);
+    private static final Logger logger = Logger.getLogger(SysMenuController.class);
 
     @Autowired
     private SysMenuService sysMenuService;

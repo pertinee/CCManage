@@ -39,7 +39,7 @@ import java.util.Map;
 @Controller
 public class SysUserController extends SysBaseController{
 
-    private Logger logger = Logger.getLogger(SysUserController.class);
+    private static final Logger logger = Logger.getLogger(SysUserController.class);
 
     @Autowired
     private SysUserService sysUserService;

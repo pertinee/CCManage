@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SysIndexController extends SysBaseController{
 
-    private Logger logger = Logger.getLogger(SysIndexController.class);
+    private static final Logger logger = Logger.getLogger(SysIndexController.class);
 
     @Autowired
     private SysUserService sysUserService;

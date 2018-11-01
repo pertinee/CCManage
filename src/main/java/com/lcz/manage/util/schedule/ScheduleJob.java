@@ -24,7 +24,7 @@ import java.util.concurrent.Future;
  * @author luchunzhou
  */
 public class ScheduleJob extends QuartzJobBean {
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private static final Logger logger = LoggerFactory.getLogger(ScheduleJob.class);
 	private ExecutorService service = Executors.newSingleThreadExecutor();
 
     @Override

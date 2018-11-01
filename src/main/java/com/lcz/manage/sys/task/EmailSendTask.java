@@ -3,10 +3,12 @@ package com.lcz.manage.sys.task;
 import com.alibaba.fastjson.JSON;
 import com.lcz.manage.sys.bean.SysLogBean;
 import com.lcz.manage.sys.service.SysLogService;
+import com.lcz.manage.util.exception.CCException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
@@ -23,7 +25,7 @@ import java.util.List;
  */
 @Component("emailSendTask")
 public class EmailSendTask {
-    private static final Logger log = LoggerFactory.getLogger(EmailSendTask.class);
+    private static final Logger logger = LoggerFactory.getLogger(EmailSendTask.class);
     @Value("${spring.mail.username}")
     private String username;
 
@@ -49,8 +51,13 @@ public class EmailSendTask {
         } else {
             message.setText("当日无日志");
         }
-        javaMailSender.send(message);
-        log.info("当日日志邮件发送成功");
+        try {
+            logger.info("当日日志邮件发送开始");
+            javaMailSender.send(message);
+            logger.info("当日日志邮件发送结束");
+        }catch (MailException e){
+            throw new CCException("当日日志邮件发送异常");
+        }
     }
 
 
@@ -71,7 +78,12 @@ public class EmailSendTask {
         } else {
             message.setText("本周无日志");
         }
-        javaMailSender.send(message);
-        log.info("本周日志邮件发送成功");
+        try {
+            logger.info("本周日志邮件发送开始");
+            javaMailSender.send(message);
+            logger.info("本周日志邮件发送结束");
+        }catch (MailException e){
+            throw new CCException("本周日志邮件发送异常");
+        }
     }
 }

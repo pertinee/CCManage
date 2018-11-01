@@ -20,7 +20,7 @@ import java.util.Map;
 @RestController
 @Api(value = "测试接口", description = "测试接口对象基本操作")
 public class ApiController {
-    private Logger logger = Logger.getLogger(ApiController.class);
+    private static final Logger logger = Logger.getLogger(ApiController.class);
 
     @Autowired
     private TestService testService;
