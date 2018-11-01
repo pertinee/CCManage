@@ -37,6 +37,7 @@ public class WebSocketServer {
         logger.info("有新连接加入！当前在线人数为" + getOnlineCount());
         try {
 //            sendMessage(getOnlineCount() + "人在线");
+            //在有新用户登录时，这里需要群发通知。单独发送的话之前的用户无法实时更新人数信息
             sendInfo(getOnlineCount() + "人在线");
         } catch (IOException e) {
             logger.error("websocket IO异常");
@@ -96,14 +97,16 @@ public class WebSocketServer {
         error.printStackTrace();
     }
 
-
+    /**
+     * 单独发自定义消息
+     */
     public void sendMessage(String message) throws IOException {
         this.session.getBasicRemote().sendText(message);
     }
 
 
     /**
-     * 群发自定义消息
+     * 实现群发自定义消息
      */
     public static void sendInfo(String message) throws IOException {
         logger.info(message);
